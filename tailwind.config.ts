@@ -11,9 +11,6 @@ export default {
         secondary: "var(--secondary)",
         background: "var(--background)",
         midnightBlue: "var(--midnight-blue)",
-      },
-      fontFamily: {
-        roboto: "var(--font-roboto)",
       }
     },
   },

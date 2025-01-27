@@ -1,7 +1,7 @@
-import { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import { NextFont } from "next/dist/compiled/@next/font";
 import localFont from "next/font/local";
 
-const roboto: NextFontWithVariable = localFont({
+const roboto: NextFont = localFont({
     src: [
         {
             path: '../_fonts/Roboto-Black.ttf',
@@ -48,8 +48,8 @@ const roboto: NextFontWithVariable = localFont({
             weight: '100',
             style: 'normal',
         }
-    ],
-    variable: "--font-roboto",
+    ]
 });
 
 export { roboto };
+

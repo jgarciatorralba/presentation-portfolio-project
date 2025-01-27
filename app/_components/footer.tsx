@@ -5,9 +5,9 @@ export default function Footer(): ReactNode {
 
     return (
         <footer>
-            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center">
-                <p>{`© ${year} Jorge García Torralba`}</p>
-                <p>
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-2 text-center">
+                <p><small>{`© ${year} Jorge García Torralba`}</small></p>
+                <p><small>
                     Inspired by the work of{" "}
                     <a
                         href="https://brittanychiang.com/"
@@ -16,7 +16,7 @@ export default function Footer(): ReactNode {
                     >
                         Brittany Chiang
                     </a>
-                </p>
+                </small></p>
             </div>
         </footer>
     );

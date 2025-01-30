@@ -7,9 +7,12 @@
   --secondary: #2e8bc0;
   --background: #050a30;
   --midnight-blue: #145da0;
+
+  --text-size-base: 1rem;
 }
 
 body {
+  font-size: var(--text-size-base);
   color: var(--primary);
   background: var(--background);
 }

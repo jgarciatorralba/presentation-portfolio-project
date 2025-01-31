@@ -13,11 +13,11 @@ export default function RootLayout({
 }>): ReactNode {
   return (
     <html lang="en">
-      <body
-        className={`max-w-7xl mx-auto ${roboto.className}`}
-      >
-        {children}
-        <Footer />
+      <body>
+        <div className={`max-w-7xl px-6 mx-auto ${roboto.className}`}>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

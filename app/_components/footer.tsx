@@ -5,7 +5,7 @@ export default function Footer(): ReactNode {
 
     return (
         <footer>
-            <div className="px-2 sm:px-6 lg:px-8 py-2 text-center">
+            <div className="py-2 text-center">
                 <p><small>{`© ${year} Jorge García Torralba`}</small></p>
                 <p><small>
                     Inspired by the work of{" "}

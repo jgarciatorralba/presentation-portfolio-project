@@ -11,6 +11,7 @@ export default {
         secondary: "var(--secondary)",
         background: "var(--background)",
         midnightBlue: "var(--midnight-blue)",
+        babyBlue: "var(--baby-blue)",
       }
     },
   },

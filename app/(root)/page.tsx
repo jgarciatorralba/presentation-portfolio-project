@@ -5,7 +5,7 @@ export default function Home(): ReactNode {
   return (
     <main>
       <Intro />
-      <div className="blurred-background hidden"></div>
+      <div className="blurred-background"></div>
     </main>
   );
 }

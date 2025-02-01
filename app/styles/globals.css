@@ -34,10 +34,12 @@ body {
   backdrop-filter: blur(0);
   transition: backdrop-filter 0.2s ease-in-out;
   pointer-events: auto;
+  display: none;
 
   &.active {
     backdrop-filter: blur(5px);
     pointer-events: none;
+    display: initial;
   }
 }
 

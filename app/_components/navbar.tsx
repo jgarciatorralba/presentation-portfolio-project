@@ -25,7 +25,7 @@ export default function Navbar(): ReactNode {
     };
 
     useEffect(() => {
-        const blurredBackground = document.body.querySelector('.blur-background');
+        const blurredBackground = document.body.querySelector('.blurred-background');
         const body = document.body;
 
         if (open) {

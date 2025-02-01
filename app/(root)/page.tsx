@@ -5,6 +5,7 @@ export default function Home(): ReactNode {
   return (
     <main>
       <Intro />
+      <div className="blur-background hidden"></div>
     </main>
   );
 }

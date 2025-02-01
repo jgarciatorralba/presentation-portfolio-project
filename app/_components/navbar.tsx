@@ -1,6 +1,6 @@
 'use client'
 
-import { MouseEvent, ReactNode, useState } from "react";
+import { MouseEvent, ReactNode, useEffect, useState } from "react";
 import styles from "../styles/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
@@ -18,6 +18,23 @@ export default function Navbar(): ReactNode {
         setOpen(open => !open);
     }
 
+    useEffect(() => {
+        if (open) {
+            document.body.querySelector('.blur-background')?.classList.add('active');
+            document.body.querySelector('.blur-background')?.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.querySelector('.blur-background')?.classList.remove('active');
+            document.body.querySelector('.blur-background')?.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        return () => {
+            document.body.querySelector('.blur-background')?.classList.remove('active');
+            document.body.querySelector('.blur-background')?.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        };
+    }, [open]);
 
     return (
         <>

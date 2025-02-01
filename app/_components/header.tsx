@@ -21,7 +21,7 @@ export default function Header(): ReactNode {
 
     return (
         <header>
-            <div className={`px-6 md:px-12 ${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+            <div className={`z-30 px-6 md:px-12 ${styles.header} ${scrolled ? styles.scrolled : ""}`}>
                 <Navbar />
             </div>
         </header>

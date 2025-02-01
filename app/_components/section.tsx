@@ -8,7 +8,7 @@ interface SectionProps {
 
 export default function Section({ children, name, className = "", ...props }: SectionProps): ReactNode {
     return (
-        <section className={className} data-section={name} {...props}>
+        <section className={className} id={name} {...props}>
             {children}
         </section>
     );

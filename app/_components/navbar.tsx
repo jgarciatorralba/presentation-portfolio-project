@@ -13,10 +13,16 @@ const navigation = [
 
 export default function Navbar(): ReactNode {
     const [open, setOpen] = useState(false);
+
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setOpen(open => !open);
     }
+
+    const handleLinkClick = (e: MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        setOpen(false);
+    };
 
     useEffect(() => {
         const blurredBackground = document.body.querySelector('.blur-background');
@@ -59,7 +65,7 @@ export default function Navbar(): ReactNode {
                     <ol className="grid gap-y-6 p-8">
                         {navigation.map((item, index) => (
                             <li key={index} className="list-decimal text-babyBlue">
-                                <a href={item.href} className="py-2 pl-1 text-midnightBlue hover:no-underline hover:text-babyBlue">
+                                <a href={item.href} onClick={handleLinkClick} className="py-2 pl-1 text-midnightBlue hover:no-underline hover:text-babyBlue">
                                     {item.name}
                                 </a>
                             </li>

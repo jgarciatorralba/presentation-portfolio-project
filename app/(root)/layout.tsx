@@ -16,8 +16,8 @@ export default function RootLayout({
       <body>
         <div className={`max-w-7xl px-6 mx-auto ${roboto.className}`}>
           {children}
-          <Footer />
         </div>
+        <Footer />
       </body>
     </html>
   );

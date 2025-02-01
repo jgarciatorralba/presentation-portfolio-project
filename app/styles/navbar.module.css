@@ -4,4 +4,12 @@
     right: 0;
 
     height: 100dvh;
+
+    transition: transform 0.2s 50ms ease-in;
+    transform: translateX(100%);
+    /* opacity: 0; */
+
+    &.open {
+        transform: translateX(0);
+    }
 }

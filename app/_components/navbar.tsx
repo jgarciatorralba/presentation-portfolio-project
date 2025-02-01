@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+'use client'
+
+import { MouseEvent, ReactNode, useState } from "react";
 import styles from "../styles/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
@@ -10,6 +12,13 @@ const navigation = [
 ];
 
 export default function Navbar(): ReactNode {
+    const [open, setOpen] = useState(false);
+    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setOpen(open => !open);
+    }
+
+
     return (
         <>
             <nav className="w-full">
@@ -23,10 +32,10 @@ export default function Navbar(): ReactNode {
                             </li>
                         ))}
                     </ol>
-                    <NavbarButton />
+                    <NavbarButton open={open} onClick={handleClick} />
                 </div>
 
-                <div className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid place-items-center`}>
+                <div className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid place-items-center ${open ? styles.open : ''}`}>
                     <ol className="grid gap-y-6 p-8">
                         {navigation.map((item, index) => (
                             <li key={index} className="list-decimal text-babyBlue">

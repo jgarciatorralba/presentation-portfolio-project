@@ -1,18 +1,20 @@
 'use client'
 
-import { MouseEvent, ReactNode, useEffect, useRef, useState } from "react";
+import { MouseEvent, ReactNode, useEffect, useRef } from "react";
 import Button from "./button";
 
-export default function NavbarButton(): ReactNode {
-    const [open, setOpen] = useState(false);
+interface NavbarButtonProps {
+    open: boolean;
+    onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export default function NavbarButton({ open, onClick }: NavbarButtonProps): ReactNode {
     const timeoutRef = useRef<number | null>(null);
 
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
+        onClick(e);
+
         const button = e.currentTarget;
-
-        setOpen(open => !open);
-
         timeoutRef.current = window.setTimeout(() => {
             button.blur();
         }, 150);

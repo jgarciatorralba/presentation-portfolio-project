@@ -10,6 +10,7 @@ export default {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         background: "var(--background)",
+        blue: "var(--blue)",
         midnightBlue: "var(--midnight-blue)",
         babyBlue: "var(--baby-blue)",
       }

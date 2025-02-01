@@ -25,6 +25,11 @@ body {
     auto 1fr auto;
 }
 
+a:hover {
+  color: var(--baby-blue);
+  text-decoration: underline;
+}
+
 .blurred-background {
   position: fixed;
   top: 0;
@@ -41,9 +46,4 @@ body {
     pointer-events: none;
     display: initial;
   }
-}
-
-a:hover {
-  color: var(--baby-blue);
-  text-decoration: underline;
 }

@@ -19,20 +19,23 @@ export default function Navbar(): ReactNode {
     }
 
     useEffect(() => {
+        const blurredBackground = document.body.querySelector('.blur-background');
+        const body = document.body;
+
         if (open) {
-            document.body.querySelector('.blur-background')?.classList.add('active');
-            document.body.querySelector('.blur-background')?.classList.remove('hidden');
-            document.body.classList.add('overflow-hidden');
+            blurredBackground?.classList.add('active');
+            blurredBackground?.classList.remove('hidden');
+            body.classList.add('overflow-hidden');
         } else {
-            document.body.querySelector('.blur-background')?.classList.remove('active');
-            document.body.querySelector('.blur-background')?.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
+            blurredBackground?.classList.remove('active');
+            blurredBackground?.classList.add('hidden');
+            body.classList.remove('overflow-hidden');
         }
 
         return () => {
-            document.body.querySelector('.blur-background')?.classList.remove('active');
-            document.body.querySelector('.blur-background')?.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
+            blurredBackground?.classList.remove('active');
+            blurredBackground?.classList.add('hidden');
+            body.classList.remove('overflow-hidden');
         };
     }, [open]);
 

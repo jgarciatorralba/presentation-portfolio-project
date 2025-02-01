@@ -1,0 +1,15 @@
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    min-height: var(--nav-min-height);
+
+    display: flex;
+    align-items: center;
+
+    transition: box-shadow 0.3s ease-in-out;
+
+    &.scrolled {
+        box-shadow: 0 10px 15px -10px var(--midnight-blue);
+    }
+}

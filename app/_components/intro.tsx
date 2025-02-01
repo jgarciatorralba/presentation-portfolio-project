@@ -1,8 +1,9 @@
 import { ReactNode } from "react";
+import Section from "./section";
 
 export default function Intro(): ReactNode {
     return (
-        <section>
+        <Section name="intro">
             <div className="h-screen flex items-center">
                 <div className="sm:px-12 md:px-24 lg:px-32 xl:px-64 py-12">
                     <p className="mb-4">Hey there!</p>
@@ -10,6 +11,6 @@ export default function Intro(): ReactNode {
                     <p>Currently, I’m dedicated to enhancing one of the top travel booking platforms in Europe.</p>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

@@ -22,6 +22,10 @@
   .button-secondary {
     @apply font-medium text-background bg-primary hover:bg-secondary focus:ring-2 hover:no-underline focus:outline-none focus:ring-primary rounded-lg p-4 text-center me-2;
   }
+
+  .header {
+    @apply mb-4 text-3xl sm:text-4xl;
+  }
 }
 
 body {

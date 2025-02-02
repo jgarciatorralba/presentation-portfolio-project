@@ -9,7 +9,7 @@ export default function Contact(): ReactNode {
         <Section name="contact">
             <div>
                 <div className="sm:px-12 md:px-24 lg:px-32 xl:px-64 py-24">
-                    <h2 className={`mb-4 text-3xl sm:text-4xl ${oranienbaum.className}`}>Contact</h2>
+                    <h2 className={`header ${oranienbaum.className}`}>Contact</h2>
                     <p className="mb-4">Feel free to reach out to discuss full-remote opportunities or any other coding-related topic, and I'll get back to you as soon as I can.</p>
                     <div className="flex justify-center py-8">
                         <a href={`mailto:${email}`} role="button" target="_blank" rel="noopener noreferrer" className="button-primary">Say something</a>

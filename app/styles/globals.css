@@ -14,6 +14,12 @@
   --nav-min-height: 80px;
 }
 
+@layer utilities {
+  .button-primary {
+    @apply font-medium text-primary bg-blue hover:bg-midnightBlue focus:ring-2 hover:no-underline focus:outline-none focus:ring-blue rounded-lg p-4 text-center me-2;
+  }
+}
+
 body {
   font-size: var(--text-size-base);
   color: var(--primary);

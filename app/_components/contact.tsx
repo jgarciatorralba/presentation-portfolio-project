@@ -1,0 +1,20 @@
+import { ReactNode } from "react";
+import Section from "./section";
+
+const email = "jgarciatorralba@gmail.com";
+
+export default function Contact(): ReactNode {
+    return (
+        <Section name="contact">
+            <div>
+                <div className="sm:px-12 md:px-24 lg:px-32 xl:px-64 py-12">
+                    <h2 className="mb-4 text-2xl sm:text-3xl">Contact</h2>
+                    <p className="mb-4">Feel free to reach out to discuss full-remote opportunities or any other coding-related topic, and I'll get back to you as soon as I can.</p>
+                    <div className="flex justify-center py-2">
+                        <a href={`mailto:${email}`} role="button" target="_blank" rel="noopener noreferrer" className="button-primary">Say something</a>
+                    </div>
+                </div>
+            </div>
+        </Section>
+    );
+}

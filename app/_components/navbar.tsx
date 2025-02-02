@@ -1,7 +1,7 @@
 'use client'
 
 import { MouseEvent, ReactNode, useEffect, useState } from "react";
-import { gelasio } from "../(root)/fonts";
+import { oranienbaum } from "../(root)/fonts";
 import styles from "../styles/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
@@ -44,12 +44,12 @@ export default function Navbar(): ReactNode {
 
     return (
         <>
-            <nav className={`w-full ${gelasio.className} text-lg`}>
+            <nav className={`w-full ${oranienbaum.className} text-lg`}>
                 <div className="flex justify-end items-center">
                     <ol className="hidden md:flex flex-row gap-x-12">
                         {navigation.map((item, index) => (
                             <li key={index} className="list-decimal text-babyBlue">
-                                <a href={item.href} className="py-2 pl-1 text-midnightBlue hover:no-underline hover:text-babyBlue">
+                                <a href={item.href} className="py-2 pl-1 text-babyBlue hover:no-underline hover:text-midnightBlue focus:text-blue">
                                     {item.name}
                                 </a>
                             </li>
@@ -62,7 +62,7 @@ export default function Navbar(): ReactNode {
                     <ol className="grid gap-y-6 p-8">
                         {navigation.map((item, index) => (
                             <li key={index} className="list-decimal text-babyBlue">
-                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-midnightBlue hover:no-underline hover:text-babyBlue">
+                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-babyBlue hover:no-underline hover:text-midnightBlue">
                                     {item.name}
                                 </a>
                             </li>

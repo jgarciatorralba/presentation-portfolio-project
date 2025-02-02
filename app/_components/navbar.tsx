@@ -19,7 +19,7 @@ export default function Navbar(): ReactNode {
         setOpen(open => !open);
     }
 
-    const handleClickLink = (e: MouseEvent<HTMLAnchorElement>) => {
+    const handleClickLink = () => {
         setOpen(open => !open);
     }
 

@@ -51,29 +51,14 @@ const roboto: NextFont = localFont({
     ]
 });
 
-const gelasio: NextFont = localFont({
+const oranienbaum: NextFont = localFont({
     src: [
         {
-            path: '../_fonts/gelasio/Gelasio-Bold.ttf',
-            weight: '700',
-            style: 'normal',
-        },
-        {
-            path: '../_fonts/gelasio/Gelasio-SemiBold.ttf',
-            weight: '600',
-            style: 'normal',
-        },
-        {
-            path: '../_fonts/gelasio/Gelasio-Medium.ttf',
-            weight: '500',
-            style: 'normal',
-        },
-        {
-            path: '../_fonts/gelasio/Gelasio-Regular.ttf',
+            path: '../_fonts/oranienbaum/Oranienbaum-Regular.ttf',
             weight: '400',
             style: 'normal',
         }
     ]
 });
 
-export { gelasio, roboto };
+export { oranienbaum, roboto };

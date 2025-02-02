@@ -18,6 +18,10 @@
   .button-primary {
     @apply font-medium text-primary bg-blue hover:bg-midnightBlue focus:ring-2 hover:no-underline focus:outline-none focus:ring-blue rounded-lg p-4 text-center me-2;
   }
+
+  .button-secondary {
+    @apply font-medium text-background bg-primary hover:bg-secondary focus:ring-2 hover:no-underline focus:outline-none focus:ring-primary rounded-lg p-4 text-center me-2;
+  }
 }
 
 body {

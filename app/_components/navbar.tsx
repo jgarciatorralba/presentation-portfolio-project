@@ -1,6 +1,7 @@
 'use client'
 
 import { MouseEvent, ReactNode, useEffect, useState } from "react";
+import { gelasio } from "../(root)/fonts";
 import styles from "../styles/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
@@ -43,7 +44,7 @@ export default function Navbar(): ReactNode {
 
     return (
         <>
-            <nav className="w-full">
+            <nav className={`w-full ${gelasio.className} text-lg`}>
                 <div className="flex justify-end items-center">
                     <ol className="hidden md:flex flex-row gap-x-12">
                         {navigation.map((item, index) => (

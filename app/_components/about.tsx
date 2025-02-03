@@ -10,8 +10,7 @@ export default function About(): ReactNode {
                 <div className="section-container">
                     <h2 className={`header ${oranienbaum.className}`}>About</h2>
                     <div className="flex flex-col lg:flex-row items-center gap-12">
-                        <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue order-last lg:order-first w-[250px] md:w-[300px]" quality={100} />
-                        <div>
+                        <div className="sm:mb-8 lg:mb-0">
                             <p className="paragraph">Hi, my name is Jorge and I develop digital products for a living. I've always been interested in technology for as long as I can remember, but it wasn't until 2020 that I decided to leave the automotive industry and try my luck with programming.
                             </p>
                             <p className="paragraph">Here are some technologies that I've worked with or that I'm eager to perfect at some point along my professional journey:</p>
@@ -24,6 +23,7 @@ export default function About(): ReactNode {
                                 <li className="sm:col-span-2">Next.js</li>
                             </ul>
                         </div>
+                        <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue lg:order-first w-[250px] md:w-[300px]" quality={100} />
                     </div>
                 </div>
             </div>

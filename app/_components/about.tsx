@@ -3,13 +3,16 @@ import { ReactNode } from "react";
 import { oranienbaum } from "../(root)/fonts";
 import Section from "./section";
 
+const gitHubProfile = "https://github.com/jgarciatorralba";
+const linkedInProfile = "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US";
+
 export default function About(): ReactNode {
     return (
         <Section name="about">
             <div>
                 <div className="section-container">
                     <h2 className={`header ${oranienbaum.className}`}>About</h2>
-                    <div className="flex flex-col lg:flex-row items-center gap-12">
+                    <div className="flex flex-col lg:flex-row gap-12">
                         <div className="sm:mb-8 lg:mb-0">
                             <p className="paragraph">Hi, my name is Jorge and I develop digital products for a living. I've always been interested in technology for as long as I can remember, but it wasn't until 2020 that I decided to leave the automotive industry and try my luck with programming.
                             </p>
@@ -23,7 +26,13 @@ export default function About(): ReactNode {
                                 <li className="sm:col-span-2">Next.js</li>
                             </ul>
                         </div>
-                        <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue lg:order-first w-[250px] md:w-[300px]" quality={100} />
+                        <div className="min-w-[250px] md:min-w-[300px] lg:order-first mx-auto">
+                            <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue" quality={100} />
+                            <div className="flex flex-row justify-start py-2">
+                                <a className="w-[45] p-[5px]" href={gitHubProfile} rel="noopener noreferrer" target="_blank"><Image src="/github.svg" quality={100} alt="GitHub Logo" width={50} height={50} /></a>
+                                <a className="w-100" href={linkedInProfile} rel="noopener noreferrer" target="_blank"><Image src="/linkedin.svg" quality={100} alt="LinkedIn Logo" width={50} height={50} /></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

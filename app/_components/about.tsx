@@ -29,8 +29,8 @@ export default function About(): ReactNode {
                         <div className="min-w-[250px] md:min-w-[300px] lg:order-first mx-auto">
                             <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue" quality={100} />
                             <div className="flex flex-row justify-start py-2">
-                                <a className="w-[45] p-[5px]" href={gitHubProfile} rel="noopener noreferrer" target="_blank"><Image src="/github.svg" quality={100} alt="GitHub Logo" width={50} height={50} /></a>
-                                <a className="w-100" href={linkedInProfile} rel="noopener noreferrer" target="_blank"><Image src="/linkedin.svg" quality={100} alt="LinkedIn Logo" width={50} height={50} /></a>
+                                <a className="transition hover:scale-110 w-100" href={gitHubProfile} rel="noopener noreferrer" target="_blank"><Image src="/github.svg" quality={100} alt="GitHub Logo" width={50} height={50} /></a>
+                                <a className="transition hover:scale-110 w-100" href={linkedInProfile} rel="noopener noreferrer" target="_blank"><Image src="/linkedin.svg" quality={100} alt="LinkedIn Logo" width={50} height={50} /></a>
                             </div>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ export default function About(): ReactNode {
                                 <li className="sm:col-span-2">Next.js</li>
                             </ul>
                         </div>
-                        <div className="min-w-[250px] md:min-w-[300px] lg:order-first mx-auto">
+                        <div className="w-[250px] md:min-w-[300px] lg:order-first mx-auto">
                             <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue" quality={100} />
                             <div className="flex flex-row justify-start py-2">
                                 <a className="transition hover:scale-110 w-100" href={gitHubProfile} rel="noopener noreferrer" target="_blank"><Image src="/github.svg" quality={100} alt="GitHub Logo" width={50} height={50} /></a>

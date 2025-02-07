@@ -9,7 +9,7 @@ export default function Home(): ReactNode {
       <Intro />
       <About />
       <Contact />
-      <div className="blurred-background"></div>
+      <div className="blurred-background" />
     </main>
   );
 }

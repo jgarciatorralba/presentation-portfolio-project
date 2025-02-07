@@ -28,7 +28,7 @@
   }
 
   .section-container {
-    @apply sm:px-12 md:px-24 lg:px-32 xl:px-64 py-24 sm:py-32;
+    @apply sm:px-12 md:px-24 lg:px-32 xl:px-48 py-24 sm:py-32;
   }
 
   .paragraph {

@@ -1,6 +1,7 @@
 'use client';
 
 import { JSX, ReactNode, useState } from 'react';
+import styles from '../styles/tabs.module.css';
 
 interface TabsProps {
     children: TabContentProps[];
@@ -30,12 +31,12 @@ export default function Tabs({ children }: TabsProps): JSX.Element {
                 ))}
             </div>
 
-            <div className="p-5 w-full">
+            <div className="py-5 md:px-5 w-full">
                 {children.map(({ component }, i) => (
                     <div
                         key={i}
                         id={`tabpanel-${i}`}
-                        className={`w-full ${i === activeTab ? 'block' : 'hidden'}`}
+                        className={`absolute ${i === activeTab ? styles['tab-content-active'] : styles['tab-content']}`}
                         role="tabpanel"
                         aria-labelledby={`tab-${i}`}
                     >

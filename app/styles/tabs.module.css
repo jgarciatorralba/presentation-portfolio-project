@@ -1,0 +1,12 @@
+.tab-content {
+    width: 100%;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.tab-content-active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
+}

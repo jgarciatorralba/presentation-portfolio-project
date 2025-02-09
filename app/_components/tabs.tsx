@@ -31,7 +31,7 @@ export default function Tabs({ children }: TabsProps): JSX.Element {
                 ))}
             </div>
 
-            <div className="py-5 md:px-5 w-full">
+            <div className="py-5 md:px-5 w-full relative">
                 {children.map(({ component }, i) => (
                     <div
                         key={i}

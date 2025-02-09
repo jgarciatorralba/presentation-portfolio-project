@@ -12,6 +12,8 @@
 
   --text-size-base: 1rem;
   --nav-min-height: 80px;
+
+  --width-calculated-scroll: calc(100dvw - 3rem);
 }
 
 @layer utilities {
@@ -28,11 +30,24 @@
   }
 
   .section-container {
-    @apply sm:px-12 md:px-24 lg:px-32 xl:px-48 py-24 sm:py-32;
+    @apply sm:px-12 md:px-24 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
   }
 
   .paragraph {
     @apply mb-4;
+  }
+
+  .tab {
+    @apply w-max md:w-full md:text-left px-8 md:px-4 py-2 mr-1 md:mr-0 md:mb-1 rounded-t md:rounded-none md:rounded-r;
+  }
+
+  .tab.active {
+    @apply bg-blue text-babyBlue border-b-2 border-midnightBlue md:border-l-2 md:border-b-0;
+  }
+
+  .tab-list {
+    @apply max-w-fit w-calculatedScroll md:w-full whitespace-nowrap
+    overflow-x-auto pt-2 md:pt-0 border-b border-blue md:border-b-0 md:border-l md:flex flex-col;
   }
 }
 

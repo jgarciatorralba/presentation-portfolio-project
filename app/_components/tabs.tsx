@@ -36,7 +36,7 @@ export default function Tabs({ children }: TabsProps): JSX.Element {
                     <div
                         key={i}
                         id={`tabpanel-${i}`}
-                        className={`absolute ${i === activeTab ? styles['tab-content-active'] : styles['tab-content']}`}
+                        className={`absolute ${styles.tabContent} ${i === activeTab && styles.active}`}
                         role="tabpanel"
                         aria-labelledby={`tab-${i}`}
                     >

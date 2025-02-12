@@ -1,6 +1,6 @@
 'use client'
 
-import { MouseEvent, ReactNode, useEffect, useState } from "react";
+import { JSX, MouseEvent, useEffect, useState } from "react";
 import { oranienbaum } from "../(root)/fonts";
 import styles from "../styles/navbar.module.css";
 import NavbarButton from "./navbarButton";
@@ -12,7 +12,7 @@ const navigation = [
     { name: 'Contact', href: '#contact' },
 ];
 
-export default function Navbar(): ReactNode {
+export default function Navbar(): JSX.Element {
     const [open, setOpen] = useState(false);
 
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {

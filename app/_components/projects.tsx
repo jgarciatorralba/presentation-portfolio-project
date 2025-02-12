@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { JSX } from "react";
 import { oranienbaum } from "../(root)/fonts";
 import Section from "./section";
 
-export default function Projects(): ReactNode {
+export default function Projects(): JSX.Element {
     return (
         <Section name="projects">
             <div className="section-container">

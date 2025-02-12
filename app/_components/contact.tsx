@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import { JSX } from "react";
 import { oranienbaum } from "../(root)/fonts";
 import Section from "./section";
 
 const email = "jgarciatorralba@gmail.com";
 
-export default function Contact(): ReactNode {
+export default function Contact(): JSX.Element {
     return (
         <Section name="contact">
             <div className="section-container mb-24 sm:mb-36 md:mb-48 lg:mb-12">

@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { JSX } from "react";
 
-export default function Footer(): ReactNode {
+export default function Footer(): JSX.Element {
     const year: Number = new Date().getFullYear();
 
     return (

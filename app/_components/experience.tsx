@@ -1,11 +1,11 @@
 'use client'
 
-import { ReactNode } from "react";
+import { JSX } from "react";
 import { oranienbaum } from "../(root)/fonts";
 import Section from "./section";
 import Tabs from "./tabs";
 
-export default function Experience(): ReactNode {
+export default function Experience(): JSX.Element {
     return (
         <Section name="experience">
             <div className="section-container">

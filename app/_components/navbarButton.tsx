@@ -1,6 +1,6 @@
 'use client'
 
-import { MouseEvent, ReactNode, useEffect, useRef } from "react";
+import { JSX, MouseEvent, useEffect, useRef } from "react";
 import Button from "./button";
 
 interface NavbarButtonProps {
@@ -8,7 +8,7 @@ interface NavbarButtonProps {
     onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function NavbarButton({ open, onClick }: NavbarButtonProps): ReactNode {
+export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.Element {
     const timeoutRef = useRef<number | null>(null);
 
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {

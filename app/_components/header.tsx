@@ -1,10 +1,10 @@
 'use client'
 
-import { ReactNode, useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import styles from "../styles/header.module.css";
 import Navbar from "./navbar";
 
-export default function Header(): ReactNode {
+export default function Header(): JSX.Element {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {

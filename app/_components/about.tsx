@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import { ReactNode } from "react";
+import { JSX } from "react";
 import { oranienbaum } from "../(root)/fonts";
 import Section from "./section";
 
-const gitHubProfile = "https://github.com/jgarciatorralba";
-const linkedInProfile = "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US";
+const gitHubProfile: string = "https://github.com/jgarciatorralba";
+const linkedInProfile: string = "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US";
 
-export default function About(): ReactNode {
+export default function About(): JSX.Element {
     return (
         <Section name="about">
             <div className="section-container">

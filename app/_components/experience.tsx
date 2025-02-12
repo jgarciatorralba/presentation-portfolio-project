@@ -2,6 +2,7 @@
 
 import { JSX } from "react";
 import { oranienbaum } from "../(root)/fonts";
+import experiences from "./experiences";
 import Section from "./section";
 import Tabs from "./tabs";
 
@@ -13,13 +14,7 @@ export default function Experience(): JSX.Element {
                 <p className="paragraph">Companies I've worked for.</p>
 
                 <Tabs
-                    children={[
-                        { active: true, label: "eDreams", component: "First tab" },
-                        { active: false, label: "Adkomo", component: "Second tab" },
-                        { active: false, label: "SII Concatel", component: "Third tab" },
-                        { active: false, label: "Òmada Interactiva", component: "Fourth tab" },
-                        { active: false, label: "Inbenta", component: "Fifth tab" }
-                    ]}
+                    children={experiences}
                 />
             </div>
         </Section>

@@ -8,7 +8,10 @@ const inbentaUrl: string = "https://www.inbenta.com/";
 
 const eDreams: JSX.Element = (
     <div className="tab-content">
-        <h3 className="mb-4 text-lg md:text-2xl">Software Engineer @ <a className="text-midnightBlue" href={eDreamsUrl} target="_blank" rel="noopener noreferrer">eDreams ODIGEO</a></h3>
+        <div className="mb-4">
+            <h3 className="text-lg md:text-2xl">Software Engineer @ <a className="text-midnightBlue" href={eDreamsUrl} target="_blank" rel="noopener noreferrer">eDreams ODIGEO</a></h3>
+            <p className="paragraph mt-1 text-sm">June 2024 — Present</p>
+        </div>
         <p className="paragraph">Working as a Backend Developer in the Accommodation area, contributing to the improvement of the hotel booking platform and post-booking services.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Development of scalable solutions using PHP8, MariaDB, Redis and RabbitMQ.</li>
@@ -22,7 +25,10 @@ const eDreams: JSX.Element = (
 
 const adkomo: JSX.Element = (
     <div className="tab-content">
-        <h3 className="mb-4 text-lg md:text-2xl">Full Stack Developer @ <a className="text-midnightBlue" href={adkomoUrl} target="_blank" rel="noopener noreferrer">Adkomo</a></h3>
+        <div className="mb-4">
+            <h3 className="text-lg md:text-2xl">Full Stack Developer @ <a className="text-midnightBlue" href={adkomoUrl} target="_blank" rel="noopener noreferrer">Adkomo</a></h3>
+            <p className="paragraph mt-1 text-sm">April 2022 — June 2024</p>
+        </div>
         <p className="paragraph">Enhanced and maintained a proprietary advertising and digital marketing platform.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Developed and optimized microservices architecture hosted on AWS.</li>
@@ -34,7 +40,10 @@ const adkomo: JSX.Element = (
 
 const siiGroup: JSX.Element = (
     <div className="tab-content">
-        <h3 className="mb-4 text-lg md:text-2xl">Full Stack Developer @ <a className="text-midnightBlue" href={siiGroupUrl} target="_blank" rel="noopener noreferrer">SII Group Spain</a></h3>
+        <div className="mb-4">
+            <h3 className="text-lg md:text-2xl">Full Stack Developer @ <a className="text-midnightBlue" href={siiGroupUrl} target="_blank" rel="noopener noreferrer">SII Group Spain</a></h3>
+            <p className="paragraph mt-1 text-sm">February 2022 — April 2022</p>
+        </div>
         <p className="paragraph">Participated in the development of new and existing projects in a consulting firm.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Mainly worked with Symfony (PHP 7.4) and React.</li>
@@ -44,7 +53,10 @@ const siiGroup: JSX.Element = (
 
 const omada: JSX.Element = (
     <div className="tab-content">
-        <h3 className="mb-4 text-lg md:text-2xl">Junior Backend Developer @ <a className="text-midnightBlue" href={omadaUrl} target="_blank" rel="noopener noreferrer">Òmada</a></h3>
+        <div className="mb-4">
+            <h3 className="text-lg md:text-2xl">Junior Backend Developer @ <a className="text-midnightBlue" href={omadaUrl} target="_blank" rel="noopener noreferrer">Òmada</a></h3>
+            <p className="paragraph mt-1 text-sm">February 2021 — February 2022</p>
+        </div>
         <p className="paragraph">Developed and maintained projects in industries such as education, healthcare and NGOs.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Implemented and optimized features for applications based on Drupal (CMS framework for PHP).</li>
@@ -56,7 +68,10 @@ const omada: JSX.Element = (
 
 const inbenta: JSX.Element = (
     <div className="tab-content">
-        <h3 className="mb-4 text-lg md:text-2xl">Product Developer @ <a className="text-midnightBlue" href={inbentaUrl} target="_blank" rel="noopener noreferrer">Inbenta</a></h3>
+        <div className="mb-4">
+            <h3 className="text-lg md:text-2xl">Product Developer @ <a className="text-midnightBlue" href={inbentaUrl} target="_blank" rel="noopener noreferrer">Inbenta</a></h3>
+            <p className="paragraph mt-1 text-sm">December 2020 — February 2021</p>
+        </div>
         <p className="paragraph">Maintenance, evolution and testing of proprietary software.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Took part in building both client-side and server-side features using Laravel and Vue.js.</li>

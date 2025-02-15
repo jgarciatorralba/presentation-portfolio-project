@@ -35,7 +35,7 @@ const adkomo: JSX.Element = (
 const siiGroup: JSX.Element = (
     <div className="tab-content">
         <h3 className="mb-4 text-lg md:text-2xl">Full Stack Developer @ <a className="text-midnightBlue" href={siiGroupUrl} target="_blank" rel="noopener noreferrer">SII Group Spain</a></h3>
-        <p className="paragraph">Participated in the development of both new and existing projects in a consulting firm.</p>
+        <p className="paragraph">Participated in the development of new and existing projects in a consulting firm.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Mainly worked with Symfony (PHP 7.4) and React.</li>
         </ul>
@@ -47,9 +47,19 @@ const omada: JSX.Element = (
         <h3 className="mb-4 text-lg md:text-2xl">Junior Backend Developer @ <a className="text-midnightBlue" href={omadaUrl} target="_blank" rel="noopener noreferrer">Òmada</a></h3>
         <p className="paragraph">Developed and maintained projects in industries such as education, healthcare and NGOs.</p>
         <ul className="list-disc list-inside pl-6">
-            <li className="indented-list-item">Implemented and optimized features in applications based on Drupal (PHP-based CMS framework).</li>
+            <li className="indented-list-item">Implemented and optimized features for applications based on Drupal (CMS framework for PHP).</li>
             <li className="indented-list-item">Collaborated on the integration of third-party solutions</li>
             <li className="indented-list-item">Assisted in maintenance, support, and technical documentation tasks.</li>
+        </ul>
+    </div>
+);
+
+const inbenta: JSX.Element = (
+    <div className="tab-content">
+        <h3 className="mb-4 text-lg md:text-2xl">Product Developer @ <a className="text-midnightBlue" href={inbentaUrl} target="_blank" rel="noopener noreferrer">Inbenta</a></h3>
+        <p className="paragraph">Maintenance, evolution and testing of proprietary software.</p>
+        <ul className="list-disc list-inside pl-6">
+            <li className="indented-list-item">Took part in building both client-side and server-side features using Laravel and Vue.js.</li>
         </ul>
     </div>
 );
@@ -59,5 +69,5 @@ export default [
     { label: "Adkomo", component: adkomo },
     { label: "SII Group Spain", component: siiGroup },
     { label: "Òmada", component: omada },
-    { label: "Inbenta", component: <div>Fifth experience</div> },
+    { label: "Inbenta", component: inbenta },
 ];

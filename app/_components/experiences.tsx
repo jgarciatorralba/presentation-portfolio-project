@@ -44,7 +44,7 @@ const siiGroup: JSX.Element = (
 
 const omada: JSX.Element = (
     <div className="tab-content">
-        <h3 className="mb-4 text-lg md:text-2xl">Junior Backend Developer @ <a className="text-midnightBlue" href={omadaUrl} target="_blank" rel="noopener noreferrer">Òmada Interactiva</a></h3>
+        <h3 className="mb-4 text-lg md:text-2xl">Junior Backend Developer @ <a className="text-midnightBlue" href={omadaUrl} target="_blank" rel="noopener noreferrer">Òmada</a></h3>
         <p className="paragraph">Developed and maintained projects in industries such as education, healthcare and NGOs.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Implemented and optimized features in applications based on Drupal (PHP-based CMS framework).</li>

@@ -18,7 +18,7 @@ export default {
         calculatedScroll: "var(--width-calculated-scroll)",
       },
       screens: {
-        xs: { min: "370px" },
+        xs: { min: "370px", max: "639px" },
       }
     },
   },

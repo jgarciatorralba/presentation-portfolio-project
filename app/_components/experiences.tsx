@@ -3,6 +3,8 @@ import { JSX } from "react";
 const eDreamsUrl: string = "https://www.edreams.es/";
 const adkomoUrl: string = "https://www.adkomo.com/";
 const siiGroupUrl: string = "https://siigroup-spain.com/";
+const omadaUrl: string = "https://www.omada.es/es/";
+const inbentaUrl: string = "https://www.inbenta.com/";
 
 const eDreams: JSX.Element = (
     <div className="tab-content">
@@ -40,10 +42,22 @@ const siiGroup: JSX.Element = (
     </div>
 );
 
+const omada: JSX.Element = (
+    <div className="tab-content">
+        <h3 className="mb-4 text-lg md:text-2xl">Junior Backend Developer @ <a className="text-midnightBlue" href={omadaUrl} target="_blank" rel="noopener noreferrer">Òmada Interactiva</a></h3>
+        <p className="paragraph">Developed and maintained projects in industries such as education, healthcare and NGOs.</p>
+        <ul className="list-disc list-inside pl-6">
+            <li className="indented-list-item">Implemented and optimized features in applications based on Drupal (PHP-based CMS framework).</li>
+            <li>Collaborated on the integration of third-party solutions</li>
+            <li>Assisted in maintenance, support, and technical documentation tasks.</li>
+        </ul>
+    </div>
+);
+
 export default [
     { active: true, label: "eDreams", component: eDreams },
     { label: "Adkomo", component: adkomo },
     { label: "SII Group Spain", component: siiGroup },
-    { label: "Òmada Interactiva", component: <div>Fourth experience</div> },
+    { label: "Òmada", component: omada },
     { label: "Inbenta", component: <div>Fifth experience</div> },
 ];

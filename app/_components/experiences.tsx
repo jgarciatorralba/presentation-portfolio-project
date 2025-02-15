@@ -48,8 +48,8 @@ const omada: JSX.Element = (
         <p className="paragraph">Developed and maintained projects in industries such as education, healthcare and NGOs.</p>
         <ul className="list-disc list-inside pl-6">
             <li className="indented-list-item">Implemented and optimized features in applications based on Drupal (PHP-based CMS framework).</li>
-            <li>Collaborated on the integration of third-party solutions</li>
-            <li>Assisted in maintenance, support, and technical documentation tasks.</li>
+            <li className="indented-list-item">Collaborated on the integration of third-party solutions</li>
+            <li className="indented-list-item">Assisted in maintenance, support, and technical documentation tasks.</li>
         </ul>
     </div>
 );

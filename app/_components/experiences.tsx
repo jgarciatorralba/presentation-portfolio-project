@@ -2,6 +2,7 @@ import { JSX } from "react";
 
 const eDreamsUrl: string = "https://www.edreams.es/";
 const adkomoUrl: string = "https://www.adkomo.com/";
+const siiGroupUrl: string = "https://siigroup-spain.com/";
 
 const eDreams: JSX.Element = (
     <div className="tab-content">
@@ -29,10 +30,20 @@ const adkomo: JSX.Element = (
     </div>
 );
 
+const siiGroup: JSX.Element = (
+    <div className="tab-content">
+        <h3 className="mb-4 text-lg md:text-2xl">Full Stack Developer @ <a className="text-midnightBlue" href={siiGroupUrl} target="_blank" rel="noopener noreferrer">SII Group Spain</a></h3>
+        <p className="paragraph">Participated in the development of both new and existing projects in a consulting firm.</p>
+        <ul className="list-disc list-inside pl-6">
+            <li className="indented-list-item">Mainly worked with Symfony (PHP 7.4) and React.</li>
+        </ul>
+    </div>
+);
+
 export default [
     { active: true, label: "eDreams", component: eDreams },
     { label: "Adkomo", component: adkomo },
-    { label: "SII Concatel", component: <div>Third experience</div> },
+    { label: "SII Group Spain", component: siiGroup },
     { label: "Òmada Interactiva", component: <div>Fourth experience</div> },
     { label: "Inbenta", component: <div>Fifth experience</div> },
 ];

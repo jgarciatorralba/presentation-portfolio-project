@@ -16,6 +16,9 @@ export default {
       },
       width: {
         calculatedScroll: "var(--width-calculated-scroll)",
+      },
+      screens: {
+        xs: { min: "370px" },
       }
     },
   },

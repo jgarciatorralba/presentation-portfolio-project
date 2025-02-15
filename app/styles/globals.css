@@ -48,6 +48,10 @@
   .tab-list {
     @apply max-w-fit w-calculatedScroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
   }
+
+  .indented-list-item {
+    @apply -indent-[1.4rem];
+  }
 }
 
 body {

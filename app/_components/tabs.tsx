@@ -1,7 +1,7 @@
 'use client';
 
 import { JSX, ReactNode, useState } from 'react';
-import styles from '../styles/tabs.module.css';
+import styles from '../styles/_components/tabs.module.css';
 
 interface TabsProps {
     children: TabContentProps[];

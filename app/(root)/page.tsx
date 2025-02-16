@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import About from "../_components/about";
-import Contact from "../_components/contact";
-import Experience from "../_components/experience";
-import Intro from "../_components/intro";
-import Projects from "../_components/projects";
+import About from "./_sections/about";
+import Contact from "./_sections/contact";
+import Experience from "./_sections/experience";
+import Intro from "./_sections/intro";
+import Projects from "./_sections/projects";
 
 export default function Home(): ReactNode {
   return (

@@ -1,9 +1,9 @@
 import { JSX } from "react";
-import { oranienbaum } from "../(root)/fonts";
-import experiences from "../_assets/experiences.json";
-import Section from "./section";
-import TabPanel from "./tabPanel";
-import Tabs, { TabContentProps } from "./tabs";
+import experiences from "../../_assets/experiences.json";
+import Section from "../../_components/section";
+import TabPanel from "../../_components/tabPanel";
+import Tabs, { TabContentProps } from "../../_components/tabs";
+import { oranienbaum } from "../fonts";
 
 const experienceContents: TabContentProps[] = Object.entries(experiences).map(([name, details], index) => {
     return {

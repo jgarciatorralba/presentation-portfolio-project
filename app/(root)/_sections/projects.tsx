@@ -1,6 +1,6 @@
 import { JSX } from "react";
-import { oranienbaum } from "../(root)/fonts";
-import Section from "./section";
+import Section from "../../_components/section";
+import { oranienbaum } from "../fonts";
 
 export default function Projects(): JSX.Element {
     return (

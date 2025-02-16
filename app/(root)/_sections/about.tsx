@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { JSX } from "react";
-import { oranienbaum } from "../(root)/fonts";
-import Section from "./section";
+import Section from "../../_components/section";
+import { oranienbaum } from "../fonts";
 
 const gitHubProfile: string = "https://github.com/jgarciatorralba";
 const linkedInProfile: string = "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US";

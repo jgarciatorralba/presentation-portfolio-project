@@ -2,7 +2,7 @@
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
 import { oranienbaum } from "../(root)/fonts";
-import styles from "../styles/navbar.module.css";
+import styles from "../styles/_components/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
 const navigation = [

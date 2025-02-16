@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import Footer from "../_components/footer";
-import Header from "../_components/header";
+import Footer from "../_sections/footer";
+import Header from "../_sections/header";
 import "../styles/globals.css";
 import { roboto } from "./fonts";
 import { metadata } from "./metadata";

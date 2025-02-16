@@ -2,15 +2,9 @@
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
 import { oranienbaum } from "../(root)/fonts";
+import navigation from "../_assets/navigation.json";
 import styles from "../styles/_components/navbar.module.css";
 import NavbarButton from "./navbarButton";
-
-const navigation = [
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
-];
 
 export default function Navbar(): JSX.Element {
     const [open, setOpen] = useState(false);
@@ -47,7 +41,7 @@ export default function Navbar(): JSX.Element {
             <nav className={`w-full ${oranienbaum.className}`}>
                 <div className="flex justify-end items-center">
                     <ol className="hidden md:flex flex-row gap-x-12">
-                        {navigation.map((item, index) => (
+                        {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal text-babyBlue">
                                 <a href={item.href} className="py-2 pl-1 text-babyBlue hover:no-underline hover:text-midnightBlue focus:text-blue">
                                     {item.name}
@@ -61,7 +55,7 @@ export default function Navbar(): JSX.Element {
 
                 <div className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid content-center place-items-center text-lg ${open ? styles.open : ''}`}>
                     <ol className="grid gap-y-6 p-8 text-center">
-                        {navigation.map((item, index) => (
+                        {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal list-inside text-babyBlue">
                                 <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-babyBlue hover:no-underline hover:text-midnightBlue">
                                     {item.name}

@@ -7,7 +7,7 @@ interface TabsProps {
     children: TabContentProps[];
 }
 
-interface TabContentProps {
+export interface TabContentProps {
     active?: boolean;
     label: string;
     component: ReactNode;

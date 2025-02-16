@@ -5,11 +5,11 @@ import Section from "./section";
 import TabPanel from "./tabPanel";
 import Tabs, { TabContentProps } from "./tabs";
 
-const experienceContents: TabContentProps[] = Object.values(experiences).map((experience, index) => {
+const experienceContents: TabContentProps[] = Object.entries(experiences).map(([name, details], index) => {
     return {
         active: index === 0,
-        label: experience.label,
-        component: <TabPanel {...experience.tabContent} />,
+        label: name,
+        component: <TabPanel {...details} />,
     };
 });
 

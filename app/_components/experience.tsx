@@ -5,15 +5,15 @@ import Section from "./section";
 import TabPanel from "./tabPanel";
 import Tabs, { TabContentProps } from "./tabs";
 
-export default function Experience(): JSX.Element {
-    const experienceContents: TabContentProps[] = Object.values(experiences).map((experience, index) => {
-        return {
-            active: index === 0,
-            label: experience.label,
-            component: <TabPanel {...experience.tabContent} />,
-        };
-    });
+const experienceContents: TabContentProps[] = Object.values(experiences).map((experience, index) => {
+    return {
+        active: index === 0,
+        label: experience.label,
+        component: <TabPanel {...experience.tabContent} />,
+    };
+});
 
+export default function Experience(): JSX.Element {
     return (
         <Section name="experience">
             <div className="section-container">

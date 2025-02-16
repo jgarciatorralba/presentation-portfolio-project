@@ -55,11 +55,15 @@ export default function useFetch<T = unknown>(
                 }
 
                 const data = (await response.json()) as T;
-                if (abortController.signal.aborted) return;
+                if (abortController.signal.aborted) {
+                    return;
+                }
 
                 dispatch({ type: "fetched", payload: data });
             } catch (error) {
-                if (abortController.signal.aborted) return;
+                if (abortController.signal.aborted) {
+                    return;
+                }
 
                 dispatch({ type: "error", payload: error as Error });
             }

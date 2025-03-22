@@ -8,6 +8,15 @@ const socialNetworks: Array<{ name: string, url: string, alt: string }> = [
     { name: "LinkedIn", url: "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US", alt: "LinkedIn Logo" }
 ];
 
+const technologies: Array<string> = [
+    "PHP",
+    "Symfony",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js"
+];
+
 export default function About(): JSX.Element {
     return (
         <Section name="about">
@@ -19,12 +28,9 @@ export default function About(): JSX.Element {
                         </p>
                         <p className="paragraph">Here are some technologies that I've worked with or that I'm eager to perfect at some point along my professional journey:</p>
                         <ul className="list-[square] list-inside grid grid-cols-2 sm:grid-cols-[1fr_1fr_0.5fr]">
-                            <li className="sm:col-span-1">PHP</li>
-                            <li className="sm:col-span-2">Symfony</li>
-                            <li className="sm:col-span-1">JavaScript</li>
-                            <li className="sm:col-span-2">TypeScript</li>
-                            <li className="sm:col-span-1">React</li>
-                            <li className="sm:col-span-2">Next.js</li>
+                            {technologies.map((technology, index) => (
+                                <li key={`${technology}-${index}`}>{technology}</li>
+                            ))}
                         </ul>
                     </div>
                     <div className="w-[250px] md:min-w-[300px] lg:order-first mx-auto">

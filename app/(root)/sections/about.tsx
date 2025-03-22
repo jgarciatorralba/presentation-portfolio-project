@@ -1,21 +1,9 @@
 import Image from 'next/image';
 import { JSX } from "react";
+import socialNetworks from "../../_assets/socialNetworks.json";
+import technologies from "../../_assets/technologies.json";
 import Section from "../../_components/section";
 import { oranienbaum } from "../fonts";
-
-const socialNetworks: Array<{ name: string, url: string, alt: string }> = [
-    { name: "GitHub", url: "https://github.com/jgarciatorralba", alt: "GitHub Logo" },
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US", alt: "LinkedIn Logo" }
-];
-
-const technologies: Array<string> = [
-    "PHP",
-    "Symfony",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Next.js"
-];
 
 export default function About(): JSX.Element {
     return (
@@ -28,23 +16,37 @@ export default function About(): JSX.Element {
                         </p>
                         <p className="paragraph">Here are some technologies that I've worked with or that I'm eager to perfect at some point along my professional journey:</p>
                         <ul className="list-[square] list-inside grid grid-cols-2 sm:grid-cols-[1fr_1fr_0.5fr]">
-                            {technologies.map((technology, index) => (
+                            {technologies.items.map((technology, index) => (
                                 <li key={`${technology}-${index}`}>{technology}</li>
                             ))}
                         </ul>
                     </div>
                     <div className="w-[250px] md:min-w-[300px] lg:order-first mx-auto">
-                        <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnight-blue" quality={100} priority={true} />
+                        <Image
+                            src="/pic.png"
+                            alt="Front Picture"
+                            width={300}
+                            height={300}
+                            className="rounded-md sepia-[.35] contrast-[1.1] border border-midnight-blue"
+                            quality={100}
+                            priority={true}
+                        />
                         <div className="flex flex-row justify-start py-2">
-                            {socialNetworks.map((network, index) => (
+                            {Object.entries(socialNetworks).map(([name, { url }], index) => (
                                 <a
-                                    key={`${network.name}-${index}`}
+                                    key={`${name}-${index}`}
                                     className="transition hover:scale-110"
-                                    href={network.url}
+                                    href={url}
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 >
-                                    <Image src={`/${network.name.toLowerCase()}.svg`} quality={100} alt={network.alt} width={50} height={50} />
+                                    <Image
+                                        src={`/${name.toLowerCase()}.svg`}
+                                        quality={100}
+                                        alt={`${name} Logo`}
+                                        width={50}
+                                        height={50}
+                                    />
                                 </a>
                             ))}
                         </div>

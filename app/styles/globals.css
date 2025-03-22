@@ -1,46 +1,4 @@
-@import "tailwindcss";
-
-@config '../../tailwind.config.ts';
-
-/* Buttons */
-@utility button-primary {
-  @apply font-medium text-primary bg-blue hover:bg-midnight-blue focus:ring-2 hover:no-underline! focus:outline-hidden focus:ring-blue rounded-lg p-4 text-center me-2;
-}
-
-@utility button-secondary {
-  @apply font-medium text-background bg-primary hover:bg-secondary focus:ring-2 hover:no-underline! focus:outline-hidden focus:ring-primary rounded-lg p-4 text-center me-2;
-}
-
-/* Typography */
-@utility header {
-  @apply mb-4 text-4xl sm:text-5xl;
-}
-
-@utility paragraph {
-  @apply mb-4;
-}
-
-/* Layout */
-@utility section-container {
-  @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
-}
-
-@utility tab {
-  @apply text-midnight-blue hover:text-baby-blue w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
-
-  &.active {
-    @apply bg-blue text-baby-blue box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
-  }
-}
-
-@utility tab-list {
-  @apply max-w-fit w-calculated-scroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
-}
-
-/* Miscellaneous */
-@utility indented-list-item {
-  @apply -indent-[1.4rem];
-}
+@import "./tailwind-utilities.css";
 
 @layer utilities {
   :root {

@@ -2,9 +2,20 @@
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
 import { oranienbaum } from "../(root)/fonts";
-import navigation from "../_assets/navigation.json";
+import navigationData from "../_assets/navigation.json";
 import styles from "../styles/_components/navbar.module.css";
 import NavbarButton from "./navbarButton";
+
+interface NavigationItem {
+    name: string;
+    href: string;
+}
+
+interface Navigation {
+    items: NavigationItem[];
+}
+
+const navigation = navigationData as Navigation;
 
 export default function Navbar(): JSX.Element {
     const [open, setOpen] = useState(false);

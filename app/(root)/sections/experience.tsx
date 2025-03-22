@@ -1,9 +1,23 @@
 import { JSX } from "react";
-import experiences from "../../_assets/experiences.json";
+import experiencesData from "../../_assets/experiences.json";
 import Section from "../../_components/section";
 import TabPanel from "../../_components/tabPanel";
 import Tabs, { TabContentProps } from "../../_components/tabs";
 import { oranienbaum } from "../fonts";
+
+interface ExperienceDetails {
+    companyName: string;
+    companyUrl: string;
+    position: string;
+    startDate: string;
+    endDate: string;
+    description: string;
+    features: string[];
+}
+
+type Experiences = Record<string, ExperienceDetails>;
+
+const experiences = experiencesData as Experiences;
 
 const experienceContents: TabContentProps[] = Object.entries(experiences).map(([name, details], index) => {
     return {

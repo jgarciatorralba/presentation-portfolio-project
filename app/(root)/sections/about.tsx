@@ -1,9 +1,22 @@
 import Image from 'next/image';
 import { JSX } from "react";
-import socialNetworks from "../../_assets/socialNetworks.json";
-import technologies from "../../_assets/technologies.json";
+import socialNetworksData from "../../_assets/socialNetworks.json";
+import technologiesData from "../../_assets/technologies.json";
 import Section from "../../_components/section";
 import { oranienbaum } from "../fonts";
+
+interface SocialNetwork {
+    url: string;
+}
+
+type SocialNetworks = Record<string, SocialNetwork>;
+
+interface Technologies {
+    items: string[];
+}
+
+const socialNetworks = socialNetworksData as SocialNetworks;
+const technologies = technologiesData as Technologies;
 
 export default function About(): JSX.Element {
     return (

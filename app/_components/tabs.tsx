@@ -58,7 +58,7 @@ interface TabProps {
 const Tab = ({ children, currentTab, activeTab, setActiveTab }: TabProps): JSX.Element => {
     return (
         <button
-            className={`tab ${activeTab === currentTab && 'active'}`}
+            className={`tab ${styles.tabButton} ${activeTab === currentTab ? 'active' : ''}`}
             onClick={() => setActiveTab(currentTab)}
             role="tab"
             aria-selected={activeTab === currentTab}

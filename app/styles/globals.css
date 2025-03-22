@@ -2,6 +2,7 @@
 
 @config '../../tailwind.config.ts';
 
+/* Buttons */
 @utility button-primary {
   @apply font-medium text-primary bg-blue hover:bg-midnight-blue focus:ring-2 hover:no-underline! focus:outline-hidden focus:ring-blue rounded-lg p-4 text-center me-2;
 }
@@ -10,16 +11,18 @@
   @apply font-medium text-background bg-primary hover:bg-secondary focus:ring-2 hover:no-underline! focus:outline-hidden focus:ring-primary rounded-lg p-4 text-center me-2;
 }
 
+/* Typography */
 @utility header {
   @apply mb-4 text-4xl sm:text-5xl;
 }
 
-@utility section-container {
-  @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
-}
-
 @utility paragraph {
   @apply mb-4;
+}
+
+/* Layout */
+@utility section-container {
+  @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
 }
 
 @utility tab {
@@ -34,6 +37,7 @@
   @apply max-w-fit w-calculated-scroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
 }
 
+/* Miscellaneous */
 @utility indented-list-item {
   @apply -indent-[1.4rem];
 }

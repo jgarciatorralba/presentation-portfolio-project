@@ -75,10 +75,7 @@ a:hover:not([role='button']) {
 
 .blurred-background {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100dvh;
-  height: 100dvh;
+  inset: 0;
   backdrop-filter: blur(0);
   transition: backdrop-filter 0.2s ease-in-out;
   pointer-events: auto;

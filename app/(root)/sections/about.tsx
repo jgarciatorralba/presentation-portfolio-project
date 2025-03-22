@@ -3,8 +3,10 @@ import { JSX } from "react";
 import Section from "../../_components/section";
 import { oranienbaum } from "../fonts";
 
-const gitHubProfile: string = "https://github.com/jgarciatorralba";
-const linkedInProfile: string = "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US";
+const socialNetworks: Array<{ name: string, url: string, alt: string }> = [
+    { name: "GitHub", url: "https://github.com/jgarciatorralba", alt: "GitHub Logo" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/jgarciatorralba/?locale=en_US", alt: "LinkedIn Logo" }
+];
 
 export default function About(): JSX.Element {
     return (
@@ -28,8 +30,17 @@ export default function About(): JSX.Element {
                     <div className="w-[250px] md:min-w-[300px] lg:order-first mx-auto">
                         <Image src="/pic.png" alt="Front Picture" width={300} height={300} className="rounded-md sepia-[.35] contrast-[1.1] border border-midnight-blue" quality={100} priority={true} />
                         <div className="flex flex-row justify-start py-2">
-                            <a className="transition hover:scale-110" href={gitHubProfile} rel="noopener noreferrer" target="_blank"><Image src="/github.svg" quality={100} alt="GitHub Logo" width={50} height={50} /></a>
-                            <a className="transition hover:scale-110" href={linkedInProfile} rel="noopener noreferrer" target="_blank"><Image src="/linkedin.svg" quality={100} alt="LinkedIn Logo" width={50} height={50} /></a>
+                            {socialNetworks.map((network, index) => (
+                                <a
+                                    key={`${network.name}-${index}`}
+                                    className="transition hover:scale-110"
+                                    href={network.url}
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                >
+                                    <Image src={`/${network.name.toLowerCase()}.svg`} quality={100} alt={network.alt} width={50} height={50} />
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>

@@ -42,28 +42,28 @@ export default function Navbar(): JSX.Element {
                 <div className="flex justify-end items-center">
                     <ol className="hidden md:flex flex-row gap-x-12">
                         {navigation.items.map((item, index) => (
-                            <li key={index} className="list-decimal text-babyBlue">
-                                <a href={item.href} className="py-2 pl-1 text-babyBlue hover:no-underline hover:text-midnightBlue focus:text-blue">
+                            <li key={index} className="list-decimal text-baby-blue">
+                                <a href={item.href} className="py-2 pl-1 text-baby-blue hover:no-underline! hover:text-midnight-blue! focus:text-blue!">
                                     {item.name}
                                 </a>
                             </li>
                         ))}
                     </ol>
-                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="hidden md:block button-secondary ml-6 !mr-0 !py-2">Resume</a>
+                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="hidden md:block button-secondary ml-6 mr-0! py-2! hover:text-primary!">Resume</a>
                     <NavbarButton open={open} onClick={handleClick} />
                 </div>
 
                 <div className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid content-center place-items-center text-lg ${open ? styles.open : ''}`}>
                     <ol className="grid gap-y-6 p-8 text-center">
                         {navigation.items.map((item, index) => (
-                            <li key={index} className="list-decimal list-inside text-babyBlue">
-                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-babyBlue hover:no-underline hover:text-midnightBlue">
+                            <li key={index} className="list-decimal list-inside text-baby-blue">
+                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-baby-blue hover:no-underline! hover:text-midnight-blue!">
                                     {item.name}
                                 </a>
                             </li>
                         ))}
                     </ol>
-                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="button-secondary !py-2 !px-8 !m-0">Resume</a>
+                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="button-secondary py-2! px-8! m-0!">Resume</a>
                 </div>
             </nav>
         </>

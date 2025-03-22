@@ -1,56 +1,62 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --primary: #7ec8e3;
-  --secondary: #2e8bc0;
-  --background: #050a30;
-  --midnight-blue: #145da0;
-  --baby-blue: #7ec8e3;
-  --blue: #0c2d48;
+@config '../../tailwind.config.ts';
 
-  --text-size-base: 1rem;
-  --nav-min-height: 80px;
+@utility button-primary {
+  @apply font-medium text-primary bg-blue hover:bg-midnight-blue focus:ring-2 hover:no-underline! focus:outline-hidden focus:ring-blue rounded-lg p-4 text-center me-2;
+}
 
-  --width-calculated-scroll: calc(100dvw - 3rem);
+@utility button-secondary {
+  @apply font-medium text-background bg-primary hover:bg-secondary focus:ring-2 hover:no-underline! focus:outline-hidden focus:ring-primary rounded-lg p-4 text-center me-2;
+}
+
+@utility header {
+  @apply mb-4 text-4xl sm:text-5xl;
+}
+
+@utility section-container {
+  @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
+}
+
+@utility paragraph {
+  @apply mb-4;
+}
+
+@utility tab {
+  @apply text-midnight-blue w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
+
+  &.active {
+    @apply bg-blue text-baby-blue box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
+  }
+}
+
+@utility active {
+  &.tab {
+    @apply bg-blue text-baby-blue box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
+  }
+}
+
+@utility tab-list {
+  @apply max-w-fit w-calculated-scroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
+}
+
+@utility indented-list-item {
+  @apply -indent-[1.4rem];
 }
 
 @layer utilities {
-  .button-primary {
-    @apply font-medium text-primary bg-blue hover:bg-midnightBlue focus:ring-2 hover:no-underline focus:outline-none focus:ring-blue rounded-lg p-4 text-center me-2;
-  }
+  :root {
+    --primary: #7ec8e3;
+    --secondary: #2e8bc0;
+    --background: #050a30;
+    --midnight-blue: #145da0;
+    --baby-blue: #7ec8e3;
+    --blue: #0c2d48;
 
-  .button-secondary {
-    @apply font-medium text-background bg-primary hover:bg-secondary focus:ring-2 hover:no-underline focus:outline-none focus:ring-primary rounded-lg p-4 text-center me-2;
-  }
+    --text-size-base: 1rem;
+    --nav-min-height: 80px;
 
-  .header {
-    @apply mb-4 text-4xl sm:text-5xl;
-  }
-
-  .section-container {
-    @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
-  }
-
-  .paragraph {
-    @apply mb-4;
-  }
-
-  .tab {
-    @apply text-midnightBlue w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
-  }
-
-  .tab.active {
-    @apply bg-blue text-babyBlue box-border border-b-2 border-midnightBlue md:border-l-2 md:border-b-0;
-  }
-
-  .tab-list {
-    @apply max-w-fit w-calculatedScroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
-  }
-
-  .indented-list-item {
-    @apply -indent-[1.4rem];
+    --width-calculated-scroll: calc(100dvw - 3rem);
   }
 }
 
@@ -61,11 +67,10 @@ body {
 
   display: grid;
   min-height: 100dvh;
-  grid-template-rows:
-    auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
 }
 
-a:hover {
+a:hover:not([role='button']) {
   color: var(--baby-blue);
   text-decoration: underline;
 }

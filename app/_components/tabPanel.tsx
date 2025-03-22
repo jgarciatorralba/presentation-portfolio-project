@@ -25,7 +25,7 @@ export default function TabPanel({
             <div className="tab-content" {...props}>
                 <div className="mb-4">
                     <h3 className="text-lg md:text-2xl">
-                        {position} @ <a className="text-midnightBlue" href={companyUrl} target="_blank" rel="noopener noreferrer">{companyName}</a>
+                        {position} @ <a className="text-midnight-blue" href={companyUrl} target="_blank" rel="noopener noreferrer">{companyName}</a>
                     </h3>
                     <p className="paragraph mt-1 text-sm">{startDate} — {endDate}</p>
                 </div>

@@ -23,15 +23,9 @@
 }
 
 @utility tab {
-  @apply text-midnight-blue w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
+  @apply text-midnight-blue hover:text-baby-blue w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
 
   &.active {
-    @apply bg-blue text-baby-blue box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
-  }
-}
-
-@utility active {
-  &.tab {
     @apply bg-blue text-baby-blue box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
   }
 }

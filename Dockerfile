@@ -1,5 +1,5 @@
 # Build stage
-FROM node:20.18-alpine AS builder
+FROM node:23.10-alpine AS builder
 WORKDIR /var/www/portfolio-project
 
 COPY package.json .
@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 # Production stage
-FROM node:20.18-alpine
+FROM node:23.10-alpine
 WORKDIR /var/www/portfolio-project
 
 COPY --from=builder /var/www/portfolio-project/next.config.ts ./next.config.ts

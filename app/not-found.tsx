@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from 'next/link';
 import { JSX } from "react";
-import { oranienbaum, roboto } from "./fonts";
+import { oranienbaum, roboto } from "./(root)/fonts";
 import "./styles/globals.css";
 
 export default function NotFound(): JSX.Element {

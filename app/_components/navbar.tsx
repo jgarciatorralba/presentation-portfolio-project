@@ -60,7 +60,7 @@ export default function Navbar(): JSX.Element {
                             </li>
                         ))}
                     </ol>
-                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="hidden md:block button-secondary ml-6 mr-0! py-2! hover:text-primary!">Resume</a>
+                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="hidden md:block btn btn-secondary ml-6 mr-0! py-2! hover:text-primary!">Resume</a>
                     <NavbarButton open={open} onClick={handleClick} />
                 </div>
 
@@ -74,7 +74,7 @@ export default function Navbar(): JSX.Element {
                             </li>
                         ))}
                     </ol>
-                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="button-secondary py-2! px-8! m-0!">Resume</a>
+                    <a href="/resume.pdf" role="button" target="_blank" rel="noopener noreferrer" className="btn btn-secondary py-2! px-8! m-0!">Resume</a>
                 </div>
             </nav>
         </>

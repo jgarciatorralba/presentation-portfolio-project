@@ -1,7 +1,7 @@
 @import "./utilities.css";
 
 body {
-  font-size: var(--text-size-base);
+  font-size: var(--text-base-size);
   color: var(--primary);
   background: var(--background);
 

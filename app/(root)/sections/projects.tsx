@@ -1,6 +1,6 @@
 import { JSX } from "react";
 import Section from "../../_components/section";
-import { oranienbaum } from "../fonts";
+import { oranienbaum } from "../../fonts";
 
 const API_URL: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = 2 * 7 * 24 * 60 * 60;

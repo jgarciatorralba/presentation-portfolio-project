@@ -22,6 +22,10 @@
         @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
     }
 
+    .children-wrapper {
+        @apply max-w-7xl px-6 mx-auto;
+    }
+
     .paragraph {
         @apply mb-4;
     }

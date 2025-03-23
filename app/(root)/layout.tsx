@@ -7,16 +7,12 @@ import { metadata } from "./metadata";
 
 export { metadata };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: ReactNode;
-}>): ReactNode {
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>): ReactNode {
   return (
     <html lang="en">
       <body>
         <Header />
-        <div className={`max-w-7xl px-6 mx-auto ${roboto.className}`}>
+        <div className={`children-wrapper ${roboto.className}`}>
           {children}
         </div>
         <Footer />

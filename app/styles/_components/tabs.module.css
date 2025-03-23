@@ -1,8 +1,8 @@
 .tabContent {
     width: fit-content;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    visibility: hidden;
     opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
     &.active {
         opacity: 1;

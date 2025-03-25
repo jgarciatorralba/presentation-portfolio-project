@@ -8,8 +8,19 @@ const API_URL: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
 const logFilePath: string = path.join(process.cwd(), "logs", "error.log");
 
+type Project = {
+    id: number;
+    name: string;
+    description: string;
+    topics: string[] | null;
+    repository: string;
+    homepage: string | null;
+    archived: boolean;
+    lastPushedAt: string;
+};
+
 export default async function Projects(): Promise<JSX.Element | null> {
-    let projects: any[] = [];
+    let projects: Project[] = [];
 
     try {
         const response = await fetch(`${API_URL}/api/projects?pageSize=5`, { next: { revalidate: cacheLifetimeSeconds } });

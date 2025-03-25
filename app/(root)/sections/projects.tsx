@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { JSX } from "react";
+import ProjectsComponent from "../../_components/projects";
 import Section from "../../_components/section";
 import { oranienbaum } from "../../fonts";
 
@@ -21,11 +22,16 @@ type Project = {
 
 export default async function Projects(): Promise<JSX.Element | null> {
     let projects: Project[] = [];
+    let next: boolean = false;
 
     try {
         const response = await fetch(`${API_URL}/api/projects?pageSize=5`, { next: { revalidate: cacheLifetimeSeconds } });
         if (!response.ok) {
             throw new Error(`Response status: ${response.statusText}`);
+        }
+
+        if (response.headers.get("next") === "1") {
+            next = true;
         }
 
         const data = await response.json();
@@ -46,13 +52,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
                 <p className="paragraph">A taste of my work.</p>
-                {projects && (
-                    <div className="projects">
-                        {projects.map((project: any) => (
-                            <p key={project.id}>{project.name}</p>
-                        ))}
-                    </div>
-                )}
+                <ProjectsComponent projects={projects} next={next} />
             </div>
         </Section>
     );

@@ -6,7 +6,7 @@ import { oranienbaum } from "../../fonts";
 
 const API_URL: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
-const logFilePath = path.join(process.cwd(), "logs", "error.log");
+const logFilePath: string = path.join(process.cwd(), "logs", "error.log");
 
 export default async function Projects(): Promise<JSX.Element | null> {
     let projects: any[] = [];

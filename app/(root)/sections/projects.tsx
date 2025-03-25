@@ -3,7 +3,7 @@ import Section from "../../_components/section";
 import { oranienbaum } from "../../fonts";
 
 const API_URL: string = process.env.API_URL || '';
-const cacheLifetimeSeconds: number = 2 * 7 * 24 * 60 * 60;
+const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
 
 export default async function Projects(): Promise<JSX.Element> {
     let projects: any[] = [];

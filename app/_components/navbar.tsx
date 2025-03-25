@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
-import navigationData from "../_assets/navigation.json";
+import navigationData from "../_assets/texts/navigation.json";
 import { oranienbaum } from "../fonts";
 import styles from "../styles/_components/navbar.module.css";
 import NavbarButton from "./navbarButton";

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { JSX } from "react";
-import socialNetworksData from "../../_assets/socialNetworks.json";
-import technologiesData from "../../_assets/technologies.json";
+import socialNetworksData from "../../_assets/texts/socialNetworks.json";
+import technologiesData from "../../_assets/texts/technologies.json";
 import Section from "../../_components/section";
 import { oranienbaum } from "../../fonts";
 

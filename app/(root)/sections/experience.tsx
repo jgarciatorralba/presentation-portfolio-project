@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import experiencesData from "../../_assets/experiences.json";
+import experiencesData from "../../_assets/texts/experiences.json";
 import Section from "../../_components/section";
 import TabPanel from "../../_components/tabPanel";
 import Tabs, { TabContentProps } from "../../_components/tabs";

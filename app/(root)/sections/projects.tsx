@@ -1,11 +1,14 @@
+import fs from "fs";
+import path from "path";
 import { JSX } from "react";
 import Section from "../../_components/section";
 import { oranienbaum } from "../../fonts";
 
 const API_URL: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
+const logFilePath = path.join(process.cwd(), "logs", "error.log");
 
-export default async function Projects(): Promise<JSX.Element> {
+export default async function Projects(): Promise<JSX.Element | null> {
     let projects: any[] = [];
 
     try {
@@ -15,11 +18,16 @@ export default async function Projects(): Promise<JSX.Element> {
         }
 
         const data = await response.json();
-        console.log(data);
-
         projects = data.projects;
-    } catch (error) {
-        console.error(error);
+    } catch (error: unknown) {
+        const logMessage = `[${new Date().toISOString()}] Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
+
+        fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
+        fs.appendFileSync(logFilePath, logMessage);
+    }
+
+    if (!projects.length) {
+        return null;
     }
 
     return (

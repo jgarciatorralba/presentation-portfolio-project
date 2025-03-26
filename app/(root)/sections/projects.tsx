@@ -25,7 +25,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
     let next: boolean = false;
 
     try {
-        const response = await fetch(`${API_URL}/api/projects?pageSize=5`, { next: { revalidate: cacheLifetimeSeconds } });
+        const response = await fetch(`${API_URL}/api/projects?pageSize=6`, { next: { revalidate: cacheLifetimeSeconds } });
         if (!response.ok) {
             throw new Error(`Response status: ${response.statusText}`);
         }
@@ -52,6 +52,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
                 <p className="paragraph">A taste of my work.</p>
+
                 <ProjectsComponent projects={projects} next={next} />
             </div>
         </Section>

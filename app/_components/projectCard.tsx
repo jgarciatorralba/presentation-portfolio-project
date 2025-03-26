@@ -1,7 +1,6 @@
 import { JSX } from "react";
 
 type ProjectCardProps = {
-    id: number;
     name: string;
     description: string;
     repository: string;
@@ -9,10 +8,22 @@ type ProjectCardProps = {
     topics: string[];
 };
 
-export default function ProjectCard({ id, name, description, repository, homepage, topics }: ProjectCardProps): JSX.Element {
+export default function ProjectCard({ name, description, repository, homepage, topics }: ProjectCardProps): JSX.Element {
     return (
-        <div className="card" key={id}>
-            <p className="capitalize">{name.replaceAll('-', ' ')}</p>
+        <div className="bg-blue hover:bg-midnight-blue rounded-md p-6 transition hover:scale-105">
+            <p className="paragraph capitalize text-lg font-bold">{name.replaceAll('-', ' ')}</p>
+            <p className="paragraph text-sm">{description}</p>
+
+            <div className="flex flex-wrap gap-2">
+                {topics.map((topic, index) => (
+                    <span
+                        key={index}
+                        className="text-xs capitalize"
+                    >
+                        {topic}
+                    </span>
+                ))}
+            </div>
         </div>
     );
 }

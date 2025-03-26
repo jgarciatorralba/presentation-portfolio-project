@@ -3,7 +3,7 @@
 import { JSX, MouseEvent, useEffect, useState } from "react";
 import navigationData from "../_assets/texts/navigation.json";
 import { oranienbaum } from "../_lib/fonts";
-import styles from "../_styles/_components/navbar.module.css";
+import styles from "../_styles/components/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
 interface NavigationItem {

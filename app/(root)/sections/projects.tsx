@@ -3,7 +3,7 @@ import path from "path";
 import { JSX } from "react";
 import ProjectsComponent from "../../_components/projects";
 import Section from "../../_components/section";
-import { oranienbaum } from "../../fonts";
+import { oranienbaum } from "../../_lib/fonts";
 
 const API_URL: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');

@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import { roboto } from "./fonts";
-import { metadata } from "./metadata";
-import "./styles/globals.css";
+import { roboto } from "./_lib/fonts";
+import { metadata } from "./_lib/metadata";
+import "./_styles/globals.css";
 
 export { metadata };
 

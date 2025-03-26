@@ -1,6 +1,6 @@
 import { JSX } from "react";
 import Section from "../../_components/section";
-import { oranienbaum } from "../../fonts";
+import { oranienbaum } from "../../_lib/fonts";
 
 const email = "jgarciatorralba@gmail.com";
 

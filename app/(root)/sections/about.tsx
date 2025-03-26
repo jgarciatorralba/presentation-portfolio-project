@@ -3,7 +3,7 @@ import { JSX } from "react";
 import socialNetworksData from "../../_assets/texts/socialNetworks.json";
 import technologiesData from "../../_assets/texts/technologies.json";
 import Section from "../../_components/section";
-import { oranienbaum } from "../../fonts";
+import { oranienbaum } from "../../_lib/fonts";
 
 interface SocialNetwork {
     url: string;

@@ -3,7 +3,7 @@ import experiencesData from "../../_assets/texts/experiences.json";
 import Section from "../../_components/section";
 import TabPanel from "../../_components/tabPanel";
 import Tabs, { TabContentProps } from "../../_components/tabs";
-import { oranienbaum } from "../../fonts";
+import { oranienbaum } from "../../_lib/fonts";
 
 interface ExperienceDetails {
     companyName: string;

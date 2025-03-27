@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { Project } from "projects";
 import { JSX } from "react";
 import ProjectsComponent from "../../_components/projects";
 import Section from "../../_components/section";
@@ -8,17 +9,6 @@ import { oranienbaum } from "../../_lib/fonts";
 const API_URL: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
 const logFilePath: string = path.join(process.cwd(), "logs", "error.log");
-
-type Project = {
-    id: number;
-    name: string;
-    description: string;
-    topics: string[] | null;
-    repository: string;
-    homepage: string | null;
-    archived: boolean;
-    lastPushedAt: string;
-};
 
 export default async function Projects(): Promise<JSX.Element | null> {
     let projects: Project[] = [];

@@ -1,14 +1,7 @@
+import { ProjectCardProps } from "projects";
 import { JSX } from "react";
 
-type ProjectCardProps = {
-    name: string;
-    description: string;
-    repository: string;
-    homepage: string | null;
-    topics: string[];
-};
-
-export default function ProjectCard({ name, description, repository, homepage, topics }: ProjectCardProps): JSX.Element {
+export default function ProjectCard({ name, description, topics, repository, homepage }: ProjectCardProps): JSX.Element {
     return (
         <div className="bg-blue hover:bg-midnight-blue rounded-md p-6 transition hover:scale-105">
             <p className="paragraph capitalize text-lg font-bold">{name.replaceAll('-', ' ')}</p>

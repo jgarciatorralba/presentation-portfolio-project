@@ -1,18 +1,8 @@
 'use client';
 
+import { Project } from "projects";
 import { JSX } from "react";
 import ProjectCard from "./projectCard";
-
-type Project = {
-    id: number;
-    name: string;
-    description: string;
-    topics: string[] | null;
-    repository: string;
-    homepage: string | null;
-    archived: boolean;
-    lastPushedAt: string;
-};
 
 export default function Projects({ projects, next = false }: { projects: Project[], next: boolean }): JSX.Element {
     return (
@@ -22,9 +12,9 @@ export default function Projects({ projects, next = false }: { projects: Project
                     key={project.id}
                     name={project.name}
                     description={project.description}
+                    topics={project.topics || []}
                     repository={project.repository}
                     homepage={project.homepage}
-                    topics={project.topics || []}
                 />
             ))}
         </div>

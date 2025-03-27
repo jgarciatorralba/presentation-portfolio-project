@@ -5,7 +5,7 @@ import "./_styles/globals.css";
 
 export { metadata };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>): ReactNode {
+export default function Layout({ children }: Readonly<{ children: ReactNode }>): ReactNode {
   return (
     <html lang="en">
       <body>

@@ -2,7 +2,7 @@
 
 import { JSX, useEffect, useState } from "react";
 import Navbar from "../_components/navbar";
-import styles from "../_styles/sections/header.module.css";
+import styles from "../_styles/components/header.module.css";
 
 export default function Header(): JSX.Element {
     const [scrolled, setScrolled] = useState(false);

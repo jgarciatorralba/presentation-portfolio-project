@@ -1,14 +1,5 @@
 import { JSX } from "react";
-
-interface tabPanelProps {
-    companyName: string;
-    companyUrl: string;
-    position: string;
-    startDate: string;
-    endDate: string;
-    description: string;
-    features?: string[];
-}
+import { TabPanelProps } from "userInterface";
 
 export default function TabPanel({
     companyName,
@@ -19,7 +10,7 @@ export default function TabPanel({
     description,
     features,
     ...props
-}: tabPanelProps): JSX.Element {
+}: TabPanelProps): JSX.Element {
     return (
         <>
             <div className="tab-content" {...props}>

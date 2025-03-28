@@ -1,21 +1,11 @@
+import { Experiences } from "experiences";
 import { JSX } from "react";
+import { TabContentProps } from "userInterface";
 import experiencesData from "../../_assets/texts/experiences.json";
 import Section from "../../_components/section";
 import TabPanel from "../../_components/tabPanel";
-import Tabs, { TabContentProps } from "../../_components/tabs";
+import Tabs from "../../_components/tabs";
 import { oranienbaum } from "../../_lib/fonts";
-
-interface ExperienceDetails {
-    companyName: string;
-    companyUrl: string;
-    position: string;
-    startDate: string;
-    endDate: string;
-    description: string;
-    features: string[];
-}
-
-type Experiences = Record<string, ExperienceDetails>;
 
 const experiences = experiencesData as Experiences;
 

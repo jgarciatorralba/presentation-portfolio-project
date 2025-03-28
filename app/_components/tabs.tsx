@@ -1,19 +1,11 @@
 'use client';
 
-import { JSX, ReactNode, useState } from 'react';
+import { JSX, useState } from 'react';
+import { TabContentProps } from 'userInterface';
 import styles from '../_styles/components/tabs.module.css';
+import Tab from './tab';
 
-interface TabsProps {
-    children: TabContentProps[];
-}
-
-export interface TabContentProps {
-    active?: boolean;
-    label: string;
-    component: ReactNode;
-}
-
-export default function Tabs({ children }: TabsProps): JSX.Element {
+export default function Tabs({ children }: { children: TabContentProps[] }): JSX.Element {
     function findActiveTab(tabs: TabContentProps[]): number {
         const index = tabs.findIndex((tab) => tab.active);
         return index !== -1 ? index : 0;
@@ -45,26 +37,5 @@ export default function Tabs({ children }: TabsProps): JSX.Element {
                 ))}
             </div>
         </div>
-    );
-}
-
-interface TabProps {
-    children: ReactNode;
-    currentTab: number;
-    activeTab: number;
-    setActiveTab: (tab: number) => void;
-}
-
-const Tab = ({ children, currentTab, activeTab, setActiveTab }: TabProps): JSX.Element => {
-    return (
-        <button
-            className={`tab ${styles.tabButton} ${activeTab === currentTab ? 'active' : ''}`}
-            onClick={() => setActiveTab(currentTab)}
-            role="tab"
-            aria-selected={activeTab === currentTab}
-            aria-controls={`tabpanel-${currentTab}`}
-        >
-            {children}
-        </button>
     );
 }

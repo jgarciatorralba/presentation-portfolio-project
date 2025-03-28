@@ -9,12 +9,4 @@ declare module "projects" {
         archived: boolean;
         lastPushedAt: string;
     };
-
-    export type ProjectCardProps = {
-        name: string;
-        description: string;
-        repository: string;
-        homepage: string | null;
-        topics: string[];
-    };
 }

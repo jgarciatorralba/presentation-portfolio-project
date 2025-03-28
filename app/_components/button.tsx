@@ -1,11 +1,5 @@
-import { JSX, MouseEvent, ReactNode } from "react";
-
-interface ButtonProps {
-    htmlType: "button" | "submit" | "reset";
-    children: ReactNode;
-    onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-    className?: string;
-}
+import { JSX } from "react";
+import { ButtonProps } from "userInterface";
 
 export default function Button({ htmlType, children, onClick, className = "", ...props }: ButtonProps): JSX.Element {
     return (

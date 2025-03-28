@@ -1,10 +1,5 @@
-import { JSX, ReactNode } from "react";
-
-interface SectionProps {
-    children: ReactNode;
-    name: string;
-    className?: string;
-}
+import { JSX } from "react";
+import { SectionProps } from "userInterface";
 
 export default function Section({ children, name, className = "", ...props }: SectionProps): JSX.Element {
     return (

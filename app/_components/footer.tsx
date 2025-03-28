@@ -1,5 +1,7 @@
 import { JSX } from "react";
 
+const url: string = "https://brittanychiang.com";
+
 export default function Footer(): JSX.Element {
     const year: Number = new Date().getFullYear();
 
@@ -10,7 +12,7 @@ export default function Footer(): JSX.Element {
                 <p><small>
                     Inspired by the work of{" "}
                     <a
-                        href="https://brittanychiang.com/"
+                        href={url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-bold"

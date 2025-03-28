@@ -1,19 +1,11 @@
 'use client'
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
+import { Navigation } from "userInterface";
 import navigationData from "../_assets/texts/navigation.json";
 import { oranienbaum } from "../_lib/fonts";
 import styles from "../_styles/components/navbar.module.css";
 import NavbarButton from "./navbarButton";
-
-interface NavigationItem {
-    name: string;
-    href: string;
-}
-
-interface Navigation {
-    items: NavigationItem[];
-}
 
 const navigation = navigationData as Navigation;
 

@@ -10,7 +10,7 @@ export default function Experience({
 }: ExperienceProps): JSX.Element {
     return (
         <>
-            <div className="tab-content" {...props}>
+            <div className="py-6 md:py-2 md:px-5" {...props}>
                 <div className="mb-4">
                     <h3 className="text-lg md:text-2xl">
                         {position.title} @ <a className="text-midnight-blue" href={company.url} target="_blank" rel="noopener noreferrer">{company.name}</a>

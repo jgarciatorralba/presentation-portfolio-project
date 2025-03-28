@@ -6,7 +6,6 @@ export default function TabPanel({ currentPanel, activePanel, children }: TabPan
     return (
         <>
             <div
-                id={`tabpanel-${currentPanel}`}
                 className={`absolute ${styles.tabContent} ${currentPanel === activePanel && styles.active}`}
                 role="tabpanel"
                 aria-labelledby={`tab-${currentPanel}`}

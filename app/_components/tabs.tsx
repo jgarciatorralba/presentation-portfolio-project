@@ -23,7 +23,7 @@ export default function Tabs({ items }: TabsProps): JSX.Element {
                 ))}
             </div>
 
-            <div className="py-6 md:py-2 md:px-5 w-full relative min-h-[28lh] xs:min-h-[22lh] lg:min-h-[18lh] xl:min-h-[12lh]">
+            <div className="w-full relative min-h-[28lh] xs:min-h-[22lh] lg:min-h-[18lh] xl:min-h-[12lh]">
                 {items.map(({ component }, i) => (
                     <TabPanel key={`tabpanel-${i}`} currentPanel={i} activePanel={activeTab}>
                         {component}

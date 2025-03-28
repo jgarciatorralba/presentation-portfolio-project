@@ -1,18 +1,20 @@
 import { JSX } from "react";
 import { TabProps } from "userInterface";
 import styles from '../_styles/components/tab.module.css';
+import Button from "./button";
 
 
 export default function Tab({ children, currentTab, activeTab, setActiveTab }: TabProps): JSX.Element {
     return (
-        <button
+        <Button
+            htmlType="button"
+            role="tab"
             className={`tab ${styles.tabButton} ${activeTab === currentTab ? 'active' : ''}`}
             onClick={() => setActiveTab(currentTab)}
-            role="tab"
             aria-selected={activeTab === currentTab}
             aria-controls={`tabpanel-${currentTab}`}
         >
             {children}
-        </button>
+        </Button>
     );
 }

@@ -6,6 +6,7 @@ declare module "userInterface" {
         children: ReactNode;
         onClick: (event: MouseEvent<HTMLButtonElement>) => void;
         className?: string;
+        role?: string;
     };
 
     interface NavigationItem {

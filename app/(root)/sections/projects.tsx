@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import { Project } from "projects";
 import { JSX } from "react";
-import ProjectsComponent from "../../_components/projects";
 import Section from "../../_components/section";
+import ProjectsComponent from "../../_components/sections/projects";
 import { oranienbaum } from "../../_lib/fonts";
 
 const API_URL: string = process.env.API_URL || '';

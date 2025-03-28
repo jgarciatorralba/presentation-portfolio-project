@@ -2,8 +2,8 @@ import { Experiences } from "experiences";
 import { JSX } from "react";
 import { TabItemProps } from "userInterface";
 import experiencesData from "../../_assets/texts/experiences.json";
-import ExperienceComponent from "../../_components/experience";
 import Section from "../../_components/section";
+import ExperienceComponent from "../../_components/sections/experience";
 import Tabs from "../../_components/tabs";
 import { oranienbaum } from "../../_lib/fonts";
 

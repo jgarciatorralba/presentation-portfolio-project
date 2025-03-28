@@ -1,7 +1,8 @@
-import { JSX, ReactNode } from "react";
+import { JSX } from "react";
+import { TabPanelProps } from "userInterface";
 import styles from '../_styles/components/tabPanel.module.css';
 
-export default function TabPanel({ currentPanel, activePanel, children }: { currentPanel: number, activePanel: number, children: ReactNode }): JSX.Element {
+export default function TabPanel({ currentPanel, activePanel, children }: TabPanelProps): JSX.Element {
     return (
         <>
             <div

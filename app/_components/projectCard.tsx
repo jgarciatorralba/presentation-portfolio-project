@@ -1,5 +1,5 @@
+import { ProjectCardProps } from "projects";
 import { JSX } from "react";
-import { ProjectCardProps } from "userInterface";
 
 export default function ProjectCard({ name, description, topics, repository, homepage }: ProjectCardProps): JSX.Element {
     return (

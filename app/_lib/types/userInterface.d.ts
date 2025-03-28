@@ -28,6 +28,16 @@ declare module "userInterface" {
         className?: string;
     };
 
+    export interface TabItemProps {
+        active?: boolean;
+        label: string;
+        component: ReactNode;
+    };
+
+    export interface TabsProps {
+        items: TabItemProps[];
+    }
+
     export interface TabProps {
         children: ReactNode;
         currentTab: number;
@@ -35,27 +45,9 @@ declare module "userInterface" {
         setActiveTab: (tab: number) => void;
     };
 
-    export interface TabItemProps {
-        active?: boolean;
-        label: string;
-        component: ReactNode;
-    };
-
-    export interface ExperienceContentProps {
-        companyName: string;
-        companyUrl: string;
-        position: string;
-        startDate: string;
-        endDate: string;
-        description: string;
-        features?: string[];
-    };
-
-    export type ProjectCardProps = {
-        name: string;
-        description: string;
-        repository: string;
-        homepage: string | null;
-        topics: string[];
-    };
+    export interface TabPanelProps {
+        children: ReactNode;
+        currentPanel: number;
+        activePanel: number;
+    }
 }

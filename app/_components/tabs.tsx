@@ -1,11 +1,11 @@
 'use client';
 
 import { JSX, useState } from 'react';
-import { TabItemProps } from 'userInterface';
+import { TabItemProps, TabsProps } from 'userInterface';
 import Tab from './tab';
 import TabPanel from './tabPanel';
 
-export default function Tabs({ items }: { items: TabItemProps[] }): JSX.Element {
+export default function Tabs({ items }: TabsProps): JSX.Element {
     function findActiveTab(tabs: TabItemProps[]): number {
         const index = tabs.findIndex((tab) => tab.active);
         return index !== -1 ? index : 0;

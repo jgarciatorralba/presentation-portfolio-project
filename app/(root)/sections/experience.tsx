@@ -8,7 +8,6 @@ import Tabs from "../../_components/tabs";
 import { oranienbaum } from "../../_lib/fonts";
 
 const experiences = experiencesData as Experiences;
-
 const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, experience], index) => {
     return {
         active: index === 0,

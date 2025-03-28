@@ -1,33 +1,16 @@
-import { JSX } from "react";
-import { TabPanelProps } from "userInterface";
+import { JSX, ReactNode } from "react";
+import styles from '../_styles/components/tabPanel.module.css';
 
-export default function TabPanel({
-    companyName,
-    companyUrl,
-    position,
-    startDate,
-    endDate,
-    description,
-    features,
-    ...props
-}: TabPanelProps): JSX.Element {
+export default function TabPanel({ currentPanel, activePanel, children }: { currentPanel: number, activePanel: number, children: ReactNode }): JSX.Element {
     return (
         <>
-            <div className="tab-content" {...props}>
-                <div className="mb-4">
-                    <h3 className="text-lg md:text-2xl">
-                        {position} @ <a className="text-midnight-blue" href={companyUrl} target="_blank" rel="noopener noreferrer">{companyName}</a>
-                    </h3>
-                    <p className="paragraph mt-1 text-sm">{startDate} — {endDate}</p>
-                </div>
-                <p className="paragraph">{description}</p>
-                {features && (
-                    <ul className="list-disc list-inside pl-6">
-                        {features.map((feature, index) => (
-                            <li key={`feature-key-${index}`} className="indented-list-item">{feature}</li>
-                        ))}
-                    </ul>
-                )}
+            <div
+                id={`tabpanel-${currentPanel}`}
+                className={`absolute ${styles.tabContent} ${currentPanel === activePanel && styles.active}`}
+                role="tabpanel"
+                aria-labelledby={`tab-${currentPanel}`}
+            >
+                {children}
             </div>
         </>
     );

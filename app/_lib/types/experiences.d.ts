@@ -1,13 +1,25 @@
 declare module "experiences" {
-    interface ExperienceDetails {
-        companyName: string;
-        companyUrl: string;
-        position: string;
-        startDate: string;
-        endDate: string;
+    interface Company {
+        name: string;
+        url: string;
+    };
+
+    interface Dates {
+        start: string;
+        end: string;
+    }
+
+    interface Position {
+        title: string;
         description: string;
+    }
+
+    export interface ExperienceProps {
+        company: Company;
+        dates: Dates;
+        position: Position;
         features: string[];
     }
 
-    export type Experiences = Record<string, ExperienceDetails>;
+    export type Experiences = Record<string, ExperienceProps>;
 }

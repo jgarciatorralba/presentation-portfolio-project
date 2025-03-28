@@ -1,22 +1,22 @@
 'use client';
 
 import { JSX, useState } from 'react';
-import { TabContentProps } from 'userInterface';
-import styles from '../_styles/components/tabs.module.css';
+import { TabItemProps } from 'userInterface';
 import Tab from './tab';
+import TabPanel from './tabPanel';
 
-export default function Tabs({ children }: { children: TabContentProps[] }): JSX.Element {
-    function findActiveTab(tabs: TabContentProps[]): number {
+export default function Tabs({ items }: { items: TabItemProps[] }): JSX.Element {
+    function findActiveTab(tabs: TabItemProps[]): number {
         const index = tabs.findIndex((tab) => tab.active);
         return index !== -1 ? index : 0;
     }
 
-    const [activeTab, setActiveTab] = useState(findActiveTab(children));
+    const [activeTab, setActiveTab] = useState(findActiveTab(items));
 
     return (
         <div className="md:flex w-full">
             <div className="tab-list" role="tablist">
-                {children.map(({ label }, i) => (
+                {items.map(({ label }, i) => (
                     <Tab key={`tab-${i}`} currentTab={i} activeTab={activeTab} setActiveTab={setActiveTab}>
                         {label}
                     </Tab>
@@ -24,16 +24,10 @@ export default function Tabs({ children }: { children: TabContentProps[] }): JSX
             </div>
 
             <div className="py-6 md:py-2 md:px-5 w-full relative min-h-[28lh] xs:min-h-[22lh] lg:min-h-[18lh] xl:min-h-[12lh]">
-                {children.map(({ component }, i) => (
-                    <div
-                        key={i}
-                        id={`tabpanel-${i}`}
-                        className={`absolute ${styles.tabContent} ${i === activeTab && styles.active}`}
-                        role="tabpanel"
-                        aria-labelledby={`tab-${i}`}
-                    >
+                {items.map(({ component }, i) => (
+                    <TabPanel key={`tabpanel-${i}`} currentPanel={i} activePanel={activeTab}>
                         {component}
-                    </div>
+                    </TabPanel>
                 ))}
             </div>
         </div>

@@ -1,19 +1,19 @@
 import { Experiences } from "experiences";
 import { JSX } from "react";
-import { TabContentProps } from "userInterface";
+import { TabItemProps } from "userInterface";
 import experiencesData from "../../_assets/texts/experiences.json";
+import ExperienceComponent from "../../_components/experience";
 import Section from "../../_components/section";
-import TabPanel from "../../_components/tabPanel";
 import Tabs from "../../_components/tabs";
 import { oranienbaum } from "../../_lib/fonts";
 
 const experiences = experiencesData as Experiences;
 
-const experienceContents: TabContentProps[] = Object.entries(experiences).map(([name, details], index) => {
+const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, experience], index) => {
     return {
         active: index === 0,
         label: name,
-        component: <TabPanel {...details} />,
+        component: <ExperienceComponent {...experience} />,
     };
 });
 
@@ -24,7 +24,7 @@ export default function Experience(): JSX.Element {
                 <h2 className={`header ${oranienbaum.className}`}>Experience</h2>
                 <p className="paragraph">Companies I've worked for.</p>
 
-                <Tabs children={experienceContents} />
+                <Tabs items={experienceItems} />
             </div>
         </Section>
     );

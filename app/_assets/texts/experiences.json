@@ -1,11 +1,17 @@
 {
     "eDreams": {
-        "companyName": "eDreams ODIGEO",
-        "companyUrl": "https://www.edreams.es/",
-        "position": "Software Engineer",
-        "startDate": "June 2024",
-        "endDate": "Present",
-        "description": "Working as a Backend Developer in the Accommodation area, contributing to the improvement of the hotel booking platform and post-booking services.",
+        "company": {
+            "name": "eDreams ODIGEO",
+            "url": "https://www.edreams.es/"
+        },
+        "dates": {
+            "start": "June 2024",
+            "end": "Present"
+        },
+        "position": {
+            "title": "Software Engineer",
+            "description": "Working as a Backend Developer in the Accommodation area, contributing to the improvement of the hotel booking platform and post-booking services."
+        },
         "features": [
             "Development of scalable solutions using PHP8, MariaDB, Redis and RabbitMQ.",
             "Active participation in product definition, applying Hexagonal Architecture and DDD.",
@@ -15,12 +21,18 @@
         ]
     },
     "Adkomo": {
-        "companyName": "Adkomo",
-        "companyUrl": "https://www.adkomo.com/",
-        "position": "Full Stack Developer",
-        "startDate": "April 2022",
-        "endDate": "June 2024",
-        "description": "Enhanced and maintained a proprietary advertising and digital marketing platform.",
+        "company": {
+            "name": "Adkomo",
+            "url": "https://www.adkomo.com/"
+        },
+        "dates": {
+            "start": "April 2022",
+            "end": "June 2024"
+        },
+        "position": {
+            "title": "Full Stack Developer",
+            "description": "Enhanced and maintained a proprietary advertising and digital marketing platform."
+        },
         "features": [
             "Developed and optimized microservices architecture hosted on AWS.",
             "Worked with Symfony (PHP 7.4), PostgreSQL, Redis, and React to build robust and efficient solutions.",
@@ -28,23 +40,35 @@
         ]
     },
     "SII Group Spain": {
-        "companyName": "SII Group Spain",
-        "companyUrl": "https://siigroup-spain.com/",
-        "position": "Full Stack Developer",
-        "startDate": "February 2022",
-        "endDate": "April 2022",
-        "description": "Participated in the development of new and existing projects in a consulting firm.",
+        "company": {
+            "name": "SII Group Spain",
+            "url": "https://siigroup-spain.com/"
+        },
+        "dates": {
+            "start": "February 2022",
+            "end": "April 2022"
+        },
+        "position": {
+            "title": "Full Stack Developer",
+            "description": "Participated in the development of new and existing projects in a consulting firm."
+        },
         "features": [
             "Mainly worked with Symfony (PHP 7.4) and React."
         ]
     },
     "Òmada": {
-        "companyName": "Òmada",
-        "companyUrl": "https://www.omada.es/es/",
-        "position": "Junior Backend Developer",
-        "startDate": "February 2021",
-        "endDate": "February 2022",
-        "description": "Developed and maintained projects in industries such as education, healthcare and NGOs.",
+        "company": {
+            "name": "Òmada",
+            "url": "https://www.omada.es/"
+        },
+        "dates": {
+            "start": "February 2021",
+            "end": "February 2022"
+        },
+        "position": {
+            "title": "Junior Backend Developer",
+            "description": "Developed and maintained projects in industries such as education, healthcare and NGOs."
+        },
         "features": [
             "Implemented and optimized features for applications based on Drupal (CMS framework for PHP).",
             "Collaborated on the integration of third-party solutions.",
@@ -52,12 +76,18 @@
         ]
     },
     "Inbenta": {
-        "companyName": "Inbenta",
-        "companyUrl": "https://www.inbenta.com/",
-        "position": "Product Developer",
-        "startDate": "December 2020",
-        "endDate": "February 2021",
-        "description": "Maintenance, evolution and testing of proprietary software.",
+        "company": {
+            "name": "Inbenta",
+            "url": "https://www.inbenta.com/"
+        },
+        "dates": {
+            "start": "December 2020",
+            "end": "February 2021"
+        },
+        "position": {
+            "title": "Product Developer",
+            "description": "Maintenance, evolution and testing of proprietary software."
+        },
         "features": [
             "Took part in building both client-side and server-side features using Laravel and Vue.js."
         ]

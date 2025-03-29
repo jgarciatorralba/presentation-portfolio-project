@@ -1,9 +1,9 @@
+import ProjectCard from "@/app/_components/sections/projects/projectCard";
 import fs from "fs";
 import path from "path";
 import { Project } from "projects";
 import { JSX } from "react";
 import Section from "../../_components/section";
-import ProjectsComponent from "../../_components/sections/projects";
 import { oranienbaum } from "../../_lib/fonts";
 
 const API_URL: string = process.env.API_URL || '';
@@ -43,7 +43,18 @@ export default async function Projects(): Promise<JSX.Element | null> {
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
                 <p className="paragraph">A taste of my work.</p>
 
-                <ProjectsComponent projects={projects} next={next} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+                    {projects.map((project: Project) => (
+                        <ProjectCard
+                            key={project.id}
+                            name={project.name}
+                            description={project.description}
+                            topics={project.topics || []}
+                            repository={project.repository}
+                            homepage={project.homepage}
+                        />
+                    ))}
+                </div>
             </div>
         </Section>
     );

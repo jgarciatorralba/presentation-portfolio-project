@@ -1,6 +1,6 @@
 import { JSX } from "react";
 import { TabPanelProps } from "userInterface";
-import styles from '../_styles/components/tabPanel.module.css';
+import styles from '../../_styles/components/tabs/tabs.module.css';
 
 export default function TabPanel({ currentPanel, activePanel, children }: TabPanelProps): JSX.Element {
     return (

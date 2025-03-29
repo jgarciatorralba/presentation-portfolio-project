@@ -1,7 +1,7 @@
 import { ExperienceProps } from "experiences";
 import { JSX } from "react";
 
-export default function Experience({
+export default function ExperienceTabContent({
     company,
     dates,
     position,

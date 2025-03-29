@@ -3,8 +3,8 @@ import { JSX } from "react";
 import { TabItemProps } from "userInterface";
 import experiencesData from "../../_assets/texts/experiences.json";
 import Section from "../../_components/section";
-import ExperienceComponent from "../../_components/sections/experience";
-import Tabs from "../../_components/tabs";
+import ExperienceTabContent from "../../_components/sections/experience/experienceTabContent";
+import Tabs from "../../_components/tabs/tabs";
 import { oranienbaum } from "../../_lib/fonts";
 
 const experiences = experiencesData as Experiences;
@@ -12,7 +12,7 @@ const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, 
     return {
         active: index === 0,
         label: name,
-        component: <ExperienceComponent {...experience} />,
+        component: <ExperienceTabContent {...experience} />,
     };
 });
 

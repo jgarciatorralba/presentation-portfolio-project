@@ -2,9 +2,9 @@
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
 import { Navigation } from "userInterface";
-import navigationData from "../_assets/texts/navigation.json";
-import { oranienbaum } from "../_lib/fonts";
-import styles from "../_styles/components/navbar.module.css";
+import navigationData from "../../_assets/texts/navigation.json";
+import { oranienbaum } from "../../_lib/fonts";
+import styles from "../../_styles/components/header/navbar.module.css";
 import NavbarButton from "./navbarButton";
 
 const navigation = navigationData as Navigation;

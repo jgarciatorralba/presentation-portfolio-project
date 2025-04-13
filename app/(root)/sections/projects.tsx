@@ -1,3 +1,4 @@
+import FetchButton from "@/app/_components/sections/projects/fetchButton";
 import ProjectCard from "@/app/_components/sections/projects/projectCard";
 import fs from "fs";
 import path from "path";
@@ -54,6 +55,10 @@ export default async function Projects(): Promise<JSX.Element | null> {
                             homepage={project.homepage}
                         />
                     ))}
+                </div>
+
+                <div className="p-6 flex flew-row justify-center">
+                    <FetchButton next={next} />
                 </div>
             </div>
         </Section>

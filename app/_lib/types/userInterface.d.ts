@@ -7,6 +7,7 @@ declare module "userInterface" {
         onClick: (event: MouseEvent<HTMLButtonElement>) => void;
         className?: string;
         role?: string;
+        disabled?: boolean;
     };
 
     interface NavigationItem {

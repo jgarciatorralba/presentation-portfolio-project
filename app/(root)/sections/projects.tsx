@@ -44,7 +44,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
                 <p className="paragraph">A taste of my work.</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
                     {projects.map((project: Project) => (
                         <ProjectCard
                             key={project.id}

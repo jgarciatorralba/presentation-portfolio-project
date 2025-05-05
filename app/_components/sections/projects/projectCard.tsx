@@ -48,7 +48,7 @@ export default function ProjectCard({ name, description, topics, repository, hom
                 {topics.map((topic, index) => (
                     <span
                         key={index}
-                        className="text-xs capitalize"
+                        className="text-xs text-background bg-secondary py-1 px-2 rounded-full"
                     >
                         {topic}
                     </span>

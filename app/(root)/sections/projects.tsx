@@ -1,10 +1,10 @@
-import FetchButton from "@/app/_components/sections/projects/fetchButton";
-import ProjectCard from "@/app/_components/sections/projects/projectCard";
 import fs from "fs";
 import path from "path";
 import { Project } from "projects";
 import { JSX } from "react";
 import Section from "../../_components/section";
+import FetchButton from "../../_components/sections/projects/fetchButton";
+import ProjectCard from "../../_components/sections/projects/projectCard";
 import { oranienbaum } from "../../_lib/fonts";
 
 const API_URL: string = process.env.API_URL || '';

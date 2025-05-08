@@ -1,3 +1,4 @@
+import { apiUrl, cacheLifetimeSeconds, logFilePath } from "@/app/_lib/constants";
 import fs from "fs";
 import path from "path";
 import { Project, ProjectData } from "projects";
@@ -6,16 +7,12 @@ import Section from "../../_components/section";
 import ProjectsComponent from "../../_components/sections/projects/projects";
 import { oranienbaum } from "../../_lib/fonts";
 
-const API_URL: string = process.env.API_URL || '';
-const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
-const logFilePath: string = path.join(process.cwd(), "logs", "error.log");
-
 export default async function Projects(): Promise<JSX.Element | null> {
     let projects: Project[] = [];
     let next: boolean = false;
 
     try {
-        const response = await fetch(`${API_URL}/api/projects?pageSize=6`, { next: { revalidate: cacheLifetimeSeconds } });
+        const response = await fetch(`${apiUrl}/api/projects?pageSize=6`, { next: { revalidate: cacheLifetimeSeconds } });
         if (!response.ok) {
             throw new Error(`Response status: ${response.statusText}`);
         }

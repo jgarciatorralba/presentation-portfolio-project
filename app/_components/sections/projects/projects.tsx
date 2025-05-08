@@ -1,11 +1,10 @@
 'use client'
 
+import { clientApiUrl } from "@/app/_lib/constants";
 import { Project, ProjectData } from "projects";
 import { JSX, useEffect, useState } from "react";
 import Button from "../../button";
 import ProjectCard from "./projectCard";
-
-const API_URL: string = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const [disabled, setDisabled] = useState(next === false);
@@ -22,7 +21,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
         if (!disabled) setDisabled(true);
 
         try {
-            const response = await fetch(`${API_URL}/api/projects?pageSize=3` + (maxPushedAt ? `&maxPushedAt=${maxPushedAt.toISOString()}` : ''));
+            const response = await fetch(`${clientApiUrl}/api/projects?pageSize=3` + (maxPushedAt ? `&maxPushedAt=${maxPushedAt.toISOString()}` : ''));
             if (!response.ok) {
                 throw new Error(`Response status: ${response.statusText}`);
             }

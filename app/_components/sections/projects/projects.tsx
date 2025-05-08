@@ -44,8 +44,8 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                 setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
             }
         } catch (error: unknown) {
-            const logMessage = `[${new Date().toISOString()}] Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
-            console.error(logMessage);
+            const errorMessage = `Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
+            console.error(errorMessage);
         } finally {
             setDisabled(next === false);
         }

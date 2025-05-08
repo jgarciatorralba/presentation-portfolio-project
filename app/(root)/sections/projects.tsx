@@ -1,10 +1,10 @@
-import { apiUrl, cacheLifetimeSeconds, logFilePath } from "@/app/_lib/constants";
 import fs from "fs";
 import path from "path";
 import { Project, ProjectData } from "projects";
 import { JSX } from "react";
 import Section from "../../_components/section";
 import ProjectsComponent from "../../_components/sections/projects/projects";
+import { apiUrl, cacheLifetimeSeconds, logFilePath } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
 export default async function Projects(): Promise<JSX.Element | null> {

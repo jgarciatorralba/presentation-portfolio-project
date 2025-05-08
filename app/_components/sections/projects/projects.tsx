@@ -1,8 +1,8 @@
 'use client'
 
-import { clientApiUrl } from "@/app/_lib/constants";
 import { Project, ProjectData } from "projects";
 import { JSX, useEffect, useState } from "react";
+import { clientApiUrl } from "../../../_lib/constants";
 import Button from "../../button";
 import ProjectCard from "./projectCard";
 

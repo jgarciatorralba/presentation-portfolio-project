@@ -1,5 +1,5 @@
 declare module "projects" {
-    export type Project = {
+    export type ProjectData = {
         id: number;
         name: string;
         description: string;
@@ -8,6 +8,17 @@ declare module "projects" {
         homepage: string | null;
         archived: boolean;
         lastPushedAt: string;
+    };
+
+    export type Project = {
+        id: number;
+        name: string;
+        description: string;
+        topics: string[] | null;
+        repository: string;
+        homepage: string | null;
+        archived: boolean;
+        lastPushedAt: Date;
     };
 
     export type ProjectCardProps = {

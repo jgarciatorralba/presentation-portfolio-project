@@ -1,10 +1,9 @@
 import fs from "fs";
 import path from "path";
-import { Project } from "projects";
+import { Project, ProjectData } from "projects";
 import { JSX } from "react";
 import Section from "../../_components/section";
-import FetchButton from "../../_components/sections/projects/fetchButton";
-import ProjectCard from "../../_components/sections/projects/projectCard";
+import ProjectsComponent from "../../_components/sections/projects/projects";
 import { oranienbaum } from "../../_lib/fonts";
 
 const API_URL: string = process.env.API_URL || '';
@@ -26,7 +25,14 @@ export default async function Projects(): Promise<JSX.Element | null> {
         }
 
         const data = await response.json();
-        projects = data.projects;
+        if (!data || !Array.isArray(data.projects) || !data.projects.every((project: unknown) => typeof project === "object")) {
+            throw new Error("Invalid response format");
+        }
+
+        projects = data.projects.map((project: ProjectData): Project => ({
+            ...project,
+            lastPushedAt: new Date(project.lastPushedAt),
+        }));
     } catch (error: unknown) {
         const logMessage = `[${new Date().toISOString()}] Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
 
@@ -44,22 +50,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
                 <p className="paragraph">A taste of my work.</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
-                    {projects.map((project: Project) => (
-                        <ProjectCard
-                            key={project.id}
-                            name={project.name}
-                            description={project.description}
-                            topics={project.topics || []}
-                            repository={project.repository}
-                            homepage={project.homepage}
-                        />
-                    ))}
-                </div>
-
-                <div className="p-6 flex flew-row justify-center">
-                    <FetchButton next={next} />
-                </div>
+                <ProjectsComponent next={next} prefetchedProjects={projects} />
             </div>
         </Section>
     );

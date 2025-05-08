@@ -12,15 +12,6 @@ const navigation = navigationData as Navigation;
 export default function Navbar(): JSX.Element {
     const [open, setOpen] = useState(false);
 
-    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        setOpen(open => !open);
-    }
-
-    const handleClickLink = () => {
-        setOpen(open => !open);
-    }
-
     useEffect(() => {
         const body = document.body;
         const blurredBackground = body.querySelector('.blurred-background');
@@ -38,6 +29,15 @@ export default function Navbar(): JSX.Element {
             blurredBackground?.classList.remove('active');
         };
     }, [open]);
+
+    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setOpen(open => !open);
+    }
+
+    const handleClickLink = () => {
+        setOpen(open => !open);
+    }
 
     return (
         <>

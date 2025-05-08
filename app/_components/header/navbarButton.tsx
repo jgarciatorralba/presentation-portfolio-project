@@ -5,6 +5,14 @@ import { NavbarButtonProps } from "userInterface";
 import Button from "../button";
 
 export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.Element {
+    useEffect(() => {
+        return () => {
+            if (timeoutRef.current !== null) {
+                clearTimeout(timeoutRef.current);
+            }
+        };
+    }, []);
+
     const timeoutRef = useRef<number | null>(null);
 
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -15,14 +23,6 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
             button.blur();
         }, 150);
     }
-
-    useEffect(() => {
-        return () => {
-            if (timeoutRef.current !== null) {
-                clearTimeout(timeoutRef.current);
-            }
-        };
-    }, []);
 
     return (
         <Button htmlType="button" onClick={handleClick} className="ml-4 p-2 focus:bg-midnight-blue rounded-xs md:hidden z-40">

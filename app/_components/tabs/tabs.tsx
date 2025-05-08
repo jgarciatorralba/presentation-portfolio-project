@@ -6,12 +6,12 @@ import Tab from './tab';
 import TabPanel from './tabPanel';
 
 export default function Tabs({ items }: TabsProps): JSX.Element {
+    const [activeTab, setActiveTab] = useState(findActiveTab(items));
+
     function findActiveTab(tabs: TabItemProps[]): number {
         const index = tabs.findIndex((tab) => tab.active);
         return index !== -1 ? index : 0;
     }
-
-    const [activeTab, setActiveTab] = useState(findActiveTab(items));
 
     return (
         <div className="md:flex w-full">

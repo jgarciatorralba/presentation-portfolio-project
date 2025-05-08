@@ -1,10 +1,9 @@
 import { JSX } from "react";
 
 const url: string = "https://brittanychiang.com";
+const year: Number = new Date().getFullYear();
 
 export default function Footer(): JSX.Element {
-    const year: Number = new Date().getFullYear();
-
     return (
         <footer>
             <div className="py-2 text-center">

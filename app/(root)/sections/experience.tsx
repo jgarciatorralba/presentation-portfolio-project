@@ -1,13 +1,11 @@
-import { Experiences } from "experiences";
 import { JSX } from "react";
 import { TabItemProps } from "userInterface";
-import experiencesData from "../../_assets/texts/experiences.json";
 import Section from "../../_components/section";
 import ExperienceTabContent from "../../_components/sections/experience/experienceTabContent";
 import Tabs from "../../_components/tabs/tabs";
+import { experiences } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
-const experiences = experiencesData as Experiences;
 const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, experience], index) => {
     return {
         active: index === 0,

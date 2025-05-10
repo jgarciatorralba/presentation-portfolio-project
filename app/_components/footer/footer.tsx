@@ -1,7 +1,5 @@
 import { JSX } from "react";
-
-const url: string = "https://brittanychiang.com";
-const year: Number = new Date().getFullYear();
+import { referredUrl, year } from "../../_lib/constants";
 
 export default function Footer(): JSX.Element {
     return (
@@ -11,7 +9,7 @@ export default function Footer(): JSX.Element {
                 <p><small>
                     Inspired by the work of{" "}
                     <a
-                        href={url}
+                        href={referredUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-bold"

@@ -1,14 +1,8 @@
 import Image from 'next/image';
 import { JSX } from "react";
-import { SocialNetworks } from 'socialNetworks';
-import { Technologies } from 'technologies';
-import socialNetworksData from "../../_assets/texts/socialNetworks.json";
-import technologiesData from "../../_assets/texts/technologies.json";
 import Section from "../../_components/section";
+import { socialNetworks, technologies } from '../../_lib/constants';
 import { oranienbaum } from "../../_lib/fonts";
-
-const socialNetworks = socialNetworksData as SocialNetworks;
-const technologies = technologiesData as Technologies;
 
 export default function About(): JSX.Element {
     return (

@@ -1,8 +1,7 @@
 import { JSX } from "react";
 import Section from "../../_components/section";
+import { email } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
-
-const email = "jgarciatorralba@gmail.com";
 
 export default function Contact(): JSX.Element {
     return (

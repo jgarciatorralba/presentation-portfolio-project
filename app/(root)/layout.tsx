@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
 import Footer from "../_components/footer/footer";
 import Header from "../_components/header/header";
+import { ToastProvider } from "../_components/toast/toast";
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>): ReactNode {
   return (
     <>
       <Header />
-      {children}
+      <ToastProvider>{children}</ToastProvider>
       <Footer />
     </>
   );

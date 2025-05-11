@@ -4,12 +4,14 @@ import { Project, ProjectData } from "projects";
 import { JSX, useEffect, useState } from "react";
 import { clientApiUrl } from "../../../_lib/constants";
 import Button from "../../button";
+import { useToast } from "../../toast/toast-context";
 import ProjectCard from "./projectCard";
 
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const [disabled, setDisabled] = useState(next === false);
     const [projects, setProjects] = useState<Project[]>(prefetchedProjects);
     const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(projects.length > 0 ? projects[projects.length - 1].lastPushedAt : null);
+    const toast = useToast();
 
     useEffect(() => {
         if (projects.length > 0) {
@@ -43,8 +45,9 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                 setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
             }
         } catch (error: unknown) {
-            const errorMessage = `Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
-            console.error(errorMessage);
+            const errorMessage = `${error instanceof Error ? error.message : "Unknown error"}`;
+
+            toast?.open(errorMessage);
         } finally {
             setDisabled(next === false);
         }

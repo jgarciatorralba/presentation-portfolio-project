@@ -1,0 +1,44 @@
+.toastContainer {
+    position: fixed;
+    top: calc(var(--nav-min-height) + 1rem);
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toast {
+    color: var(--primary);
+    border-top: 4px solid var(--secondary);
+    background-color: var(--midnight-blue);
+    min-width: 300px;
+    position: relative;
+    box-shadow: 5px 5px 15px -10px var(--secondary);
+    animation-name: slideIn;
+    animation-duration: 0.35s;
+}
+
+.closeButton {
+    color: var(--primary);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+    background: none;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    60% {
+        transform: translateX(-15%);
+    }
+    80% {
+        transform: translateX(5%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

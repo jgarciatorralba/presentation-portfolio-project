@@ -11,14 +11,14 @@ import technologiesData from "../_assets/texts/technologies.json";
 const apiUrl: string = process.env.API_URL || '';
 const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
 const clientApiUrl: string = process.env.NEXT_PUBLIC_API_URL || '';
-const email = "jgarciatorralba@gmail.com";
-const experiences = experiencesData as Experiences;
+const email: string = "jgarciatorralba@gmail.com";
+const experiences: Experiences = experiencesData;
 const logFilePath: string = process.env.LOG_FILE_PATH || path.join(process.cwd(), 'logs', 'error.log');
-const navigation = navigationData as Navigation;
+const navigation: Navigation = navigationData;
 const referredUrl: string = "https://brittanychiang.com";
-const socialNetworks = socialNetworksData as SocialNetworks;
-const technologies = technologiesData as Technologies;
-const year: Number = new Date().getFullYear();
+const socialNetworks: SocialNetworks = socialNetworksData;
+const technologies: Technologies = technologiesData;
+const year: number = new Date().getFullYear();
 
 export {
     apiUrl,

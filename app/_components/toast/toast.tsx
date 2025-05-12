@@ -2,13 +2,9 @@
 
 import Image from 'next/image';
 import { JSX, useEffect, useMemo, useRef, useState } from 'react';
+import { ToastProps, ToastProviderProps, ToastType } from 'toast';
 import styles from '../../_styles/components/toast/toast.module.css';
 import { ToastContext } from './toast-context';
-
-type ToastProperties = {
-    message: string;
-    close: () => void;
-};
 
 function useTimeout(callback: () => void) {
     const savedCallback = useRef(callback);
@@ -26,7 +22,7 @@ function useTimeout(callback: () => void) {
     }, []);
 }
 
-export default function Toast({ message, close }: ToastProperties): JSX.Element {
+export default function Toast({ message, close }: ToastProps): JSX.Element {
     useTimeout(() => {
         close();
     });
@@ -60,15 +56,6 @@ export default function Toast({ message, close }: ToastProperties): JSX.Element 
         </div>
     );
 }
-
-type ToastProviderProps = {
-    children: React.ReactNode;
-};
-
-type ToastType = {
-    message: string;
-    id: number;
-};
 
 export function ToastProvider({ children }: ToastProviderProps): JSX.Element {
     const [toasts, setToasts] = useState<ToastType[]>([]);

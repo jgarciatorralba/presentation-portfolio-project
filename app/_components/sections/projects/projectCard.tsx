@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { ProjectCardProps } from "projects";
 import { JSX } from "react";
+import styles from "../../../_styles/components/sections/projects/projectCard.module.css";
 
 export default function ProjectCard({ name, description, topics, repository, homepage }: ProjectCardProps): JSX.Element {
     return (
-        <div className="bg-blue hover:bg-midnight-blue rounded-md p-6 transition hover:scale-105 flex flex-col justify-between">
+        <div className={`bg-blue hover:bg-midnight-blue rounded-md p-6 transition hover:scale-105 flex flex-col justify-between ${styles.fadeIn}`}>
             <div>
                 <div className="flex flex-row justify-end mb-6 sm:mb-4">
                     <a

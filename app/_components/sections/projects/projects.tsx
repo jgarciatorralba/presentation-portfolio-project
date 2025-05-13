@@ -3,21 +3,22 @@
 import { Project, ProjectData } from "projects";
 import { JSX, useEffect, useState } from "react";
 import { clientApiUrl } from "../../../_lib/constants";
+import { useToast } from "../../../_lib/hooks/useToast";
 import Button from "../../button";
-import { useToast } from "../../toast/toast-context";
 import ProjectCard from "./projectCard";
 
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const [disabled, setDisabled] = useState(next === false);
     const [projects, setProjects] = useState<Project[]>(prefetchedProjects);
     const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(projects.length > 0 ? projects[projects.length - 1].lastPushedAt : null);
-    const toast = useToast();
 
     useEffect(() => {
         if (projects.length > 0) {
             setMaxPushedAt(projects[projects.length - 1].lastPushedAt);
         }
     }, [projects]);
+
+    const toast = useToast();
 
     const handleClick = async () => {
         if (!disabled) setDisabled(true);

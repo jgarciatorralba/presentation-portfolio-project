@@ -14,4 +14,9 @@ declare module "toast" {
         message: string;
         id: number;
     };
+
+    export type ToastContextValue = {
+        open: (message: string) => void;
+        close: (id: number) => void;
+    };
 }

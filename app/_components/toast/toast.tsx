@@ -1,26 +1,10 @@
 'use client'
 
+import useTimeout from '@/app/_lib/hooks/useTimeout';
 import Image from 'next/image';
-import { JSX, useEffect, useMemo, useRef, useState } from 'react';
-import { ToastProps, ToastProviderProps, ToastType } from 'toast';
+import { JSX } from 'react';
+import { ToastProps } from 'toast';
 import styles from '../../_styles/components/toast/toast.module.css';
-import { ToastContext } from './toast-context';
-
-function useTimeout(callback: () => void) {
-    const savedCallback = useRef(callback);
-
-    useEffect(() => {
-        savedCallback.current = callback;
-    }, [callback]);
-
-    useEffect(() => {
-        const functionId = setTimeout(() => savedCallback.current(), 3000);
-
-        return () => {
-            clearTimeout(functionId);
-        };
-    }, []);
-}
 
 export default function Toast({ message, close }: ToastProps): JSX.Element {
     useTimeout(() => {
@@ -54,44 +38,5 @@ export default function Toast({ message, close }: ToastProps): JSX.Element {
                 </svg>
             </button>
         </div>
-    );
-}
-
-export function ToastProvider({ children }: ToastProviderProps): JSX.Element {
-    const [toasts, setToasts] = useState<ToastType[]>([]);
-
-    function openToast(message: string) {
-        const newToast = {
-            id: Date.now(),
-            message: message,
-        };
-
-        setToasts((prevToasts) => [...prevToasts, newToast]);
-    }
-
-    function closeToast(id: number) {
-        setToasts((previousToasts) => previousToasts.filter((toast) => toast.id !== id));
-    }
-
-    const contextValue = useMemo(() => ({
-        open: openToast,
-        close: closeToast,
-    }), []);
-
-    return (
-        <>
-            <ToastContext.Provider value={contextValue}>
-                {children}
-                <div className={styles.toastContainer}>
-                    {toasts.map((toast) => (
-                        <Toast
-                            key={toast.id}
-                            message={toast.message}
-                            close={() => closeToast(toast.id)}
-                        />
-                    ))}
-                </div>
-            </ToastContext.Provider>
-        </>
     );
 }

@@ -1,21 +1,21 @@
 import { ReactNode } from "react";
 
 declare module "toast" {
-    export type ToastProps = {
+    type ToastProps = {
         message: string;
         close: () => void;
     };
 
-    export type ToastProviderProps = {
+    type ToastProviderProps = {
         children: ReactNode;
     };
 
-    export type ToastType = {
+    type ToastType = {
         message: string;
         id: number;
     };
 
-    export type ToastContextValue = {
+    type ToastContextValue = {
         open: (message: string) => void;
         close: (id: number) => void;
     };

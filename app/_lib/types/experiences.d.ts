@@ -14,12 +14,12 @@ declare module "experiences" {
         description: string;
     }
 
-    export interface ExperienceProps {
+    interface ExperienceProps {
         company: Company;
         dates: Dates;
         position: Position;
         features: string[];
     }
 
-    export type Experiences = Record<string, ExperienceProps>;
+    type Experiences = Record<string, ExperienceProps>;
 }

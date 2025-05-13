@@ -1,7 +1,7 @@
 import { MouseEvent, ReactNode } from "react";
 
 declare module "userInterface" {
-    export interface ButtonProps {
+    interface ButtonProps {
         htmlType: "button" | "submit" | "reset";
         children: ReactNode;
         onClick: (event: MouseEvent<HTMLButtonElement>) => void;
@@ -15,39 +15,39 @@ declare module "userInterface" {
         href: string;
     };
 
-    export interface Navigation {
+    interface Navigation {
         items: NavigationItem[];
     };
 
-    export interface NavbarButtonProps {
+    interface NavbarButtonProps {
         open: boolean;
         onClick: (event: MouseEvent<HTMLButtonElement>) => void;
     };
 
-    export interface SectionProps {
+    interface SectionProps {
         children: ReactNode;
         name: string;
         className?: string;
     };
 
-    export interface TabItemProps {
+    interface TabItemProps {
         active?: boolean;
         label: string;
         component: ReactNode;
     };
 
-    export interface TabsProps {
+    interface TabsProps {
         items: TabItemProps[];
     }
 
-    export interface TabProps {
+    interface TabProps {
         children: ReactNode;
         currentTab: number;
         activeTab: number;
         setActiveTab: (tab: number) => void;
     };
 
-    export interface TabPanelProps {
+    interface TabPanelProps {
         children: ReactNode;
         currentPanel: number;
         activePanel: number;

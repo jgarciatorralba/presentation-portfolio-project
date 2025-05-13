@@ -30,6 +30,9 @@
       "userInterface": [
         "./app/_lib/types/userInterface"
       ],
+      "toast": [
+        "./app/_lib/types/toast"
+      ],
     }
   },
   "include": [

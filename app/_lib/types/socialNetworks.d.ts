@@ -3,5 +3,5 @@ declare module "socialNetworks" {
         url: string;
     };
 
-    export type SocialNetworks = Record<string, SocialNetwork>
+    type SocialNetworks = Record<string, SocialNetwork>
 }

@@ -42,8 +42,8 @@ export default function Navbar(): JSX.Element {
                 <div className="flex justify-end items-center">
                     <ol className="hidden md:flex flex-row gap-x-12">
                         {navigation.items.map((item, index) => (
-                            <li key={index} className="list-decimal text-baby-blue">
-                                <a href={item.href} className="py-2 pl-1 text-baby-blue hover:no-underline! hover:text-midnight-blue! focus:text-blue!">
+                            <li key={index} className="list-decimal text-primary">
+                                <a href={item.href} className="py-2 pl-1 text-primary hover:no-underline! hover:text-midnight-blue! focus:text-blue!">
                                     {item.name}
                                 </a>
                             </li>
@@ -56,8 +56,8 @@ export default function Navbar(): JSX.Element {
                 <div className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid content-center place-items-center text-lg ${open ? styles.open : ''}`}>
                     <ol className="grid gap-y-6 p-8 text-center">
                         {navigation.items.map((item, index) => (
-                            <li key={index} className="list-decimal list-inside text-baby-blue">
-                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-baby-blue hover:no-underline! hover:text-midnight-blue!">
+                            <li key={index} className="list-decimal list-inside text-primary">
+                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-primary hover:no-underline! hover:text-midnight-blue!">
                                     {item.name}
                                 </a>
                             </li>

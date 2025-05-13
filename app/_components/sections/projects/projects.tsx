@@ -3,6 +3,7 @@
 import { Project, ProjectData } from "projects";
 import { JSX, useEffect, useState } from "react";
 import { clientApiUrl } from "../../../_lib/constants";
+import { useToast } from "../../../_lib/hooks/useToast";
 import Button from "../../button";
 import ProjectCard from "./projectCard";
 
@@ -16,6 +17,8 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
             setMaxPushedAt(projects[projects.length - 1].lastPushedAt);
         }
     }, [projects]);
+
+    const toast = useToast();
 
     const handleClick = async () => {
         if (!disabled) setDisabled(true);
@@ -43,8 +46,9 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                 setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
             }
         } catch (error: unknown) {
-            const errorMessage = `Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
-            console.error(errorMessage);
+            const errorMessage = `${error instanceof Error ? error.message : "Unknown error"}`;
+
+            toast?.open(errorMessage);
         } finally {
             setDisabled(next === false);
         }

@@ -12,7 +12,6 @@ export default {
         background: "var(--background)",
         blue: "var(--blue)",
         midnightBlue: "var(--midnight-blue)",
-        babyBlue: "var(--baby-blue)",
       },
       width: {
         calculatedScroll: "var(--width-calculated-scroll)",

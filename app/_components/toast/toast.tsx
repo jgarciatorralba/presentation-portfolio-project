@@ -1,9 +1,9 @@
 'use client'
 
-import useTimeout from '@/app/_lib/hooks/useTimeout';
 import Image from 'next/image';
 import { JSX } from 'react';
 import { ToastProps } from 'toast';
+import useTimeout from '../../_lib/hooks/useTimeout';
 import styles from '../../_styles/components/toast/toast.module.css';
 
 export default function Toast({ message, close }: ToastProps): JSX.Element {

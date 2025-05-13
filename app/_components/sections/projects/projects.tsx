@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Project, ProjectData } from "projects";
 import { JSX, useEffect, useState } from "react";

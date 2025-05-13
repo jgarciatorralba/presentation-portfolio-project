@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { JSX, MouseEvent, useEffect, useState } from "react";
 import { navigation } from "../../_lib/constants";

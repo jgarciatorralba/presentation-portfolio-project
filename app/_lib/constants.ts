@@ -1,7 +1,7 @@
 import { Experiences } from "experiences";
 import path from "path";
-import { SocialNetworks } from 'socialNetworks';
-import { Technologies } from 'technologies';
+import { SocialNetworks } from "socialNetworks";
+import { Technologies } from "technologies";
 import { Navigation } from "userInterface";
 import experiencesData from "../_assets/texts/experiences.json";
 import navigationData from "../_assets/texts/navigation.json";

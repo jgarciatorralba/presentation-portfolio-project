@@ -1,7 +1,7 @@
-import Image from 'next/image';
+import Image from "next/image";
 import { JSX } from "react";
 import Section from "../../_components/section";
-import { socialNetworks, technologies } from '../../_lib/constants';
+import { socialNetworks, technologies } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
 export default function About(): JSX.Element {

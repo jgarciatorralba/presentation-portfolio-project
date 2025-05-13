@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { JSX, MouseEvent, useEffect, useRef } from "react";
 import { NavbarButtonProps } from "userInterface";

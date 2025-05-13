@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
 import { JSX, useMemo, useState } from "react";
 import { ToastProviderProps, ToastType } from "toast";
-import { ToastContext } from '../../_lib/context/toastContext';
-import styles from '../../_styles/components/toast/toast.module.css';
-import Toast from './toast';
+import { ToastContext } from "../../_lib/context/toastContext";
+import styles from "../../_styles/components/toast/toast.module.css";
+import Toast from "./toast";
 
 export default function ToastProvider({ children }: ToastProviderProps): JSX.Element {
     const [toasts, setToasts] = useState<ToastType[]>([]);

@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { JSX, useEffect, useState } from "react";
 import styles from "../../_styles/components/header/header.module.css";

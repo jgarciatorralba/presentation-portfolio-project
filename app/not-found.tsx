@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from 'next/link';
+import Link from "next/link";
 import { JSX } from "react";
 import { oranienbaum } from "./_lib/fonts";
 import "./_styles/globals.css";

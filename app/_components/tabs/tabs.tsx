@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { JSX, useState } from 'react';
-import { TabItemProps, TabsProps } from 'userInterface';
-import Tab from './tab';
-import TabPanel from './tabPanel';
+import { JSX, useState } from "react";
+import { TabItemProps, TabsProps } from "userInterface";
+import Tab from "./tab";
+import TabPanel from "./tabPanel";
 
 export default function Tabs({ items }: TabsProps): JSX.Element {
     const [activeTab, setActiveTab] = useState(findActiveTab(items));

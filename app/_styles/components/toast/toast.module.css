@@ -12,6 +12,7 @@
     border-top: 4px solid var(--secondary);
     background-color: var(--midnight-blue);
     min-width: 300px;
+    max-width: calc(100vw - 2rem);
     position: relative;
     box-shadow: 5px 5px 15px -10px var(--secondary);
     animation-name: slideIn;

@@ -6,7 +6,7 @@ Presentational project to showcase my portfolio as a developer.
 
 ## Content
 
-This repository contains a **Next.js** application designed to present information about my professional experience, projects, and skills. The development environment is configured using **Docker** and **Dev Containers** for an easy setup.
+This repository contains a **Next.js** application designed to present information about my professional experience, projects, and skills.
 
 ### Key Features
 
@@ -23,10 +23,9 @@ This repository contains a **Next.js** application designed to present informati
 ## Installation
 
 - Clone this repo: `git clone git@github.com:jgarciatorralba/presentation-portfolio-project.git`
-
----
-
-## Scripts
+- Run `docker compose up -d --build` to download images and set up containers.
+  - The server container's port 80 is mapped to the host's port 8080
+- Once completed, open with VisualStudio and in the command palette (*"View > Command Palette"*) select the option *"Dev Containers: Reopen in Container"*.
 
 ---
 

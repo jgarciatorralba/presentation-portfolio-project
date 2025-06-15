@@ -1,9 +1,8 @@
-FROM node:23.10-alpine
+FROM node:24.2.0-bullseye-slim
 WORKDIR /var/www/portfolio-project
 
 COPY package*.json ./
-RUN apk add --no-cache openssh-client git
-RUN mkdir -p -m 0600 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+RUN apt-get update && apt-get install -y git
 RUN npm install
 
 COPY . .

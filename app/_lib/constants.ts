@@ -15,7 +15,6 @@ const email: string = "jgarciatorralba@gmail.com";
 const experiences: Experiences = experiencesData;
 const logFilePath: string = process.env.LOG_FILE_PATH || path.join(process.cwd(), 'logs', 'error.log');
 const navigation: Navigation = navigationData;
-const referredUrl: string = "https://brittanychiang.com";
 const socialNetworks: SocialNetworks = socialNetworksData;
 const technologies: Technologies = technologiesData;
 const year: number = new Date().getFullYear();
@@ -28,7 +27,6 @@ export {
     experiences,
     logFilePath,
     navigation,
-    referredUrl,
     socialNetworks,
     technologies,
     year

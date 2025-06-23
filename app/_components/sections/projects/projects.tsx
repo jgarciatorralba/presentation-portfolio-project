@@ -74,9 +74,10 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                     htmlType="button"
                     className={`btn cursor-pointer max-w-fit ${disabled && 'pointer-events-none opacity-50'}`}
                     disabled={disabled}
-                    children={"Show more"}
                     onClick={handleClick}
-                />
+                >
+                    Show more
+                </Button>
             </div>
         </>
     );

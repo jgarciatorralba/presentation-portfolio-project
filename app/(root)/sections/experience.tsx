@@ -19,7 +19,7 @@ export default function Experience(): JSX.Element {
         <Section name="experience">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Experience</h2>
-                <p className="paragraph">Companies I've worked for.</p>
+                <p className="paragraph">Companies I&apos;ve worked for.</p>
 
                 <Tabs items={experienceItems} />
             </div>

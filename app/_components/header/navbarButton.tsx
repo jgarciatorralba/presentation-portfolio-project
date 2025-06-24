@@ -2,6 +2,7 @@
 
 import { JSX, MouseEvent, useEffect, useRef } from "react";
 import { NavbarButtonProps } from "userInterface";
+import styles from "../../_styles/components/header/navbarButton.module.css";
 import Button from "../button";
 
 export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.Element {
@@ -25,14 +26,14 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
     }
 
     return (
-        <Button htmlType="button" onClick={handleClick} className="ml-4 p-2 focus:bg-midnight-blue rounded-xs md:hidden z-40">
+        <Button htmlType="button" onClick={handleClick} className={`${styles.navButton} ml-4 p-2 rounded-xs md:hidden z-40`}>
             <svg
                 width="32"
                 height="32"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 fill="var(--primary)"
-                className="transition-all duration-300 ease-in-out"
+                className={styles.svgIcon}
             >
                 <rect
                     x="4"
@@ -40,12 +41,7 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
                     width="16"
                     height="2"
                     rx="1"
-                    transform={
-                        open
-                            ? "translate(-3 3) rotate(45)"
-                            : ""
-                    }
-                    className="transition-all duration-300 origin-center"
+                    className={`${styles.rect} ${open ? styles.topOpen : ""}`}
                 />
                 <rect
                     x="4"
@@ -53,12 +49,7 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
                     width="16"
                     height="2"
                     rx="1"
-                    transform={
-                        open
-                            ? "translate(-3 -3) rotate(-45)"
-                            : ""
-                    }
-                    className="transition-all duration-300 origin-center"
+                    className={`${styles.rect} ${open ? styles.bottomOpen : ""}`}
                 />
                 <rect
                     x="4"
@@ -66,8 +57,7 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
                     width="16"
                     height="2"
                     rx="1"
-                    opacity={open ? 0 : 1}
-                    className="transition-all duration-300"
+                    className={`${styles.rect} ${open ? styles.middleOpen : ""}`}
                 />
             </svg>
         </Button>

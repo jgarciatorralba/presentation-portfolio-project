@@ -1,0 +1,31 @@
+.navButton {
+  &:active {
+    background-color: var(--midnight-blue);
+  }
+
+  .svgIcon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .rect {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .topOpen {
+    transform: translate(-3px, 3px) rotate(45deg);
+  }
+
+  .bottomOpen {
+    transform: translate(-3px, -3px) rotate(-45deg);
+  }
+
+  .middleOpen {
+    opacity: 0;
+  }
+
+  .rect:not(.middleOpen) {
+    opacity: 1;
+  }
+}

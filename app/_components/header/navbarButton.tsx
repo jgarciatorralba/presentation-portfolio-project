@@ -26,13 +26,49 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
 
     return (
         <Button htmlType="button" onClick={handleClick} className="ml-4 p-2 focus:bg-midnight-blue rounded-xs md:hidden z-40">
-            <svg id="navClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                stroke="currentColor" className={`${open ? 'hidden' : ''} h-8 w-8`}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <svg id="navOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
-                stroke="currentColor" className={`${!open ? 'hidden' : ''} h-8 w-8`}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                fill="var(--primary)"
+                className="transition-all duration-300 ease-in-out"
+            >
+                <rect
+                    x="4"
+                    y="7"
+                    width="16"
+                    height="2"
+                    rx="1"
+                    transform={
+                        open
+                            ? "translate(-3 3) rotate(45)"
+                            : ""
+                    }
+                    className="transition-all duration-300 origin-center"
+                />
+                <rect
+                    x="4"
+                    y="15"
+                    width="16"
+                    height="2"
+                    rx="1"
+                    transform={
+                        open
+                            ? "translate(-3 -3) rotate(-45)"
+                            : ""
+                    }
+                    className="transition-all duration-300 origin-center"
+                />
+                <rect
+                    x="4"
+                    y="11"
+                    width="16"
+                    height="2"
+                    rx="1"
+                    opacity={open ? 0 : 1}
+                    className="transition-all duration-300"
+                />
             </svg>
         </Button>
     );

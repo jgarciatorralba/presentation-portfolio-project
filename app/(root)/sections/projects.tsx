@@ -4,7 +4,7 @@ import { Project, ProjectData } from "projects";
 import { JSX } from "react";
 import Section from "../../_components/section";
 import ProjectsComponent from "../../_components/sections/projects/projects";
-import { apiUrl, cacheLifetimeSeconds, logFilePath } from "../../_lib/constants";
+import { apiUrl, cacheLifetimeSeconds, logFilePath, projectsParagraphs } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
 export default async function Projects(): Promise<JSX.Element | null> {
@@ -45,7 +45,9 @@ export default async function Projects(): Promise<JSX.Element | null> {
         <Section name="projects">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
-                <p className="paragraph">A taste of my work.</p>
+                {projectsParagraphs.map((paragraph, index) => (
+                    <p key={index} className="paragraph">{paragraph}</p>
+                ))}
 
                 <ProjectsComponent next={next} prefetchedProjects={projects} />
             </div>

@@ -3,7 +3,7 @@ import { TabItemProps } from "userInterface";
 import Section from "../../_components/section";
 import ExperienceTabContent from "../../_components/sections/experience/experienceTabContent";
 import Tabs from "../../_components/tabs/tabs";
-import { experiences } from "../../_lib/constants";
+import { experienceParagraphs, experiences } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
 const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, experience], index) => {
@@ -19,7 +19,9 @@ export default function Experience(): JSX.Element {
         <Section name="experience">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Experience</h2>
-                <p className="paragraph">Companies I&apos;ve worked for.</p>
+                {experienceParagraphs.map((paragraph, index) => (
+                    <p key={index} className="paragraph">{paragraph}</p>
+                ))}
 
                 <Tabs items={experienceItems} />
             </div>

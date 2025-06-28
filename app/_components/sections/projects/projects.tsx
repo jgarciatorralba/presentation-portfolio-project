@@ -26,7 +26,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
         try {
             const response = await fetch(`${clientApiUrl}/api/projects?pageSize=3` + (maxPushedAt ? `&maxPushedAt=${maxPushedAt.toISOString()}` : ''));
             if (!response.ok) {
-                throw new Error(`Response status: ${response.statusText}`);
+                throw new Error(`Response status: ${response.statusText !== "" ? response.statusText : "Unknown error"}`);
             }
 
             next = response.headers.get("Next") === "1";

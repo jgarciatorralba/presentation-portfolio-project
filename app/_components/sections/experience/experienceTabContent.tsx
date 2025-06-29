@@ -22,7 +22,7 @@ export default function ExperienceTabContent({
                 {features && (
                     <ul>
                         {features.map((feature, index) => (
-                            <li key={`feature-key-${index}`}>{feature}</li>
+                            <li key={`feature-key-${index}`} className="mb-4 md:mb-2">{feature}</li>
                         ))}
                     </ul>
                 )}

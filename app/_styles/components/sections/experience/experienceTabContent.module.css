@@ -3,6 +3,7 @@
     list-style-type: disc;
     list-style-position: outside;
     margin-left: 1.5rem;
+    line-height: normal;
 
     &::marker {
       font-size: 1.25rem;

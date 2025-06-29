@@ -1,5 +1,6 @@
 import { ExperienceProps } from "experiences";
 import { JSX } from "react";
+import styles from "../../../_styles/components/sections/experience/experienceTabContent.module.css";
 
 export default function ExperienceTabContent({
     company,
@@ -10,7 +11,7 @@ export default function ExperienceTabContent({
 }: ExperienceProps): JSX.Element {
     return (
         <>
-            <div className="py-6 md:py-2 md:px-5" {...props}>
+            <div className={`${styles.experienceContent} py-6 md:py-2 md:px-5`} {...props}>
                 <div className="mb-4">
                     <h3 className="text-lg md:text-2xl">
                         {position.title} @ <a className="text-midnight-blue" href={company.url} target="_blank" rel="noopener noreferrer">{company.name}</a>
@@ -19,9 +20,9 @@ export default function ExperienceTabContent({
                 </div>
                 <p className="paragraph">{position.description}</p>
                 {features && (
-                    <ul className="list-disc list-inside pl-6">
+                    <ul>
                         {features.map((feature, index) => (
-                            <li key={`feature-key-${index}`} className="indented-list-item">{feature}</li>
+                            <li key={`feature-key-${index}`}>{feature}</li>
                         ))}
                     </ul>
                 )}

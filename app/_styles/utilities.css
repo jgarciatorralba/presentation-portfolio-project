@@ -3,60 +3,55 @@
 @config '../../tailwind.config.ts';
 
 @layer utilities {
-    :root {
-        --primary: #7ec8e3;
-        --secondary: #2e8bc0;
-        --background: #050a30;
-        --midnight-blue: #145da0;
-        --blue: #0c2d48;
-    
-        --text-base-size: 1rem;
-        --nav-min-height: 80px;
-    
-        --width-calculated-scroll: calc(100dvw - 3rem);
+  :root {
+    --primary: #7ec8e3;
+    --secondary: #2e8bc0;
+    --background: #050a30;
+    --midnight-blue: #145da0;
+    --blue: #0c2d48;
+
+    --text-base-size: 1rem;
+    --nav-min-height: 80px;
+
+    --width-calculated-scroll: calc(100dvw - 3rem);
+  }
+
+  /**************** Layout ****************/
+  .section-container {
+    @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
+  }
+
+  .children-wrapper {
+    @apply max-w-7xl px-6 mx-auto;
+  }
+
+  .paragraph {
+    @apply mb-4;
+  }
+
+  /************** Components **************/
+  .btn {
+    @apply font-medium focus:ring-1 hover:no-underline focus:outline-hidden rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-midnight-blue focus:ring-blue;
+
+    &.btn-secondary {
+      @apply text-background bg-primary hover:bg-secondary focus:ring-primary;
     }
+  }
 
-    /**************** Layout ****************/
-    .section-container {
-        @apply sm:px-12 md:px-16 lg:px-32 xl:px-48 py-24 sm:py-32 w-full;
+  .tab {
+    @apply text-midnight-blue hover:text-primary w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
+
+    &.active {
+      @apply bg-blue text-primary box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
     }
+  }
 
-    .children-wrapper {
-        @apply max-w-7xl px-6 mx-auto;
-    }
+  .tab-list {
+    @apply max-w-fit w-calculated-scroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
+  }
 
-    .paragraph {
-        @apply mb-4;
-    }
-
-    /************** Components **************/
-    .btn {
-        @apply font-medium focus:ring-1 hover:no-underline focus:outline-hidden rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-midnight-blue focus:ring-blue;
-
-        &.btn-secondary {
-            @apply text-background bg-primary hover:bg-secondary focus:ring-primary;
-        }
-    }
-
-    .tab {
-        @apply text-midnight-blue hover:text-primary w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
-
-        &.active {
-            @apply bg-blue text-primary box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
-        }
-    }
-
-    .tab-list {
-        @apply max-w-fit w-calculated-scroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
-    }
-
-    /************** Typography **************/
-    .header {
-        @apply mb-4 text-4xl sm:text-5xl;
-    }
-
-    /***************** Misc *****************/
-    .indented-list-item {
-        @apply -indent-[1.4rem];
-    }
+  /************** Typography **************/
+  .header {
+    @apply mb-4 text-4xl sm:text-5xl;
+  }
 }

@@ -11,7 +11,7 @@
     --blue: #0c2d48;
 
     --text-base-size: 1rem;
-    --nav-min-height: 80px;
+    --nav-min-height: 65px;
 
     --width-calculated-scroll: calc(100dvw - 3rem);
   }

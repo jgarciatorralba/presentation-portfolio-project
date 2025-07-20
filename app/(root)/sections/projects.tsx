@@ -1,3 +1,5 @@
+"use server"
+
 import fs from "fs";
 import path from "path";
 import { Project, ProjectData } from "projects";
@@ -7,9 +9,10 @@ import ProjectsComponent from "../../_components/sections/projects/projects";
 import { apiUrl, cacheLifetimeSeconds, logFilePath, projectsParagraphs } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
-export default async function Projects(): Promise<JSX.Element | null> {
+async function fetchProjectsFromApi(): Promise<{ projects: Project[], next: boolean, error: Error | null }> {
     let projects: Project[] = [];
     let next: boolean = false;
+    let error: Error | null = null;
 
     try {
         const response = await fetch(`${apiUrl}/api/projects?pageSize=6`, { next: { revalidate: cacheLifetimeSeconds } });
@@ -30,12 +33,20 @@ export default async function Projects(): Promise<JSX.Element | null> {
             ...project,
             lastPushedAt: new Date(project.lastPushedAt),
         }));
-    } catch (error: unknown) {
-        const logMessage = `[${new Date().toISOString()}] Error fetching from API: ${error instanceof Error ? error.message : "Unknown error"}\n`;
-
-        fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
-        fs.appendFileSync(logFilePath, logMessage);
+    } catch (err: unknown) {
+        error = err instanceof Error ? err : new Error("Unknown error");
     }
+
+    return { projects, next, error };
+}
+
+export default async function Projects(): Promise<JSX.Element | null> {
+    fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
+
+    const { projects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchProjectsFromApi();
+
+    const logMessage = `[${new Date().toISOString()}] ${error ? `Error fetching from API: ${error.message}` : "Fetched projects from API successfully."}\n`;
+    fs.appendFileSync(logFilePath, logMessage);
 
     if (!projects.length) {
         return null;

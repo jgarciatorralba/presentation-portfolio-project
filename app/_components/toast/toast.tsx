@@ -9,7 +9,7 @@ import styles from "../../_styles/components/toast/toast.module.css";
 export default function Toast({ message, close }: ToastProps): JSX.Element {
     useTimeout(() => {
         close();
-    });
+    }, 3000);
 
     return (
         <div className={`${styles.toast} p-4`}>

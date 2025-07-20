@@ -1,8 +1,8 @@
 "use client"
 
-import { Project, ProjectData } from "projects";
+import { Project } from "projects";
 import { JSX, useEffect, useState } from "react";
-import { clientApiUrl } from "../../../_lib/constants";
+import { fetchPaginatedProjects } from "../../../_lib/api/fetchPaginatedProjects";
 import { useToast } from "../../../_lib/hooks/useToast";
 import Button from "../../button";
 import ProjectCard from "./projectCard";
@@ -23,35 +23,18 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
     const handleClick = async () => {
         if (!disabled) setDisabled(true);
 
-        try {
-            const response = await fetch(`${clientApiUrl}/api/projects?pageSize=3` + (maxPushedAt ? `&maxPushedAt=${maxPushedAt.toISOString()}` : ''));
-            if (!response.ok) {
-                throw new Error(`Response status: ${response.statusText !== "" ? response.statusText : response.status + " Unknown error"}`);
-            }
+        const { projects: newProjects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchPaginatedProjects(maxPushedAt);
 
-            next = response.headers.get("Next") === "1";
-
-            const data = await response.json();
-            if (!data || !Array.isArray(data.projects) || !data.projects.every((project: unknown) => typeof project === "object")) {
-                throw new Error("Invalid response format");
-            }
-
-            const newProjects = data.projects.map((project: ProjectData): Project => ({
-                ...project,
-                lastPushedAt: new Date(project.lastPushedAt),
-            }));
-
-            if (newProjects.length > 0) {
-                setProjects((prevProjects) => [...prevProjects, ...newProjects]);
-                setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
-            }
-        } catch (error: unknown) {
-            const errorMessage = `${error instanceof Error ? error.message : "Unknown error"}`;
-
-            toast?.open(errorMessage);
-        } finally {
-            setDisabled(next === false);
+        if (newProjects.length > 0) {
+            setProjects((prevProjects) => [...prevProjects, ...newProjects]);
+            setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
         }
+
+        if (error) {
+            toast?.open(error.message);
+        }
+
+        setDisabled(!error && next === false);
     };
 
     return (

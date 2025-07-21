@@ -11,11 +11,10 @@ import { logFilePath, projectsParagraphs } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
 export default async function Projects(): Promise<JSX.Element | null> {
-    fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
-
     const { projects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchInitialProjects();
 
     const logMessage = `[${new Date().toISOString()}] ${error ? `Error fetching from API: ${error.message}` : "Fetched projects from API successfully."}\n`;
+    fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
     fs.appendFileSync(logFilePath, logMessage);
 
     if (!projects.length) {

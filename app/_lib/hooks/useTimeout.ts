@@ -13,5 +13,5 @@ export default function useTimeout(callback: () => void, delay: number): void {
         return () => {
             clearTimeout(functionId);
         };
-    }, []);
+    }, [delay]);
 }

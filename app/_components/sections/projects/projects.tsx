@@ -2,7 +2,8 @@
 
 import { Project } from "projects";
 import { JSX, useEffect, useState } from "react";
-import { fetchPaginatedProjects } from "../../../_lib/api/fetchPaginatedProjects";
+import { fetchProjects } from "../../../_lib/api/fetchProjects";
+import { clientApiUrl } from "../../../_lib/constants";
 import { useToast } from "../../../_lib/hooks/useToast";
 import Button from "../../button";
 import ProjectCard from "./projectCard";
@@ -23,7 +24,13 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
     const handleClick = async () => {
         if (!disabled) setDisabled(true);
 
-        const { projects: newProjects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchPaginatedProjects(maxPushedAt);
+        const { projects: newProjects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchProjects(
+            {
+                baseUrl: clientApiUrl,
+                urlParams: { pageSize: "3" },
+                maxPushedAt,
+            }
+        );
 
         if (newProjects.length > 0) {
             setProjects((prevProjects) => [...prevProjects, ...newProjects]);

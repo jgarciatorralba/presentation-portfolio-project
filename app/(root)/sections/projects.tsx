@@ -6,12 +6,18 @@ import { Project } from "projects";
 import { JSX } from "react";
 import Section from "../../_components/section";
 import ProjectsComponent from "../../_components/sections/projects/projects";
-import { fetchInitialProjects } from "../../_lib/api/fetchInitialProjects";
-import { logFilePath, projectsParagraphs } from "../../_lib/constants";
+import { fetchProjects } from "../../_lib/api/fetchProjects";
+import { apiUrl, cacheLifetimeSeconds, logFilePath, projectsParagraphs } from "../../_lib/constants";
 import { oranienbaum } from "../../_lib/fonts";
 
 export default async function Projects(): Promise<JSX.Element | null> {
-    const { projects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchInitialProjects();
+    const { projects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchProjects(
+        {
+            baseUrl: apiUrl,
+            urlParams: { pageSize: "6" },
+            fetchOptions: { next: { revalidate: cacheLifetimeSeconds } },
+        }
+    );
 
     const logMessage = `[${new Date().toISOString()}] ${error ? `Error fetching from API: ${error.message}` : "Fetched projects from API successfully."}\n`;
     fs.mkdirSync(path.dirname(logFilePath), { recursive: true });

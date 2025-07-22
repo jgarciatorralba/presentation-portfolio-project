@@ -28,4 +28,11 @@ declare module "projects" {
         homepage: string | null;
         topics: string[];
     };
+
+    type FetchProjectsOptions = {
+        baseUrl: string;
+        urlParams?: Record<string, string>;
+        fetchOptions?: RequestInit;
+        maxPushedAt?: Date | null;
+    }
 }

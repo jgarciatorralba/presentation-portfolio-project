@@ -23,9 +23,10 @@ describe("fetchProjects", () => {
         jest.resetAllMocks();
     });
 
-    it("Returns projects and next=true on valid response", async () => {
+    it("Returns projects and next=true on valid response with \"Next\" header", async () => {
         const mockResponse = {
             projects: [sampleProject],
+            count: 1,
         };
 
         (global.fetch as jest.Mock).mockResolvedValue({
@@ -91,10 +92,10 @@ describe("fetchProjects", () => {
         expect(next).toBe(false);
     });
 
-    it("Returns empty projects and next=false if no projects are returned", async () => {
+    it("Returns empty projects and next=false if no results are returned", async () => {
         (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
-            json: async () => ({ projects: [] }),
+            json: async () => ({ projects: [], count: 0 }),
             headers: {
                 get: () => "0",
             },
@@ -118,12 +119,12 @@ describe("fetchProjects", () => {
         expect(error?.message).toMatch(/Network error/);
     });
 
-    it("Includes maxPushedAt as ISO string if provided", async () => {
+    it("Includes parameter \"maxPushedAt\" as ISO string if provided", async () => {
         const mockDate = new Date("2023-01-01T00:00:00.000Z");
 
         (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
-            json: async () => ({ projects: [sampleProject] }),
+            json: async () => ({ projects: [sampleProject], count: 1 }),
             headers: {
                 get: () => "0",
             },
@@ -146,7 +147,7 @@ describe("fetchProjects", () => {
     it("Includes urlParams in the request", async () => {
         (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
-            json: async () => ({ projects: [sampleProject] }),
+            json: async () => ({ projects: [sampleProject], count: 1 }),
             headers: {
                 get: () => "0",
             },

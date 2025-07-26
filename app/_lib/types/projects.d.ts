@@ -35,4 +35,10 @@ declare module "projects" {
         fetchOptions?: RequestInit;
         maxPushedAt?: Date | null;
     }
+
+    type FetchProjectsResponse = {
+        projects: Project[];
+        next: boolean;
+        error: Error | null;
+    };
 }

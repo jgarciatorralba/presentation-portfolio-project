@@ -1,6 +1,6 @@
 "use client"
 
-import { Project } from "projects";
+import { FetchProjectsResponse, Project } from "projects";
 import { JSX, useEffect, useState } from "react";
 import { fetchProjects } from "../../../_lib/api/fetchProjects";
 import { clientApiUrl } from "../../../_lib/constants";
@@ -24,7 +24,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
     const handleClick = async () => {
         if (!disabled) setDisabled(true);
 
-        const { projects: newProjects, next, error }: { projects: Project[], next: boolean, error: Error | null } = await fetchProjects(
+        const { projects: newProjects, next, error }: FetchProjectsResponse = await fetchProjects(
             {
                 baseUrl: clientApiUrl,
                 urlParams: { pageSize: "3" },

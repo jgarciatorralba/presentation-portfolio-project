@@ -69,7 +69,7 @@ describe("Header component", () => {
         });
     });
 
-    it("Downloads the resume when the Resume link is clicked", () => {
+    it("Includes a link to the resume", () => {
         const { container } = render(<Header />);
 
         const resumeLink: HTMLElement | null = container.querySelector("a[href='/resume.pdf']");
@@ -92,16 +92,14 @@ describe("Header component", () => {
         expect(navbarButton).not.toBeNull();
 
         if (navbarButton !== null) {
-            // Click the button to open the sidebar
+            const sidebarElement = container.querySelector(".containerSidebar");
+
             act(() => {
                 navbarButton.click();
             });
 
-            const sidebarElement = container.querySelector(".containerSidebar");
-
             expect(sidebarElement).toHaveClass("open");
 
-            // Click the button again to close the sidebar
             act(() => {
                 navbarButton.click();
             });

@@ -1,7 +1,7 @@
 import { FetchProjectsOptions, FetchProjectsResponse, ProjectData } from "projects";
 import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
 
-describe("fetchProjects", () => {
+describe("fetchProjects function", () => {
     const baseUrl = "https://example.com";
 
     const sampleProject: ProjectData = {
@@ -92,7 +92,7 @@ describe("fetchProjects", () => {
         expect(next).toBe(false);
     });
 
-    it("Returns empty projects and next=false if no results are returned", async () => {
+    it("Returns empty projects and next=false if response contains no results", async () => {
         (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
             json: async () => ({ projects: [], count: 0 }),

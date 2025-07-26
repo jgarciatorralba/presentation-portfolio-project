@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Contact from "../../../../../app/(root)/sections/contact";
 
-describe("Contact", () => {
+describe("Contact section", () => {
     it("Renders the heading \"Contact\"", () => {
         render(<Contact />);
 

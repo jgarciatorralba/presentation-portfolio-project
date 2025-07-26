@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import About from "../../../../../app/(root)/sections/about";
 
-describe("About component", () => {
+describe("About section", () => {
     it("Renders the heading \"About\"", () => {
         render(<About />);
 

@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Intro from "../../../../../app/(root)/sections/intro";
 
-describe("Intro", () => {
+describe("Intro section", () => {
     it("Renders the main heading", () => {
         render(<Intro />);
 

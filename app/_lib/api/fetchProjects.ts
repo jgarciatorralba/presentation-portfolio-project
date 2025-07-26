@@ -1,11 +1,11 @@
-import { FetchProjectsOptions, Project, ProjectData } from "projects";
+import { FetchProjectsOptions, FetchProjectsResponse, Project, ProjectData } from "projects";
 
 export async function fetchProjects({
     baseUrl,
     urlParams = {},
     fetchOptions = {},
     maxPushedAt = null,
-}: FetchProjectsOptions): Promise<{ projects: Project[]; next: boolean; error: Error | null }> {
+}: FetchProjectsOptions): Promise<FetchProjectsResponse> {
     let projects: Project[] = [];
     let next: boolean = false;
     let error: Error | null = null;

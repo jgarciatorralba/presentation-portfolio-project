@@ -16,6 +16,7 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/$1",
     "^next/font/local$": "<rootDir>/__mocks__/next/font/local.ts"
   },
+  setupFiles: ["<rootDir>/jest.setup.ts"],
 };
 
 export default createJestConfig(config);

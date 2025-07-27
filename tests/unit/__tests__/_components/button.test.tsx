@@ -1,0 +1,27 @@
+import "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
+import Button from "../../../../app/_components/button";
+
+describe("Button component", () => {
+    it("Renders correctly", () => {
+        render(<Button htmlType="button" className="test-button" onClick={() => { }}>Click me</Button>);
+
+        const button = screen.getByRole("button", { name: /Click me/i });
+
+        expect(button).toBeInTheDocument();
+        expect(button).toHaveClass("test-button");
+        expect(button).toHaveAttribute("type", "button");
+    });
+
+    it("Handles \"onClick\" action", () => {
+        const handleClick = jest.fn();
+
+        render(<Button htmlType="button" className="test-button" onClick={handleClick}>Click me</Button>);
+
+        const button = screen.getByRole("button", { name: /Click me/i });
+
+        button.click();
+
+        expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+});

@@ -24,4 +24,16 @@ describe("Button component", () => {
 
         expect(handleClick).toHaveBeenCalledTimes(1);
     });
+
+    it("Renders with additional props (e.g. disabled)", () => {
+        render(
+            <Button htmlType="button" className="test-button" onClick={() => { }} disabled>
+                Disabled Button
+            </Button>
+        );
+
+        const button = screen.getByRole("button", { name: /Disabled Button/i });
+
+        expect(button).toBeDisabled();
+    });
 });

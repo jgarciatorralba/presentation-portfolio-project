@@ -4,7 +4,7 @@ import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
 describe("fetchProjects function", () => {
     const baseUrl = "https://example.com";
 
-    const sampleProject: ProjectData = {
+    const sampleProjectData: ProjectData = {
         id: 12345678,
         name: "Test Project",
         description: "This is a test project",
@@ -25,7 +25,7 @@ describe("fetchProjects function", () => {
 
     it("Returns projects and next=true on valid response with \"Next\" header", async () => {
         const mockResponse = {
-            projects: [sampleProject],
+            projects: [sampleProjectData],
             count: 1,
         };
 
@@ -47,14 +47,14 @@ describe("fetchProjects function", () => {
         expect(next).toBe(true);
         expect(projects.length).toBe(1);
         expect(projects[0]).toMatchObject({
-            id: sampleProject.id,
-            name: sampleProject.name,
-            description: sampleProject.description,
-            topics: sampleProject.topics,
-            repository: sampleProject.repository,
-            homepage: sampleProject.homepage,
-            archived: sampleProject.archived,
-            lastPushedAt: new Date(sampleProject.lastPushedAt),
+            id: sampleProjectData.id,
+            name: sampleProjectData.name,
+            description: sampleProjectData.description,
+            topics: sampleProjectData.topics,
+            repository: sampleProjectData.repository,
+            homepage: sampleProjectData.homepage,
+            archived: sampleProjectData.archived,
+            lastPushedAt: new Date(sampleProjectData.lastPushedAt),
         });
     });
 
@@ -124,7 +124,7 @@ describe("fetchProjects function", () => {
 
         (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
-            json: async () => ({ projects: [sampleProject], count: 1 }),
+            json: async () => ({ projects: [sampleProjectData], count: 1 }),
             headers: {
                 get: () => "0",
             },
@@ -147,7 +147,7 @@ describe("fetchProjects function", () => {
     it("Includes urlParams in the request", async () => {
         (global.fetch as jest.Mock).mockResolvedValue({
             ok: true,
-            json: async () => ({ projects: [sampleProject], count: 1 }),
+            json: async () => ({ projects: [sampleProjectData], count: 1 }),
             headers: {
                 get: () => "0",
             },

@@ -13,18 +13,6 @@ describe("Button component", () => {
         expect(button).toHaveAttribute("type", "button");
     });
 
-    it("Handles \"onClick\" action", () => {
-        const handleClick = jest.fn();
-
-        render(<Button htmlType="button" className="test-button" onClick={handleClick}>Click me</Button>);
-
-        const button = screen.getByRole("button", { name: /Click me/i });
-
-        button.click();
-
-        expect(handleClick).toHaveBeenCalledTimes(1);
-    });
-
     it("Renders with additional props (e.g. disabled)", () => {
         render(
             <Button htmlType="button" className="test-button" onClick={() => { }} disabled>
@@ -35,5 +23,17 @@ describe("Button component", () => {
         const button = screen.getByRole("button", { name: /Disabled Button/i });
 
         expect(button).toBeDisabled();
+    });
+
+    it("Handles \"onClick\" action", () => {
+        const handleClick = jest.fn();
+
+        render(<Button htmlType="button" className="test-button" onClick={handleClick}>Click me</Button>);
+
+        const button = screen.getByRole("button", { name: /Click me/i });
+
+        button.click();
+
+        expect(handleClick).toHaveBeenCalledTimes(1);
     });
 });

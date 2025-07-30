@@ -1,7 +1,7 @@
+import { sampleProject } from "@/tests/unit/__mocks__/sampleProject";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import fs from "fs";
-import { Project } from "projects";
 import { JSX } from "react";
 import Projects from "../../../../../app/(root)/sections/projects";
 import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
@@ -12,17 +12,6 @@ jest.mock("../../../../../app/_lib/api/fetchProjects", () => ({
 }));
 
 describe("Projects section", () => {
-    const sampleProject: Project = {
-        id: 12345678,
-        name: "Test Project",
-        description: "This is a test project",
-        topics: ["test", "project"],
-        repository: "https://github.com/user/test-project",
-        homepage: "https://example.com/test-project",
-        archived: false,
-        lastPushedAt: new Date(),
-    };
-
     const assertLogHasBeenWritten = (message: string): void => {
         if (!fs.existsSync(logFilePath)) {
             throw new Error("Invalid log file path. Please make sure the log file exists.");

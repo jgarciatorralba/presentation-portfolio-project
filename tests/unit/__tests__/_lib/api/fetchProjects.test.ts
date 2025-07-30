@@ -1,20 +1,15 @@
+import { sampleProject } from "@/tests/unit/__mocks__/sampleProject";
 import { FetchProjectsOptions, FetchProjectsResponse, ProjectData } from "projects";
 import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
 
+const baseUrl = "https://example.com";
+
+const sampleProjectData: ProjectData = {
+    ...sampleProject,
+    lastPushedAt: sampleProject.lastPushedAt.toISOString(),
+};
+
 describe("fetchProjects function", () => {
-    const baseUrl = "https://example.com";
-
-    const sampleProjectData: ProjectData = {
-        id: 12345678,
-        name: "Test Project",
-        description: "This is a test project",
-        topics: ["test", "project"],
-        repository: "https://github.com/user/test-project",
-        homepage: "https://example.com/test-project",
-        archived: false,
-        lastPushedAt: new Date().toISOString(),
-    };
-
     beforeEach(() => {
         global.fetch = jest.fn();
     });
@@ -70,7 +65,7 @@ describe("fetchProjects function", () => {
         expect(projects).toEqual([]);
         expect(next).toBe(false);
         expect(error).not.toBeNull();
-        expect(error?.message).toMatch(/Internal Server Error/);
+        expect(error?.message).toEqual("Response status: Internal Server Error");
     });
 
     it("Returns error on invalid JSON format", async () => {

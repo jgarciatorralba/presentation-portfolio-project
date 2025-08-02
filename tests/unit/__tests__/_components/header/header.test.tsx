@@ -47,7 +47,7 @@ describe("Header component", () => {
         expect(headerElement).not.toHaveClass("scrolled");
     });
 
-    it("Contains all expected links in the navbar", () => {
+    it("Contains all expected links to sections in the navbar", () => {
         const { container } = render(<Header />);
 
         const navbarElementMobile: HTMLElement | null = container.querySelector("nav > div");

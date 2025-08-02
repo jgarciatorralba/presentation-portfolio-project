@@ -37,7 +37,7 @@ describe("Button component", () => {
         expect(button.className).toBe("");
     });
 
-    it("Handles \"onClick\" action", () => {
+    it("Handles click action", () => {
         const handleClick = jest.fn();
 
         render(<Button htmlType="button" className="test-button" onClick={handleClick}>Click me</Button>);

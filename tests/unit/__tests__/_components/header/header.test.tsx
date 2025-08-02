@@ -56,16 +56,14 @@ describe("Header component", () => {
         [navbarElementMobile, navbarElementDesktop].forEach(navbarElement => {
             expect(navbarElement).not.toBeNull();
 
-            if (navbarElement !== null) {
-                const links = navbarElement.querySelectorAll("a");
+            const links = navbarElement!.querySelectorAll("a");
 
-                expect(links.length).toBe(5);
-                expect(links[0]).toHaveTextContent("About");
-                expect(links[1]).toHaveTextContent("Experience");
-                expect(links[2]).toHaveTextContent("Projects");
-                expect(links[3]).toHaveTextContent("Contact");
-                expect(links[4]).toHaveTextContent("Resume");
-            }
+            expect(links.length).toBe(5);
+            expect(links[0]).toHaveTextContent("About");
+            expect(links[1]).toHaveTextContent("Experience");
+            expect(links[2]).toHaveTextContent("Projects");
+            expect(links[3]).toHaveTextContent("Contact");
+            expect(links[4]).toHaveTextContent("Resume");
         });
     });
 
@@ -76,12 +74,9 @@ describe("Header component", () => {
 
         expect(resumeLink).not.toBeNull();
 
-        if (resumeLink !== null) {
-            expect(resumeLink).toHaveAttribute("target", "_blank");
-            expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
-            expect(resumeLink).toHaveTextContent("Resume");
-
-        }
+        expect(resumeLink).toHaveAttribute("target", "_blank");
+        expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
+        expect(resumeLink).toHaveTextContent("Resume");
     });
 
     it("Toggles the sidebar when NavbarButton is clicked", () => {
@@ -91,20 +86,44 @@ describe("Header component", () => {
 
         expect(navbarButton).not.toBeNull();
 
-        if (navbarButton !== null) {
-            const sidebarElement = container.querySelector(".containerSidebar");
+        const sidebarElement = container.querySelector(".containerSidebar");
 
-            act(() => {
-                navbarButton.click();
-            });
+        act(() => {
+            navbarButton!.click();
+        });
 
-            expect(sidebarElement).toHaveClass("open");
+        expect(sidebarElement).toHaveClass("open");
 
-            act(() => {
-                navbarButton.click();
-            });
+        act(() => {
+            navbarButton!.click();
+        });
 
-            expect(sidebarElement).not.toHaveClass("open");
-        }
+        expect(sidebarElement).not.toHaveClass("open");
+    });
+
+    it("Closes the sidebar when a sidebar link is clicked", () => {
+        const { container } = render(<Header />);
+
+        const navbarButton: HTMLElement | null = container.querySelector("button.navButton");
+
+        expect(navbarButton).not.toBeNull();
+
+        act(() => {
+            navbarButton!.click();
+        });
+
+        const sidebarElement = container.querySelector(".containerSidebar");
+        const sidebarLinks = sidebarElement?.querySelectorAll("ol a");
+        const firstLink = sidebarLinks![0];
+
+        expect(sidebarElement).toHaveClass("open");
+        expect(sidebarLinks && sidebarLinks.length > 0).toBe(true);
+        expect(firstLink).toBeInTheDocument();
+
+        act(() => {
+            (firstLink as HTMLElement).click();
+        });
+
+        expect(sidebarElement).not.toHaveClass("open");
     });
 });

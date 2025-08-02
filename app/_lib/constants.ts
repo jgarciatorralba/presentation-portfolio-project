@@ -10,7 +10,7 @@ import contactData from "../_assets/texts/sections/contact.json";
 import experienceData from "../_assets/texts/sections/experience.json";
 import introData from "../_assets/texts/sections/intro.json";
 import projectsData from "../_assets/texts/sections/projects.json";
-import socialNetworksData from "../_assets/texts/socialNetworks.json";
+import socialNetworksData from "../_assets/texts/social-networks.json";
 import technologiesData from "../_assets/texts/technologies.json";
 
 const aboutParagraphs: string[] = aboutData.paragraphs || [];

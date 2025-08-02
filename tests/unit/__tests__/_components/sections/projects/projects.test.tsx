@@ -28,7 +28,7 @@ describe("Projects component", () => {
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
-        await act(async () => {
+        act(() => {
             button.click();
         });
 
@@ -37,6 +37,7 @@ describe("Projects component", () => {
         const warningIcon = await screen.findByAltText("Warning Icon");
         const errorToast = await screen.findByText(errorMessage);
 
+        expect(button).not.toBeDisabled();
         expect(warningIcon).toBeInTheDocument();
         expect(errorToast).toBeInTheDocument();
     });

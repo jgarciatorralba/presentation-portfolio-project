@@ -25,6 +25,18 @@ describe("Button component", () => {
         expect(button).toBeDisabled();
     });
 
+    it("Renders with default className when not provided", () => {
+        render(
+            <Button htmlType="button" onClick={() => { }}>
+                No class
+            </Button>
+        );
+
+        const button = screen.getByRole("button", { name: /No class/i });
+
+        expect(button.className).toBe("");
+    });
+
     it("Handles \"onClick\" action", () => {
         const handleClick = jest.fn();
 

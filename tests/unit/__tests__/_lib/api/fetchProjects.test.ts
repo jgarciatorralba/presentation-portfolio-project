@@ -1,4 +1,4 @@
-import { sampleProject } from "@/tests/unit/__mocks__/sampleProject";
+import { sampleProject } from "@/tests/sampleProject";
 import { FetchProjectsOptions, FetchProjectsResponse, ProjectData } from "projects";
 import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
 

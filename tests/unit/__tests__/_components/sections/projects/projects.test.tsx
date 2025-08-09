@@ -1,6 +1,6 @@
 import ToastProvider from "@/app/_components/toast/toastProvider";
 import { fetchProjects } from "@/app/_lib/api/fetchProjects";
-import { sampleProject } from "@/tests/unit/__mocks__/sampleProject";
+import { sampleProject } from "@/tests/sampleProject";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { act } from "react";

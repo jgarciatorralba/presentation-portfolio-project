@@ -1,4 +1,4 @@
-import { sampleProject } from "@/tests/unit/__mocks__/sampleProject";
+import { sampleProject } from "@/tests/sampleProject";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import fs from "fs";

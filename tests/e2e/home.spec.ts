@@ -1,15 +1,16 @@
 import { expect, test } from '@playwright/test';
+import { navigation } from '../../app/_lib/constants';
 
 test.describe('Home Page', () => {
   test('Shows all sections', async ({ page }) => {
     await page.goto('http://localhost:3000/');
 
-    // Expect a title "to contain" a substring.
-    // await expect(page).toHaveTitle(/Playwright/);
+    for (const item of navigation.items) {
+      const heading = page.getByRole('heading', { name: item.name });
+      await expect(heading).toBeVisible();
+      await expect(heading).toHaveText(item.name);
+    }
 
-    const heading = page.getByRole('heading', { level: 1 });
-    await expect(heading).toBeVisible();
-    await expect(heading).toHaveText('Hey there!');
   });
 
   test('Shows pre-fetched projects', async ({ page }) => {

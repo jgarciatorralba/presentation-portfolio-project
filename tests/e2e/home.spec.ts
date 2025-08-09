@@ -26,7 +26,6 @@ test.describe('Home Page', () => {
       await expect(heading).toBeVisible();
       await expect(heading).toHaveText(item.name);
     }
-
   });
 
   test('Hides "Projects" section when there are no projects', async ({ page, next }) => {

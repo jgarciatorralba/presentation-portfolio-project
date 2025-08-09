@@ -20,7 +20,7 @@ test.describe('Resume link', () => {
             resumeLink.click(),
         ]);
 
-        const suggestedFilename = download.suggestedFilename();
+        const suggestedFilename: string = download.suggestedFilename();
         expect(suggestedFilename).toMatch(/resume\.pdf$/);
     });
 

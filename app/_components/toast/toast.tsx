@@ -13,7 +13,7 @@ export default function Toast({ message, close }: ToastProps): JSX.Element {
 
     return (
         <div className={`${styles.toast} p-4`}>
-            <div className='flex flex-row items-center'>
+            <div className='flex flex-row items-center' role="alert">
                 <Image
                     src="/warning.svg"
                     alt="Warning Icon"

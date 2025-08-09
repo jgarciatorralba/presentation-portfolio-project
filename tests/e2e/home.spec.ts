@@ -29,6 +29,21 @@ test.describe('Home Page', () => {
 
   });
 
+  test('Hides "Projects" section when there are no projects', async ({ page, next }) => {
+    next.onFetch((request) => {
+      if (request.url.includes('projects?pageSize=6')) {
+        return new Response('Internal Server Error', { status: 500 });
+      }
+
+      return "abort";
+    });
+
+    await page.goto('http://localhost:3000/');
+
+    const heading: Locator = page.getByRole('heading', { name: 'Projects' });
+    await expect(heading).not.toBeVisible();
+  });
+
   test('Shows pre-fetched projects', async ({ page }) => {
     await page.goto('http://localhost:3000/');
 
@@ -67,28 +82,22 @@ test.describe('Home Page', () => {
   });
 
   test('Shows toast notification when fetch fails', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
-
-    // Expect a title "to contain" a substring.
-    // await expect(page).toHaveTitle(/Playwright/);
-
-    const heading = page.getByRole('heading', { level: 1 });
-    await expect(heading).toBeVisible();
-    await expect(heading).toHaveText('Hey there!');
-  });
-
-  test('Hides "Projects" section when there are no projects', async ({ page, next }) => {
-    next.onFetch((request) => {
-      if (request.url.includes('projects?pageSize=6')) {
-        return new Response('Internal Server Error', { status: 500 });
-      }
-
-      return "abort";
+    await page.route(/projects\?pageSize=3/, async route => {
+      await route.fulfill({
+        status: 500,
+        contentType: 'application/json',
+      });
     });
 
     await page.goto('http://localhost:3000/');
 
-    const heading: Locator = page.getByRole('heading', { name: 'Projects' });
-    await expect(heading).not.toBeVisible();
+    const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
+    await expect(fetchButton).toBeVisible();
+    await expect(fetchButton).not.toBeDisabled();
+
+    await fetchButton.click();
+
+    const toast: Locator = page.getByRole('alert').filter({ hasText: 'Response status: Internal Server Error' });
+    await expect(toast).toBeVisible();
   });
 });

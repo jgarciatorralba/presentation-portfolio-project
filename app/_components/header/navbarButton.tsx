@@ -26,7 +26,13 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
     }
 
     return (
-        <Button htmlType="button" onClick={handleClick} className={`${styles.navButton} ml-4 p-2 rounded-xs md:hidden z-40`}>
+        <Button
+            htmlType="button"
+            onClick={handleClick}
+            className={`${styles.navButton} ml-4 p-2 rounded-xs md:hidden z-40`}
+            aria-label="Open menu"
+            data-testid="menu-button"
+        >
             <svg
                 width="32"
                 height="32"

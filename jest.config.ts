@@ -11,6 +11,7 @@ const config: Config = {
   verbose: true,
   coverageDirectory: "coverage",
   testEnvironment: "jsdom",
+  testMatch: ["<rootDir>/tests/unit/__tests__/**/*.(spec|test).[jt]s?(x)"],
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
     "^@/(.*)$": "<rootDir>/$1",

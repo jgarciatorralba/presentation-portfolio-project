@@ -18,6 +18,18 @@ test.describe('Home Page', () => {
     });
   });
 
+  test('Contains the correct metadata', async ({ page }) => {
+    await page.goto('http://localhost:3000/');
+
+    await expect(page).toHaveTitle('Jorge García');
+
+    const description = await page.locator('meta[name="description"]').getAttribute('content');
+    expect(description).toBe('Jorge is a software engineer who enjoys building stuff for the web.');
+
+    const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+    expect(canonical).toBe('http://localhost:3000');
+  });
+
   test('Shows all sections', async ({ page }) => {
     await page.goto('http://localhost:3000/');
 
@@ -69,14 +81,17 @@ test.describe('Home Page', () => {
     await page.goto('http://localhost:3000/');
 
     const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
+    const projects: Locator = page.locator('p.text-lg.font-bold');
+
     await expect(fetchButton).toBeVisible();
     await expect(fetchButton).not.toBeDisabled();
 
+    await expect(projects).toHaveCount(1);
+    await expect(projects.nth(0)).toHaveText(sampleProject.name);
+
     await fetchButton.click();
 
-    const projects: Locator = page.locator('p.text-lg.font-bold');
     await expect(projects).toHaveCount(2);
-    await expect(projects.nth(0)).toHaveText(sampleProject.name);
     await expect(projects.nth(1)).toHaveText('Test Playwright');
   });
 

@@ -29,6 +29,13 @@ This repository contains a **Next.js** application designed to present informati
 
 ---
 
+## Tests
+
+- Run the unit tests by executing the command: `npm run test`
+- Run the e2e test suite with the command: `npx playwright test`
+
+---
+
 ## Author
 
 - **Jorge García Torralba** &#8594; [jorge-garcia](https://github.com/jgarciatorralba)

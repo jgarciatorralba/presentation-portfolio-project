@@ -3,7 +3,7 @@ import { navigation } from '../../app/_lib/constants';
 import { sampleProject } from "../sampleProject";
 
 test.describe('Home Page', () => {
-  test.beforeEach(async ({ next }) => {
+  test.beforeEach(({ next }) => {
     next.onFetch((request) => {
       if (request.url.includes('projects?pageSize=6')) {
         return new Response(JSON.stringify({

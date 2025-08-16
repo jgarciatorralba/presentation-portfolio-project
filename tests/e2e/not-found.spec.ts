@@ -2,7 +2,7 @@ import { expect, Locator, test } from '@playwright/test';
 
 test.describe('Not Found Page', () => {
     test('Shows error page when navigating to invalid url', async ({ page }) => {
-        await page.goto('http://localhost:3000/any-non-existing-page');
+        await page.goto(process.env.SITE_URL + '/any-non-existing-page');
 
         const heading: Locator = page.getByRole('heading', { level: 1 });
         await expect(heading).toBeVisible();

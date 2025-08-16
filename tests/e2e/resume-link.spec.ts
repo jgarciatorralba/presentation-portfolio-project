@@ -3,7 +3,7 @@ import { expect, Locator, test } from '@playwright/test';
 test.describe('Resume link', () => {
     test('Downloads the resume on Mobile', async ({ page }) => {
         await page.setViewportSize({ width: 375, height: 812 });
-        await page.goto('http://localhost:3000/');
+        await page.goto(process.env.SITE_URL + '/');
 
         const menuButton: Locator = page.getByTestId('menu-button');
         await menuButton.click();
@@ -26,7 +26,7 @@ test.describe('Resume link', () => {
 
     test('Downloads the resume on Desktop', async ({ page }) => {
         await page.setViewportSize({ width: 1280, height: 800 });
-        await page.goto('http://localhost:3000/');
+        await page.goto(process.env.SITE_URL + '/');
 
         // Ensure the resume link is visible in the desktop view
         const resumeLink: Locator = page.locator('a[href="/resume.pdf"].md\\:block');

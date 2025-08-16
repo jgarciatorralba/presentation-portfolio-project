@@ -19,7 +19,7 @@ test.describe('Home Page', () => {
   });
 
   test('Contains the correct metadata', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto(process.env.SITE_URL + '/');
 
     await expect(page).toHaveTitle('Jorge García');
 
@@ -27,11 +27,11 @@ test.describe('Home Page', () => {
     expect(description).toBe('Jorge is a software engineer who enjoys building stuff for the web.');
 
     const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
-    expect(canonical).toBe('http://localhost:3000');
+    expect(canonical).toBe(process.env.SITE_URL);
   });
 
   test('Shows all sections', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto(process.env.SITE_URL + '/');
 
     for (const item of navigation.items) {
       const heading: Locator = page.getByRole('heading', { name: item.name });
@@ -49,14 +49,14 @@ test.describe('Home Page', () => {
       return "abort";
     });
 
-    await page.goto('http://localhost:3000/');
+    await page.goto(process.env.SITE_URL + '/');
 
     const heading: Locator = page.getByRole('heading', { name: 'Projects' });
     await expect(heading).not.toBeVisible();
   });
 
   test('Shows pre-fetched projects', async ({ page }) => {
-    await page.goto('http://localhost:3000/');
+    await page.goto(process.env.SITE_URL + '/');
 
     const project: Locator = page.locator('p.text-lg.font-bold', { hasText: sampleProject.name });
     await expect(project).toBeVisible();
@@ -78,7 +78,7 @@ test.describe('Home Page', () => {
       });
     });
 
-    await page.goto('http://localhost:3000/');
+    await page.goto(process.env.SITE_URL + '/');
 
     const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
     const projects: Locator = page.locator('p.text-lg.font-bold');
@@ -103,7 +103,7 @@ test.describe('Home Page', () => {
       });
     });
 
-    await page.goto('http://localhost:3000/');
+    await page.goto(process.env.SITE_URL + '/');
 
     const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
     await expect(fetchButton).toBeVisible();

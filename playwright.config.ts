@@ -1,10 +1,25 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
-import path from 'path';
+import { loadEnvFile } from "process";
 
-dotenv.config({ path: path.resolve(__dirname, '.env.test'), quiet: true });
+loadEnvFile(".env.test");
 
 export default defineConfig({
+  webServer: {
+    command: 'npm run dev',
+    url: process.env.SITE_URL,
+    reuseExistingServer: !process.env.CI,
+    stdout: 'ignore',
+    stderr: 'pipe',
+    env: {
+      NODE_ENV: 'test',
+      PORT: '3030',
+      SITE_URL: process.env.SITE_URL || '',
+      API_URL: process.env.API_URL || '',
+      NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || '',
+      CACHE_LIFETIME_SECONDS: process.env.CACHE_LIFETIME_SECONDS || '',
+      LOG_FILE_PATH: process.env.LOG_FILE_PATH || '',
+    }
+  },
   testDir: './tests/e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,

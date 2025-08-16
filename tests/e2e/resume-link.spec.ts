@@ -1,6 +1,14 @@
 import { expect, Locator, test } from '@playwright/test';
+import { existsSync, unlinkSync } from "fs";
 
 test.describe('Resume link', () => {
+    test.beforeAll(() => {
+        const logFilePath: string = process.env.LOG_FILE_PATH || '';
+        if (existsSync(logFilePath)) {
+            unlinkSync(logFilePath);
+        }
+    });
+
     test('Downloads the resume on Mobile', async ({ page }) => {
         await page.setViewportSize({ width: 375, height: 812 });
         await page.goto(process.env.SITE_URL + '/');

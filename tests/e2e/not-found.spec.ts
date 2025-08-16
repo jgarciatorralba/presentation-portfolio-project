@@ -1,6 +1,14 @@
 import { expect, Locator, test } from '@playwright/test';
+import { existsSync, unlinkSync } from "fs";
 
 test.describe('Not Found Page', () => {
+    test.beforeAll(() => {
+        const logFilePath: string = process.env.LOG_FILE_PATH || '';
+        if (existsSync(logFilePath)) {
+            unlinkSync(logFilePath);
+        }
+    });
+
     test('Shows error page when navigating to invalid url', async ({ page }) => {
         await page.goto(process.env.SITE_URL + '/any-non-existing-page');
 

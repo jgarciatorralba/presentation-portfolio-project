@@ -1,8 +1,16 @@
+import { existsSync, unlinkSync } from "fs";
 import { expect, Locator, test } from "next/experimental/testmode/playwright";
 import { navigation } from '../../app/_lib/constants';
 import { sampleProject } from "../sampleProject";
 
 test.describe('Home Page', () => {
+  test.beforeAll(() => {
+    const logFilePath: string = process.env.LOG_FILE_PATH || '';
+    if (existsSync(logFilePath)) {
+      unlinkSync(logFilePath);
+    }
+  });
+
   test.beforeEach(({ next }) => {
     next.onFetch((request) => {
       if (request.url.includes('projects?pageSize=6')) {

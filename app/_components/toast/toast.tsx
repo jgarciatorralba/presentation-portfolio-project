@@ -20,7 +20,6 @@ export default function Toast({ message, close }: ToastProps): JSX.Element {
                     width={20}
                     height={20}
                     className="mr-2"
-                    quality={100}
                 />
                 <p className="mr-8">{message}</p>
             </div>

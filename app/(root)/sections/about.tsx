@@ -27,7 +27,6 @@ export default function About(): JSX.Element {
                             width={300}
                             height={300}
                             className="rounded-md sepia-[.35] contrast-[1.1] border border-midnight-blue"
-                            quality={100}
                             priority={true}
                         />
                         <div className="flex flex-row justify-start py-2">
@@ -41,7 +40,6 @@ export default function About(): JSX.Element {
                                 >
                                     <Image
                                         src={`/${name.toLowerCase()}.svg`}
-                                        quality={100}
                                         alt={`${name} Logo`}
                                         width={50}
                                         height={50}

@@ -16,7 +16,6 @@ export default function ProjectCard({ name, description, topics, repository, hom
                     >
                         <Image
                             src={"/github.svg"}
-                            quality={100}
                             alt={"GitHub Logo"}
                             width={30}
                             height={30}
@@ -31,7 +30,6 @@ export default function ProjectCard({ name, description, topics, repository, hom
                         >
                             <Image
                                 src={"/external-link.svg"}
-                                quality={100}
                                 alt={"External Link"}
                                 width={30}
                                 height={30}

@@ -17,7 +17,6 @@ export default function NotFound(): JSX.Element {
                 alt="Not Found"
                 width={250}
                 height={250}
-                quality={100}
                 priority
             />
         </div >

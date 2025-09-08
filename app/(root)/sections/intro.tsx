@@ -1,7 +1,7 @@
+import Section from "@components/section";
+import { introParagraphs, introSubheading } from "@lib/constants";
+import { oranienbaum } from "@lib/fonts";
 import { JSX } from "react";
-import Section from "../../_components/section";
-import { introParagraphs, introSubheading } from "../../_lib/constants";
-import { oranienbaum } from "../../_lib/fonts";
 
 export default function Intro(): JSX.Element {
     return (

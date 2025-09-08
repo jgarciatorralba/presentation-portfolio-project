@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 import { loadEnvFile } from "process";
 
 loadEnvFile(".env.test");

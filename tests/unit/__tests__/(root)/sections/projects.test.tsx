@@ -1,11 +1,11 @@
-import { sampleProject } from "@/tests/sampleProject";
+import { fetchProjects } from "@lib/api/fetchProjects";
+import { logFilePath } from "@lib/constants";
+import Projects from "@sections/projects";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
+import { sampleProject } from "@tests/sampleProject";
 import fs from "fs";
 import { JSX } from "react";
-import Projects from "../../../../../app/(root)/sections/projects";
-import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
-import { logFilePath } from "../../../../../app/_lib/constants";
 
 jest.mock("../../../../../app/_lib/api/fetchProjects", () => ({
     fetchProjects: jest.fn(),

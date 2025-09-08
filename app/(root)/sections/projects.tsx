@@ -1,14 +1,14 @@
 "use server"
 
+import Section from "@components/section";
+import ProjectsComponent from "@components/sections/projects/projects";
+import { fetchProjects } from "@lib/api/fetchProjects";
+import { apiUrl, cacheLifetimeSeconds, logFilePath, projectsParagraphs } from "@lib/constants";
+import { oranienbaum } from "@lib/fonts";
 import fs from "fs";
 import path from "path";
 import { FetchProjectsResponse } from "projects";
 import { JSX } from "react";
-import Section from "../../_components/section";
-import ProjectsComponent from "../../_components/sections/projects/projects";
-import { fetchProjects } from "../../_lib/api/fetchProjects";
-import { apiUrl, cacheLifetimeSeconds, logFilePath, projectsParagraphs } from "../../_lib/constants";
-import { oranienbaum } from "../../_lib/fonts";
 
 export default async function Projects(): Promise<JSX.Element | null> {
     const { projects, next, error }: FetchProjectsResponse = await fetchProjects(

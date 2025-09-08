@@ -1,8 +1,8 @@
+import Section from "@components/section";
+import { aboutParagraphs, socialNetworks, technologies } from "@lib/constants";
+import { oranienbaum } from "@lib/fonts";
 import Image from "next/image";
 import { JSX } from "react";
-import Section from "../../_components/section";
-import { aboutParagraphs, socialNetworks, technologies } from "../../_lib/constants";
-import { oranienbaum } from "../../_lib/fonts";
 
 export default function About(): JSX.Element {
     return (

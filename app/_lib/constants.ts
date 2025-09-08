@@ -1,17 +1,17 @@
+import experiencesData from "@assets/texts/experiences.json";
+import navigationData from "@assets/texts/navigation.json";
+import aboutData from "@assets/texts/sections/about.json";
+import contactData from "@assets/texts/sections/contact.json";
+import experienceData from "@assets/texts/sections/experience.json";
+import introData from "@assets/texts/sections/intro.json";
+import projectsData from "@assets/texts/sections/projects.json";
+import socialNetworksData from "@assets/texts/social-networks.json";
+import technologiesData from "@assets/texts/technologies.json";
 import { Experiences } from "experiences";
 import path from "path";
 import { SocialNetworks } from "socialNetworks";
 import { Technologies } from "technologies";
 import { Navigation } from "userInterface";
-import experiencesData from "../_assets/texts/experiences.json";
-import navigationData from "../_assets/texts/navigation.json";
-import aboutData from "../_assets/texts/sections/about.json";
-import contactData from "../_assets/texts/sections/contact.json";
-import experienceData from "../_assets/texts/sections/experience.json";
-import introData from "../_assets/texts/sections/intro.json";
-import projectsData from "../_assets/texts/sections/projects.json";
-import socialNetworksData from "../_assets/texts/social-networks.json";
-import technologiesData from "../_assets/texts/technologies.json";
 
 const aboutParagraphs: string[] = aboutData.paragraphs || [];
 const apiUrl: string = process.env.API_URL || '';

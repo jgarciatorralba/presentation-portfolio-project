@@ -1,10 +1,10 @@
+import Section from "@components/section";
+import ExperienceTabContent from "@components/sections/experience/experienceTabContent";
+import Tabs from "@components/tabs/tabs";
+import { experienceParagraphs, experiences } from "@lib/constants";
+import { oranienbaum } from "@lib/fonts";
 import { JSX } from "react";
 import { TabItemProps } from "userInterface";
-import Section from "../../_components/section";
-import ExperienceTabContent from "../../_components/sections/experience/experienceTabContent";
-import Tabs from "../../_components/tabs/tabs";
-import { experienceParagraphs, experiences } from "../../_lib/constants";
-import { oranienbaum } from "../../_lib/fonts";
 
 const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, experience], index) => {
     return {

@@ -1,6 +1,6 @@
+import Intro from "@sections/intro";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import Intro from "../../../../../app/(root)/sections/intro";
 
 describe("Intro section", () => {
     it("Renders the main heading", () => {

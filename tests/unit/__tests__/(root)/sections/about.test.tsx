@@ -1,6 +1,6 @@
+import About from "@sections/about";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import About from "../../../../../app/(root)/sections/about";
 
 describe("About section", () => {
     it("Renders the heading \"About\"", () => {

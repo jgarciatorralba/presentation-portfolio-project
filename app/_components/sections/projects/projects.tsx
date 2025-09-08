@@ -1,12 +1,12 @@
 "use client"
 
+import Button from "@components/button";
+import ProjectCard from "@components/sections/projects/projectCard";
+import { fetchProjects } from "@lib/api/fetchProjects";
+import { clientApiUrl } from "@lib/constants";
+import { useToast } from "@lib/hooks/useToast";
 import { FetchProjectsResponse, Project } from "projects";
 import { JSX, useEffect, useState } from "react";
-import { fetchProjects } from "../../../_lib/api/fetchProjects";
-import { clientApiUrl } from "../../../_lib/constants";
-import { useToast } from "../../../_lib/hooks/useToast";
-import Button from "../../button";
-import ProjectCard from "./projectCard";
 
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const [disabled, setDisabled] = useState(next === false);

@@ -1,5 +1,5 @@
+import { siteUrl } from "@lib/constants";
 import type { Metadata } from "next";
-import { siteUrl } from "./constants";
 
 export const metadata: Metadata = {
     title: "Jorge García",

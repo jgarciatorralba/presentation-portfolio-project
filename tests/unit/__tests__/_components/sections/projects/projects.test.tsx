@@ -1,10 +1,10 @@
-import ToastProvider from "@/app/_components/toast/toastProvider";
-import { fetchProjects } from "@/app/_lib/api/fetchProjects";
-import { sampleProject } from "@/tests/sampleProject";
+import Projects from "@components/sections/projects/projects";
+import ToastProvider from "@components/toast/toastProvider";
+import { fetchProjects } from "@lib/api/fetchProjects";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
+import { sampleProject } from "@tests/sampleProject";
 import { act } from "react";
-import Projects from "../../../../../../app/_components/sections/projects/projects";
 
 jest.mock("../../../../../../app/_lib/api/fetchProjects", () => ({
     fetchProjects: jest.fn(),

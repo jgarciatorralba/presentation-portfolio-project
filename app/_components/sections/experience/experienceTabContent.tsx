@@ -1,6 +1,6 @@
+import styles from "@styles/components/sections/experience/experienceTabContent.module.css";
 import { ExperienceProps } from "experiences";
 import { JSX } from "react";
-import styles from "../../../_styles/components/sections/experience/experienceTabContent.module.css";
 
 export default function ExperienceTabContent({
     company,

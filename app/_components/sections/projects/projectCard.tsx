@@ -1,7 +1,7 @@
+import styles from "@styles/components/sections/projects/projectCard.module.css";
 import Image from "next/image";
 import { ProjectCardProps } from "projects";
 import { JSX } from "react";
-import styles from "../../../_styles/components/sections/projects/projectCard.module.css";
 
 export default function ProjectCard({ name, description, topics, repository, homepage }: ProjectCardProps): JSX.Element {
     return (

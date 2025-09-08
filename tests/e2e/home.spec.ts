@@ -1,7 +1,7 @@
+import { navigation } from "@lib/constants";
+import { sampleProject } from "@tests/sampleProject";
 import { existsSync, unlinkSync } from "fs";
 import { expect, Locator, test } from "next/experimental/testmode/playwright";
-import { navigation } from '../../app/_lib/constants';
-import { sampleProject } from "../sampleProject";
 
 test.describe('Home Page', () => {
   test.beforeAll(() => {

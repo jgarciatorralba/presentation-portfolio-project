@@ -1,7 +1,7 @@
+import Button from "@components/button";
+import styles from "@styles/components/tabs/tabs.module.css";
 import { JSX } from "react";
 import { TabProps } from "userInterface";
-import styles from "../../_styles/components/tabs/tabs.module.css";
-import Button from "../button";
 
 
 export default function Tab({ children, currentTab, activeTab, setActiveTab }: TabProps): JSX.Element {

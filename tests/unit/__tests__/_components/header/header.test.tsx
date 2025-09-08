@@ -1,7 +1,7 @@
+import Header from "@components/header/header";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { act } from "react";
-import Header from "../../../../../app/_components/header/header";
 
 describe("Header component", () => {
     it("Renders the header with navbar", () => {

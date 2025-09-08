@@ -1,7 +1,7 @@
+import Section from "@components/section";
+import { contactParagraphs, email } from "@lib/constants";
+import { oranienbaum } from "@lib/fonts";
 import { JSX } from "react";
-import Section from "../../_components/section";
-import { contactParagraphs, email } from "../../_lib/constants";
-import { oranienbaum } from "../../_lib/fonts";
 
 export default function Contact(): JSX.Element {
     return (

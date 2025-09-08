@@ -1,9 +1,9 @@
 "use client"
 
+import Button from "@components/button";
+import styles from "@styles/components/header/navbarButton.module.css";
 import { JSX, MouseEvent, useEffect, useRef } from "react";
 import { NavbarButtonProps } from "userInterface";
-import styles from "../../_styles/components/header/navbarButton.module.css";
-import Button from "../button";
 
 export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.Element {
     useEffect(() => {

@@ -1,5 +1,5 @@
+import { year } from "@lib/constants";
 import { JSX } from "react";
-import { year } from "../../_lib/constants";
 
 export default function Footer(): JSX.Element {
     return (

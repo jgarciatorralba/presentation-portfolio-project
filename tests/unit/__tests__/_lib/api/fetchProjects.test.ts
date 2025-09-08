@@ -1,6 +1,6 @@
-import { sampleProject } from "@/tests/sampleProject";
+import { fetchProjects } from "@lib/api/fetchProjects";
+import { sampleProject } from "@tests/sampleProject";
 import { FetchProjectsOptions, FetchProjectsResponse, ProjectData } from "projects";
-import { fetchProjects } from "../../../../../app/_lib/api/fetchProjects";
 
 const baseUrl = "https://example.com";
 

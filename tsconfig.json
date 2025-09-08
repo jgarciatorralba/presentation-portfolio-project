@@ -24,8 +24,23 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
+      "@assets/*": [
+        "./app/_assets/*"
+      ],
+      "@components/*": [
+        "./app/_components/*"
+      ],
+      "@lib/*": [
+        "./app/_lib/*"
+      ],
+      "@styles/*": [
+        "./app/_styles/*"
+      ],
+      "@sections/*": [
+        "./app/(root)/sections/*"
+      ],
+      "@tests/*": [
+        "./tests/*"
       ],
       "userInterface": [
         "./app/_lib/types/userInterface"

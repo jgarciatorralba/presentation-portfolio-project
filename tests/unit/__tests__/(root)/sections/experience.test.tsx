@@ -1,7 +1,7 @@
+import Experience from "@sections/experience";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { act } from "react";
-import Experience from "../../../../../app/(root)/sections/experience";
 
 describe("Experience section", () => {
     it("Renders the heading \"Experience\"", () => {

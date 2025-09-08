@@ -1,10 +1,10 @@
 "use client"
 
+import NavbarButton from "@components/header/navbarButton";
+import { navigation } from "@lib/constants";
+import { oranienbaum } from "@lib/fonts";
+import styles from "@styles/components/header/navbar.module.css";
 import { JSX, MouseEvent, useEffect, useState } from "react";
-import { navigation } from "../../_lib/constants";
-import { oranienbaum } from "../../_lib/fonts";
-import styles from "../../_styles/components/header/navbar.module.css";
-import NavbarButton from "./navbarButton";
 
 export default function Navbar(): JSX.Element {
     const [open, setOpen] = useState(false);

@@ -1,8 +1,8 @@
+import { oranienbaum } from "@lib/fonts";
+import "@styles/globals.css";
 import Image from "next/image";
 import Link from "next/link";
 import { JSX } from "react";
-import { oranienbaum } from "./_lib/fonts";
-import "./_styles/globals.css";
 
 export default function NotFound(): JSX.Element {
     return (

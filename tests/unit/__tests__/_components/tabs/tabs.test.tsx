@@ -1,7 +1,7 @@
+import Section from "@components/section";
+import Tabs from "@components/tabs/tabs";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
-import Section from "../../../../../app/_components/section";
-import Tabs from "../../../../../app/_components/tabs/tabs";
 
 describe("Tabs component", () => {
     it("Does not render tabpanel if no items are provided to Tabs", () => {

@@ -55,6 +55,8 @@ describe("Projects section", () => {
         const result: JSX.Element | null = await Projects();
 
         expect(result).toBeNull();
+
+        assertLogHasBeenWritten("Fetched projects from API successfully.");
     });
 
     it("Returns null when an error occurs", async () => {
@@ -83,6 +85,8 @@ describe("Projects section", () => {
         const heading: HTMLElement = screen.getByRole("heading", { name: /Projects/ });
 
         expect(heading).toBeInTheDocument();
+
+        assertLogHasBeenWritten("Fetched projects from API successfully.");
     });
 
     it("Renders project paragraphs", async () => {
@@ -98,5 +102,7 @@ describe("Projects section", () => {
         paragraphs.forEach((paragraph: HTMLParagraphElement) => {
             expect(paragraph).toBeInTheDocument();
         });
+
+        assertLogHasBeenWritten("Fetched projects from API successfully.");
     });
 });

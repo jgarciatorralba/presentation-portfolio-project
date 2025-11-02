@@ -15,15 +15,13 @@ export default async function Projects(): Promise<JSX.Element | null> {
         {
             baseUrl: apiUrl,
             urlParams: { pageSize: "6" },
-            fetchOptions: { next: { revalidate: cacheLifetimeSeconds } },
+            fetchOptions: { cache: 'force-cache', next: { revalidate: cacheLifetimeSeconds } },
         }
     );
 
-    if (error) {
-        const logMessage = `[${new Date().toISOString()}] Error fetching from API: ${error.message}\n`;
-        fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
-        fs.appendFileSync(logFilePath, logMessage);
-    }
+    const logMessage = `[${new Date().toISOString()}] ${error ? `Error fetching from API: ${error.message}` : "Fetched projects from API successfully."}\n`;
+    fs.mkdirSync(path.dirname(logFilePath), { recursive: true });
+    fs.appendFileSync(logFilePath, logMessage);
 
     if (!projects.length) {
         return null;

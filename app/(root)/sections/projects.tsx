@@ -15,7 +15,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
         {
             baseUrl: apiUrl,
             urlParams: { pageSize: "6" },
-            fetchOptions: { next: { revalidate: cacheLifetimeSeconds } },
+            fetchOptions: { cache: 'force-cache', next: { revalidate: cacheLifetimeSeconds } },
         }
     );
 

@@ -122,4 +122,21 @@ test.describe('Home Page', () => {
     const toast: Locator = page.getByRole('alert').filter({ hasText: 'Response status: Internal Server Error' });
     await expect(toast).toBeVisible();
   });
+
+  test('Renders the page in less than 2 seconds', async ({ page }) => {
+    const startTime = performance.now();
+    await page.goto(process.env.SITE_URL + '/');
+    const loadTime = performance.now() - startTime;
+
+    const navigation = page.locator('nav');
+    await expect(navigation).toBeVisible();
+
+    const mainContent = page.locator('main');
+    await expect(mainContent).toBeVisible();
+
+    const footer = page.locator('footer');
+    await expect(footer).toBeVisible();
+
+    expect(loadTime).toBeLessThan(2000);
+  });
 });

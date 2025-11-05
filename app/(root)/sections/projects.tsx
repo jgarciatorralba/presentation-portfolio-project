@@ -3,7 +3,7 @@
 import Section from "@components/section";
 import ProjectsComponent from "@components/sections/projects/projects";
 import { fetchProjects } from "@lib/api/fetchProjects";
-import { apiUrl, cacheLifetimeSeconds, logFilePath, projectsParagraphs } from "@lib/constants";
+import { apiUrl, logFilePath, projectsParagraphs } from "@lib/constants";
 import { oranienbaum } from "@lib/fonts";
 import fs from "fs";
 import path from "path";
@@ -15,7 +15,6 @@ export default async function Projects(): Promise<JSX.Element | null> {
         {
             baseUrl: apiUrl,
             urlParams: { pageSize: "6" },
-            fetchOptions: { cache: 'force-cache', next: { revalidate: cacheLifetimeSeconds } },
         }
     );
 

@@ -19,7 +19,7 @@ export async function fetchProjects({
             params.set("maxPushedAt", maxPushedAt.toISOString());
         }
 
-        const url = `${baseUrl}/projects?${params.toString()}`;
+        const url = `${baseUrl}/api/projects?${params.toString()}`;
 
         const response = await fetch(url, fetchOptions);
         if (!response.ok) {

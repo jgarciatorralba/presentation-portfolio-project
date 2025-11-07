@@ -25,14 +25,14 @@ This repository contains a **Next.js** application designed to present informati
 - Clone this repo: `git clone git@github.com:jgarciatorralba/presentation-portfolio-project.git`
 - Run `docker compose up -d --build` to download images and set up containers.
   - The server container's port 80 is mapped to the host's port 8080
-- Once completed, open with VisualStudio and in the command palette (*"View > Command Palette"*) select the option *"Dev Containers: Reopen in Container"*.
+- Once completed, open with VisualStudio and in the command palette (_"View > Command Palette"_) select the option _"Dev Containers: Reopen in Container"_.
 
 ---
 
 ## Tests
 
 - Run the unit tests by executing the command: `npm run test`
-- Run the e2e test suite with the command: `npx playwright test`
+- Run the e2e test suite with the command: `npm run test:e2e`
 
 ---
 

@@ -10,6 +10,9 @@ const config: Config = {
   collectCoverage: true,
   verbose: true,
   coverageDirectory: "coverage",
+  coveragePathIgnorePatterns: [
+    "<rootDir>/tests/sampleProject.ts",
+  ],
   testEnvironment: "jsdom",
   testMatch: ["<rootDir>/tests/unit/__tests__/**/*.(spec|test).[jt]s?(x)"],
   moduleNameMapper: {

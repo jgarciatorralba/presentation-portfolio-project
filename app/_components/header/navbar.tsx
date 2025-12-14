@@ -43,7 +43,7 @@ export default function Navbar(): JSX.Element {
                     <ol className="hidden md:flex flex-row gap-x-12">
                         {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal text-primary">
-                                <a href={item.href} className="py-2 pl-1 text-primary hover:no-underline! hover:text-midnight-blue! focus:text-blue!">
+                                <a href={item.href} className="py-2 pl-1 text-primary hover:no-underline! hover:text-midnightBlue! focus:text-blue!">
                                     {item.name}
                                 </a>
                             </li>
@@ -57,7 +57,7 @@ export default function Navbar(): JSX.Element {
                     <ol className="grid gap-y-6 p-8 text-center">
                         {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal list-inside text-primary">
-                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-primary hover:no-underline! hover:text-midnight-blue!">
+                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-primary hover:no-underline! hover:text-midnightBlue!">
                                     {item.name}
                                 </a>
                             </li>

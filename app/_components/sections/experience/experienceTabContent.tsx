@@ -14,7 +14,7 @@ export default function ExperienceTabContent({
             <div className={`${styles.experienceContent} py-6 md:py-2 md:px-5`} {...props}>
                 <div className="mb-4">
                     <h3 className="text-lg md:text-2xl">
-                        {position.title} @ <a className="text-midnight-blue" href={company.url} target="_blank" rel="noopener noreferrer">{company.name}</a>
+                        {position.title} @ <a className="text-midnightBlue" href={company.url} target="_blank" rel="noopener noreferrer">{company.name}</a>
                     </h3>
                     <p className="paragraph mt-1 text-sm">{dates.start} — {dates.end}</p>
                 </div>

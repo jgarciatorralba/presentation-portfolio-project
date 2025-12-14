@@ -31,7 +31,7 @@
 
   /************** Components **************/
   .btn {
-    @apply font-medium focus:ring-1 hover:no-underline focus:outline-hidden rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-midnight-blue focus:ring-blue;
+    @apply font-medium focus:ring-1 hover:no-underline focus:outline-hidden rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-midnightBlue focus:ring-blue;
 
     &.btn-secondary {
       @apply text-background bg-primary hover:bg-secondary focus:ring-primary;
@@ -39,15 +39,15 @@
   }
 
   .tab {
-    @apply text-midnight-blue hover:text-primary w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
+    @apply text-midnightBlue hover:text-primary w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
 
     &.active {
-      @apply bg-blue text-primary box-border border-b-2 border-midnight-blue md:border-l-2 md:border-b-0;
+      @apply bg-blue text-primary box-border border-b-2 border-midnightBlue md:border-l-2 md:border-b-0;
     }
   }
 
   .tab-list {
-    @apply max-w-fit w-calculated-scroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
+    @apply max-w-fit w-calculatedScroll md:w-full whitespace-nowrap overflow-x-auto pt-2 md:pt-0 md:flex flex-col;
   }
 
   /************** Typography **************/

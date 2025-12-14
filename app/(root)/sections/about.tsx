@@ -26,7 +26,7 @@ export default function About(): JSX.Element {
                             alt="Front Picture"
                             width={300}
                             height={300}
-                            className="rounded-md sepia-[.35] contrast-[1.1] border border-midnight-blue"
+                            className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue"
                             priority={true}
                         />
                         <div className="flex flex-row justify-start py-2">

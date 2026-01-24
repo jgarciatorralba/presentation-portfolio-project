@@ -2,7 +2,7 @@ declare module "experiences" {
     interface Company {
         name: string;
         url: string;
-    };
+    }
 
     interface Dates {
         start: string;

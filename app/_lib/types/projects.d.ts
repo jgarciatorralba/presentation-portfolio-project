@@ -26,24 +26,24 @@ declare module "projects" {
         lastPushedAt: Date;
     }
 
-    type ProjectCardProps = {
+    interface ProjectCardProps {
         name: string;
         description: string;
         repository: string;
         homepage: string | null;
         topics: string[];
-    };
+    }
 
-    type FetchProjectsOptions = {
+    interface FetchProjectsOptions {
         baseUrl: string;
         urlParams?: Record<string, string>;
         fetchOptions?: RequestInit;
         maxPushedAt?: Date | null;
     }
 
-    type FetchProjectsResponse = {
+    interface FetchProjectsResponse {
         projects: Project[];
         next: boolean;
         error: Error | null;
-    };
+    }
 }

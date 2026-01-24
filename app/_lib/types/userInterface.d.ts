@@ -1,40 +1,29 @@
-import { MouseEvent, ReactNode } from "react";
+import { ButtonHTMLAttributes, HTMLAttributes, MouseEvent, ReactNode } from "react";
 
 declare module "userInterface" {
-    interface ButtonProps {
-        htmlType: "button" | "submit" | "reset";
-        children: ReactNode;
-        onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-        className?: string;
-        role?: string;
-        disabled?: boolean;
-    };
+    type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
     interface NavigationItem {
         name: string;
         href: string;
-    };
+    }
 
     interface Navigation {
         items: NavigationItem[];
-    };
+    }
 
     interface NavbarButtonProps {
         open: boolean;
         onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-    };
+    }
 
-    interface SectionProps {
-        children: ReactNode;
-        name: string;
-        className?: string;
-    };
+    type SectionProps = HTMLAttributes<HTMLElement>;
 
     interface TabItemProps {
         active?: boolean;
         label: string;
         component: ReactNode;
-    };
+    }
 
     interface TabsProps {
         items: TabItemProps[];
@@ -45,7 +34,7 @@ declare module "userInterface" {
         currentTab: number;
         activeTab: number;
         setActiveTab: (tab: number) => void;
-    };
+    }
 
     interface TabPanelProps {
         children: ReactNode;

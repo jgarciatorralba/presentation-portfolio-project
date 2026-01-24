@@ -1,22 +1,22 @@
 import { ReactNode } from "react";
 
 declare module "toast" {
-    type ToastProps = {
+    interface ToastProps {
         message: string;
         close: () => void;
-    };
+    }
 
-    type ToastProviderProps = {
+    interface ToastProviderProps {
         children: ReactNode;
-    };
+    }
 
-    type ToastType = {
+    interface ToastType {
         message: string;
         id: number;
-    };
+    }
 
-    type ToastContextValue = {
+    interface ToastContextValue {
         open: (message: string) => void;
         close: (id: number) => void;
-    };
+    }
 }

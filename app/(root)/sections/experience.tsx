@@ -16,7 +16,7 @@ const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, 
 
 export default function Experience(): JSX.Element {
     return (
-        <Section name="experience">
+        <Section id="experience">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Experience</h2>
                 {experienceParagraphs.map((paragraph, index) => (

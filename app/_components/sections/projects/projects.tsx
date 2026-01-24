@@ -61,7 +61,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
 
             <div className="p-6 flex flew-row justify-center">
                 <Button
-                    htmlType="button"
+                    type="button"
                     className={`btn cursor-pointer max-w-fit ${disabled && 'pointer-events-none opacity-50'}`}
                     disabled={disabled}
                     onClick={handleClick}

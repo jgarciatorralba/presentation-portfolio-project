@@ -1,5 +1,5 @@
 declare module "projects" {
-    type ProjectData = {
+    interface ProjectBase {
         id: number;
         name: string;
         description: string;
@@ -7,38 +7,34 @@ declare module "projects" {
         repository: string;
         homepage: string | null;
         archived: boolean;
+    }
+
+    interface ProjectData extends ProjectBase {
         lastPushedAt: string;
-    };
+    }
 
-    type Project = {
-        id: number;
-        name: string;
-        description: string;
-        topics: string[] | null;
-        repository: string;
-        homepage: string | null;
-        archived: boolean;
+    interface Project extends ProjectBase {
         lastPushedAt: Date;
-    };
+    }
 
-    type ProjectCardProps = {
+    interface ProjectCardProps {
         name: string;
         description: string;
         repository: string;
         homepage: string | null;
         topics: string[];
-    };
+    }
 
-    type FetchProjectsOptions = {
+    interface FetchProjectsOptions {
         baseUrl: string;
         urlParams?: Record<string, string>;
         fetchOptions?: RequestInit;
         maxPushedAt?: Date | null;
     }
 
-    type FetchProjectsResponse = {
+    interface FetchProjectsResponse {
         projects: Project[];
         next: boolean;
         error: Error | null;
-    };
+    }
 }

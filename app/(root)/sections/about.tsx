@@ -6,7 +6,7 @@ import { JSX } from "react";
 
 export default function About(): JSX.Element {
     return (
-        <Section name="about">
+        <Section id="about">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>About</h2>
                 <div className="flex flex-col lg:flex-row gap-12">

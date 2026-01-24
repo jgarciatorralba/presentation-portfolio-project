@@ -1,11 +1,7 @@
 import { ButtonHTMLAttributes, HTMLAttributes, MouseEvent, ReactNode } from "react";
 
 declare module "userInterface" {
-    interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "onClick"> {
-        htmlType: "button" | "submit" | "reset";
-        children: ReactNode;
-        onClick: (event: MouseEvent<HTMLButtonElement>) => void;
-    }
+    type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
     interface NavigationItem {
         name: string;
@@ -21,10 +17,7 @@ declare module "userInterface" {
         onClick: (event: MouseEvent<HTMLButtonElement>) => void;
     }
 
-    interface SectionProps extends Omit<HTMLAttributes<HTMLElement>, "id"> {
-        children: ReactNode;
-        name: string;
-    }
+    type SectionProps = HTMLAttributes<HTMLElement>;
 
     interface TabItemProps {
         active?: boolean;

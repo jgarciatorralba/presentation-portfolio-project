@@ -5,7 +5,7 @@ import { JSX } from "react";
 
 export default function Intro(): JSX.Element {
     return (
-        <Section name="intro">
+        <Section id="intro">
             <div className="h-screen flex items-center">
                 <div className="sm:px-12 md:px-16 lg:px-32 xl:px-64 py-12">
                     <h1 className={`${oranienbaum.className} mb-4 text-2xl`}>Hey there!</h1>

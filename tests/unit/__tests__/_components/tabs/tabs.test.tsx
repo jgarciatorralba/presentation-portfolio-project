@@ -6,7 +6,7 @@ import { render } from "@testing-library/react";
 describe("Tabs component", () => {
     it("Does not render tabpanel if no items are provided to Tabs", () => {
         const { queryByRole } = render(
-            <Section name="test-section">
+            <Section id="test-section">
                 <Tabs items={[]} />
             </Section>
         );

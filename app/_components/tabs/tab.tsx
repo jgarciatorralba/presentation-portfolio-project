@@ -6,7 +6,7 @@ import { TabProps } from "userInterface";
 export default function Tab({ children, currentTab, activeTab, setActiveTab }: TabProps): JSX.Element {
     return (
         <Button
-            htmlType="button"
+            type="button"
             role="tab"
             className={`tab ${styles.tabButton} ${activeTab === currentTab ? 'active' : ''}`}
             onClick={() => setActiveTab(currentTab)}

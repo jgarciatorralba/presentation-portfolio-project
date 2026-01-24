@@ -29,7 +29,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
     }
 
     return (
-        <Section name="projects">
+        <Section id="projects">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>Projects</h2>
                 {projectsParagraphs.map((paragraph, index) => (

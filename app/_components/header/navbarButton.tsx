@@ -27,7 +27,7 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
 
     return (
         <Button
-            htmlType="button"
+            type="button"
             onClick={handleClick}
             className={`${styles.navButton} ml-4 p-2 rounded-xs md:hidden z-40`}
             aria-label="Open menu"

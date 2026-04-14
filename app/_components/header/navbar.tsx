@@ -59,7 +59,7 @@ export default function Navbar(): JSX.Element {
                     <NavbarButton open={open} onClick={handleClick} />
                 </div>
 
-                <div className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid content-center place-items-center text-lg ${open ? styles.open : ''}`}>
+                <div data-testid="sidebar" className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid content-center place-items-center text-lg ${open ? styles.open : ''}`}>
                     <ol className="grid gap-y-6 p-8 text-center">
                         {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal list-inside text-primary">

@@ -22,7 +22,6 @@
         "name": "next"
       }
     ],
-    "baseUrl": ".",
     "paths": {
       "@assets/*": [
         "./app/_assets/*"

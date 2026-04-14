@@ -8,9 +8,7 @@ test.describe('Navbar', () => {
         const menuButton: Locator = page.getByTestId('menu-button');
         await menuButton.click();
 
-        // Wait for the sidebar to open
-        await page.waitForTimeout(300);
-
+        // Wait for the sidebar to become visible after opening
         const sidebar: Locator = page.locator('.containerSidebar');
         await expect(sidebar).toBeVisible();
 
@@ -19,8 +17,6 @@ test.describe('Navbar', () => {
         await blurredBackground.click({ position: { x: 50, y: 400 } });
 
         // Wait for the sidebar to close
-        await page.waitForTimeout(300);
-
         await expect(sidebar).not.toBeVisible();
     });
 });

@@ -152,26 +152,28 @@ describe("Header component", () => {
         blurredBackground.classList.add("blurred-background");
         document.body.appendChild(blurredBackground);
 
-        const { container } = render(<Header />);
+        try {
+            const { container } = render(<Header />);
 
-        const navbarButton: HTMLElement | null = container.querySelector("button.navButton");
+            const navbarButton: HTMLElement | null = container.querySelector("button.navButton");
 
-        expect(navbarButton).not.toBeNull();
+            expect(navbarButton).not.toBeNull();
 
-        act(() => {
-            navbarButton!.click();
-        });
+            act(() => {
+                navbarButton!.click();
+            });
 
-        const sidebarElement = container.querySelector(".containerSidebar");
+            const sidebarElement = container.querySelector(".containerSidebar");
 
-        expect(sidebarElement).toHaveClass("open");
+            expect(sidebarElement).toHaveClass("open");
 
-        act(() => {
-            blurredBackground.click();
-        });
+            act(() => {
+                blurredBackground.click();
+            });
 
-        expect(sidebarElement).not.toHaveClass("open");
-
-        document.body.removeChild(blurredBackground);
+            expect(sidebarElement).not.toHaveClass("open");
+        } finally {
+            blurredBackground.remove();
+        }
     });
 });

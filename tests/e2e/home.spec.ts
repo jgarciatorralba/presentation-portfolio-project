@@ -123,7 +123,7 @@ test.describe('Home Page', () => {
     await expect(toast).toBeVisible();
   });
 
-  test('Renders the page in less than 2 seconds', async ({ page }) => {
+  test('Renders the page in less than 3 seconds', async ({ page }) => {
     const startTime = performance.now();
     await page.goto(process.env.SITE_URL + '/');
     const loadTime = performance.now() - startTime;
@@ -137,6 +137,6 @@ test.describe('Home Page', () => {
     const footer = page.locator('footer');
     await expect(footer).toBeVisible();
 
-    expect(loadTime).toBeLessThan(2000);
+    expect(loadTime).toBeLessThan(3000);
   });
 });

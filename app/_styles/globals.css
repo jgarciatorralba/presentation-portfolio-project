@@ -26,6 +26,8 @@ a:hover:not([role='button']) {
   &.active {
     backdrop-filter: blur(5px);
     pointer-events: auto;
+    overflow: hidden;
+    touch-action: none;
     display: initial;
   }
 }

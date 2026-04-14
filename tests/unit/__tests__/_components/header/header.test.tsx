@@ -127,6 +127,26 @@ describe("Header component", () => {
         expect(sidebarElement).not.toHaveClass("open");
     });
 
+    it("Prevents page scrolling while the sidebar is open", () => {
+        const { container } = render(<Header />);
+
+        const navbarButton: HTMLElement | null = container.querySelector("button.navButton");
+
+        expect(navbarButton).not.toBeNull();
+
+        act(() => {
+            navbarButton!.click();
+        });
+
+        expect(document.body).toHaveClass("overflow-hidden");
+
+        act(() => {
+            navbarButton!.click();
+        });
+
+        expect(document.body).not.toHaveClass("overflow-hidden");
+    });
+
     it("Closes the sidebar when clicking outside of it (blurred background)", () => {
         const blurredBackground = document.createElement("div");
         blurredBackground.classList.add("blurred-background");

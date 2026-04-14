@@ -13,9 +13,14 @@ export default function Navbar(): JSX.Element {
         const body = document.body;
         const blurredBackground = body.querySelector('.blurred-background');
 
+        const handleBackdropClick = () => {
+            setOpen(false);
+        };
+
         if (open) {
             body.classList.add('overflow-hidden');
             blurredBackground?.classList.add('active');
+            blurredBackground?.addEventListener('click', handleBackdropClick);
         } else {
             body.classList.remove('overflow-hidden');
             blurredBackground?.classList.remove('active');
@@ -24,6 +29,7 @@ export default function Navbar(): JSX.Element {
         return () => {
             body.classList.remove('overflow-hidden');
             blurredBackground?.classList.remove('active');
+            blurredBackground?.removeEventListener('click', handleBackdropClick);
         };
     }, [open]);
 

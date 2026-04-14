@@ -126,4 +126,32 @@ describe("Header component", () => {
 
         expect(sidebarElement).not.toHaveClass("open");
     });
+
+    it("Closes the sidebar when clicking outside of it (blurred background)", () => {
+        const blurredBackground = document.createElement("div");
+        blurredBackground.classList.add("blurred-background");
+        document.body.appendChild(blurredBackground);
+
+        const { container } = render(<Header />);
+
+        const navbarButton: HTMLElement | null = container.querySelector("button.navButton");
+
+        expect(navbarButton).not.toBeNull();
+
+        act(() => {
+            navbarButton!.click();
+        });
+
+        const sidebarElement = container.querySelector(".containerSidebar");
+
+        expect(sidebarElement).toHaveClass("open");
+
+        act(() => {
+            blurredBackground.click();
+        });
+
+        expect(sidebarElement).not.toHaveClass("open");
+
+        document.body.removeChild(blurredBackground);
+    });
 });

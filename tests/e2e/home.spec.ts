@@ -123,13 +123,19 @@ test.describe('Home Page', () => {
     await expect(toast).toBeVisible();
   });
 
-  test('Renders the page in less than 3 seconds', async ({ page }) => {
-    const startTime = performance.now();
-    await page.goto(process.env.SITE_URL + '/');
-    const loadTime = performance.now() - startTime;
+  test('Renders the page in less than 2 seconds', async ({ page }) => {
+    await page.goto(process.env.SITE_URL + '/', { waitUntil: 'domcontentloaded' });
 
-    const navigation = page.locator('nav');
-    await expect(navigation).toBeVisible();
+      const loadTime = await page.evaluate(() => {
+        const [navigation] = performance.getEntriesByType('navigation');
+
+        return navigation 
+          ? (navigation as PerformanceNavigationTiming).domContentLoadedEventEnd - navigation.startTime 
+          : null;
+    });
+
+    const navBar = page.locator('nav');
+    await expect(navBar).toBeVisible();
 
     const mainContent = page.locator('main');
     await expect(mainContent).toBeVisible();
@@ -137,6 +143,6 @@ test.describe('Home Page', () => {
     const footer = page.locator('footer');
     await expect(footer).toBeVisible();
 
-    expect(loadTime).toBeLessThan(3000);
+    expect(loadTime).toBeLessThan(2000);
   });
 });

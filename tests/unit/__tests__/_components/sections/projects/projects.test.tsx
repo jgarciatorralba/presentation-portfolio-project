@@ -17,20 +17,33 @@ describe("Projects component", () => {
         const projectName: HTMLElement = screen.getByText(sampleProject.name);
         const gitHubImage: HTMLElement = screen.getByAltText("GitHub Logo");
         const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${sampleProject.repository}"]`);
+        const animatedCards: NodeListOf<Element> = container.querySelectorAll(".fadeIn");
 
         expect(projectName).toBeInTheDocument();
         expect(gitHubImage).toBeInTheDocument();
         expect(linkToRepository).toBeInTheDocument();
+        expect(animatedCards).toHaveLength(0);
     });
 
     it("Fetches more projects when button is clicked", async () => {
+        const secondProject = {
+            ...sampleProject,
+            id: sampleProject.id + 1,
+            name: `${sampleProject.name}-two`,
+        };
+        const thirdProject = {
+            ...sampleProject,
+            id: sampleProject.id + 2,
+            name: `${sampleProject.name}-three`,
+        };
+
         (fetchProjects as jest.Mock).mockResolvedValue({
-            projects: [sampleProject],
+            projects: [secondProject, thirdProject],
             next: true,
             error: null,
         });
 
-        const { container } = render(<Projects next={true} prefetchedProjects={[]} />);
+        const { container } = render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -40,14 +53,18 @@ describe("Projects component", () => {
 
         expect(fetchProjects).toHaveBeenCalled();
 
-        const projectName: HTMLElement = await screen.findByText(sampleProject.name);
-        const gitHubImage: HTMLElement = await screen.findByAltText("GitHub Logo");
-        const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${sampleProject.repository}"]`);
+        const projectName: HTMLElement = await screen.findByText(secondProject.name.replaceAll("-", " "));
+        const gitHubImage: HTMLElement = await screen.findAllByAltText("GitHub Logo").then((images) => images[1]);
+        const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${secondProject.repository}"]`);
+        const animatedCards: NodeListOf<Element> = container.querySelectorAll(".fadeIn");
 
         expect(button).not.toBeDisabled();
         expect(projectName).toBeInTheDocument();
         expect(gitHubImage).toBeInTheDocument();
         expect(linkToRepository).toBeInTheDocument();
+        expect(animatedCards).toHaveLength(2);
+        expect(animatedCards[0]).toHaveStyle({ animationDelay: "0ms" });
+        expect(animatedCards[1]).toHaveStyle({ animationDelay: "400ms" });
     });
 
     it("Disables the button when no more projects are available", () => {

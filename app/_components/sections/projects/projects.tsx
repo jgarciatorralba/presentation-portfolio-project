@@ -6,7 +6,7 @@ import { fetchProjects } from "@lib/api/fetchProjects";
 import { clientApiUrl, projectCardStaggerDelayMs } from "@lib/constants";
 import { useToast } from "@lib/hooks/useToast";
 import { FetchProjectsResponse, Project, ProjectEntry } from "projects";
-import { JSX, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 
 const createProjectEntries = (projects: Project[], animateIn: boolean): ProjectEntry[] => {
     return projects.map((project, index) => ({
@@ -19,14 +19,34 @@ const createProjectEntries = (projects: Project[], animateIn: boolean): ProjectE
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const [disabled, setDisabled] = useState(next === false);
     const [projectEntries, setProjectEntries] = useState<ProjectEntry[]>(() => createProjectEntries(prefetchedProjects, false));
+    const [showMoreHidden, setShowMoreHidden] = useState(false);
     const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(
         prefetchedProjects.length > 0 ? prefetchedProjects[prefetchedProjects.length - 1].lastPushedAt : null
     );
+    const showMoreTimeoutRef = useRef<number | null>(null);
 
     const toast = useToast();
 
+    useEffect(() => {
+        return () => {
+            if (showMoreTimeoutRef.current !== null) {
+                window.clearTimeout(showMoreTimeoutRef.current);
+            }
+        };
+    }, []);
+
+    const revealShowMoreButton = () => {
+        if (showMoreTimeoutRef.current !== null) {
+            window.clearTimeout(showMoreTimeoutRef.current);
+            showMoreTimeoutRef.current = null;
+        }
+
+        setShowMoreHidden(false);
+    };
+
     const handleClick = async () => {
         if (!disabled) setDisabled(true);
+        setShowMoreHidden(true);
 
         const { projects: newProjects, next, error }: FetchProjectsResponse = await fetchProjects(
             {
@@ -42,6 +62,21 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                 ...createProjectEntries(newProjects, true),
             ]);
             setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
+
+            if (showMoreTimeoutRef.current !== null) {
+                window.clearTimeout(showMoreTimeoutRef.current);
+            }
+
+            const showMoreDelayMs = newProjects.length * projectCardStaggerDelayMs;
+
+            showMoreTimeoutRef.current = window.setTimeout(() => {
+                setShowMoreHidden(false);
+                showMoreTimeoutRef.current = null;
+            }, showMoreDelayMs);
+        }
+
+        if (newProjects.length === 0) {
+            revealShowMoreButton();
         }
 
         if (error) {
@@ -71,7 +106,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
             <div className="p-6 flex flew-row justify-center">
                 <Button
                     type="button"
-                    className={`btn cursor-pointer max-w-fit ${disabled && 'pointer-events-none opacity-50'}`}
+                    className={`btn cursor-pointer max-w-fit ${disabled && 'pointer-events-none opacity-50'} ${showMoreHidden ? 'invisible' : ''}`}
                     disabled={disabled}
                     onClick={handleClick}
                 >

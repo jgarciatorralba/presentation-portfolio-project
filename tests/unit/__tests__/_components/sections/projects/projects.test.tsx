@@ -68,6 +68,51 @@ describe("Projects component", () => {
         expect(animatedCards[1]).toHaveStyle({ animationDelay: `${projectCardStaggerDelayMs}ms` });
     });
 
+    it("Keeps the button hidden until the last new project finishes animating", async () => {
+        jest.useFakeTimers();
+
+        const secondProject = {
+            ...sampleProject,
+            id: sampleProject.id + 1,
+            name: `${sampleProject.name}-two`,
+        };
+        const thirdProject = {
+            ...sampleProject,
+            id: sampleProject.id + 2,
+            name: `${sampleProject.name}-three`,
+        };
+
+        (fetchProjects as jest.Mock).mockResolvedValue({
+            projects: [secondProject, thirdProject],
+            next: true,
+            error: null,
+        });
+
+        render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
+
+        const button = screen.getByRole("button", { name: /Show more/i });
+
+        await act(async () => {
+            button.click();
+        });
+
+        expect(screen.getByRole("button", { name: /Show more/i, hidden: true })).toHaveClass("invisible");
+
+        act(() => {
+            jest.advanceTimersByTime((2 * projectCardStaggerDelayMs) - 1);
+        });
+
+        expect(screen.getByRole("button", { name: /Show more/i, hidden: true })).toHaveClass("invisible");
+
+        act(() => {
+            jest.advanceTimersByTime(1);
+        });
+
+        expect(screen.getByRole("button", { name: /Show more/i })).not.toHaveClass("invisible");
+
+        jest.useRealTimers();
+    });
+
     it("Disables the button when no more projects are available", () => {
         (fetchProjects as jest.Mock).mockResolvedValue({
             projects: [],

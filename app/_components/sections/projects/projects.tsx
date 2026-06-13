@@ -3,24 +3,16 @@
 import Button from "@components/button";
 import ProjectCard from "@components/sections/projects/projectCard";
 import { fetchProjects } from "@lib/api/fetchProjects";
-import { clientApiUrl } from "@lib/constants";
+import { clientApiUrl, projectCardStaggerDelayMs } from "@lib/constants";
 import { useToast } from "@lib/hooks/useToast";
-import { FetchProjectsResponse, Project } from "projects";
+import { FetchProjectsResponse, Project, ProjectEntry } from "projects";
 import { JSX, useState } from "react";
 
-const PROJECT_CARD_STAGGER_DELAY_MS = 400;
-
-type ProjectEntry = {
-    project: Project;
-    animateIn: boolean;
-    animationDelayMs: number;
-};
-
-function createProjectEntries(projects: Project[], animateIn: boolean): ProjectEntry[] {
+const createProjectEntries = (projects: Project[], animateIn: boolean): ProjectEntry[] => {
     return projects.map((project, index) => ({
         project,
         animateIn,
-        animationDelayMs: animateIn ? index * PROJECT_CARD_STAGGER_DELAY_MS : 0,
+        animationDelayMs: animateIn ? index * projectCardStaggerDelayMs : 0,
     }));
 }
 

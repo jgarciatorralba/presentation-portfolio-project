@@ -25,6 +25,7 @@ const introSubheading: { highlighted: string; normal: string } = introData.subhe
 const introParagraphs: string[] = introData.paragraphs || [];
 const logFilePath: string = process.env.LOG_FILE_PATH || path.join(process.cwd(), 'logs', 'error.log');
 const navigation: Navigation = navigationData;
+const projectCardStaggerDelayMs: number = 400;
 const projectsParagraphs: string[] = projectsData.paragraphs || [];
 const siteUrl: string = process.env.SITE_URL || '';
 const socialNetworks: SocialNetworks = socialNetworksData;
@@ -44,6 +45,7 @@ export {
     introSubheading,
     logFilePath,
     navigation,
+    projectCardStaggerDelayMs,
     projectsParagraphs,
     siteUrl,
     socialNetworks,

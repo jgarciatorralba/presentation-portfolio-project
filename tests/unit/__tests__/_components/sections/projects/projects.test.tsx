@@ -1,6 +1,7 @@
 import Projects from "@components/sections/projects/projects";
 import ToastProvider from "@components/toast/toastProvider";
 import { fetchProjects } from "@lib/api/fetchProjects";
+import { projectCardStaggerDelayMs } from "@lib/constants";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { sampleProject } from "@tests/sampleProject";
@@ -64,7 +65,7 @@ describe("Projects component", () => {
         expect(linkToRepository).toBeInTheDocument();
         expect(animatedCards).toHaveLength(2);
         expect(animatedCards[0]).toHaveStyle({ animationDelay: "0ms" });
-        expect(animatedCards[1]).toHaveStyle({ animationDelay: "400ms" });
+        expect(animatedCards[1]).toHaveStyle({ animationDelay: `${projectCardStaggerDelayMs}ms` });
     });
 
     it("Disables the button when no more projects are available", () => {

@@ -27,6 +27,12 @@ declare module "projects" {
         animationDelayMs?: number;
     }
 
+    interface ProjectEntry {
+        project: Project;
+        animateIn: boolean;
+        animationDelayMs: number;
+    }
+
     interface FetchProjectsOptions {
         baseUrl: string;
         urlParams?: Record<string, string>;

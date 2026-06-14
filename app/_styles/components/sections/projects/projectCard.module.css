@@ -11,4 +11,6 @@
 
 .fadeIn {
   animation: fadeIn 0.8s ease-out both;
+  will-change: transform, opacity;
+  contain: layout style;
 }

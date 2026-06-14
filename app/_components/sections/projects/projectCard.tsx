@@ -3,9 +3,20 @@ import Image from "next/image";
 import { ProjectCardProps } from "projects";
 import { JSX } from "react";
 
-export default function ProjectCard({ name, description, topics, repository, homepage }: ProjectCardProps): JSX.Element {
+export default function ProjectCard({
+    name,
+    description,
+    topics,
+    repository,
+    homepage,
+    animateIn = false,
+    animationDelayMs = 0,
+}: ProjectCardProps): JSX.Element {
     return (
-        <div className={`bg-blue hover:bg-midnightBlue rounded-md p-6 transition hover:scale-105 flex flex-col justify-between ${styles.fadeIn}`}>
+        <div
+            className={`bg-blue hover:bg-midnightBlue rounded-md p-6 transition hover:scale-105 flex flex-col justify-between ${animateIn ? styles.fadeIn : ""}`}
+            style={animateIn ? { animationDelay: `${animationDelayMs}ms` } : undefined}
+        >
             <div>
                 <div className="flex flex-row justify-end mb-6 sm:mb-4">
                     <a

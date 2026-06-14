@@ -1,6 +1,7 @@
 import Projects from "@components/sections/projects/projects";
 import ToastProvider from "@components/toast/toastProvider";
 import { fetchProjects } from "@lib/api/fetchProjects";
+import { projectCardStaggerDelayMs } from "@lib/constants";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { sampleProject } from "@tests/sampleProject";
@@ -17,20 +18,33 @@ describe("Projects component", () => {
         const projectName: HTMLElement = screen.getByText(sampleProject.name);
         const gitHubImage: HTMLElement = screen.getByAltText("GitHub Logo");
         const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${sampleProject.repository}"]`);
+        const animatedCards: NodeListOf<Element> = container.querySelectorAll(".fadeIn");
 
         expect(projectName).toBeInTheDocument();
         expect(gitHubImage).toBeInTheDocument();
         expect(linkToRepository).toBeInTheDocument();
+        expect(animatedCards).toHaveLength(0);
     });
 
     it("Fetches more projects when button is clicked", async () => {
+        const secondProject = {
+            ...sampleProject,
+            id: sampleProject.id + 1,
+            name: `${sampleProject.name}-two`,
+        };
+        const thirdProject = {
+            ...sampleProject,
+            id: sampleProject.id + 2,
+            name: `${sampleProject.name}-three`,
+        };
+
         (fetchProjects as jest.Mock).mockResolvedValue({
-            projects: [sampleProject],
+            projects: [secondProject, thirdProject],
             next: true,
             error: null,
         });
 
-        const { container } = render(<Projects next={true} prefetchedProjects={[]} />);
+        const { container } = render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -40,14 +54,63 @@ describe("Projects component", () => {
 
         expect(fetchProjects).toHaveBeenCalled();
 
-        const projectName: HTMLElement = await screen.findByText(sampleProject.name);
-        const gitHubImage: HTMLElement = await screen.findByAltText("GitHub Logo");
-        const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${sampleProject.repository}"]`);
+        const projectName: HTMLElement = await screen.findByText(secondProject.name.replaceAll("-", " "));
+        const gitHubImage: HTMLElement = await screen.findAllByAltText("GitHub Logo").then((images) => images[1]);
+        const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${secondProject.repository}"]`);
+        const animatedCards: NodeListOf<Element> = container.querySelectorAll(".fadeIn");
 
         expect(button).not.toBeDisabled();
         expect(projectName).toBeInTheDocument();
         expect(gitHubImage).toBeInTheDocument();
         expect(linkToRepository).toBeInTheDocument();
+        expect(animatedCards).toHaveLength(2);
+        expect(animatedCards[0]).toHaveStyle({ animationDelay: "0ms" });
+        expect(animatedCards[1]).toHaveStyle({ animationDelay: `${projectCardStaggerDelayMs}ms` });
+    });
+
+    it("Keeps the button hidden until the last new project finishes animating", async () => {
+        jest.useFakeTimers();
+
+        const secondProject = {
+            ...sampleProject,
+            id: sampleProject.id + 1,
+            name: `${sampleProject.name}-two`,
+        };
+        const thirdProject = {
+            ...sampleProject,
+            id: sampleProject.id + 2,
+            name: `${sampleProject.name}-three`,
+        };
+
+        (fetchProjects as jest.Mock).mockResolvedValue({
+            projects: [secondProject, thirdProject],
+            next: true,
+            error: null,
+        });
+
+        render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
+
+        const button = screen.getByRole("button", { name: /Show more/i });
+
+        await act(async () => {
+            button.click();
+        });
+
+        expect(screen.getByRole("button", { name: /Show more/i, hidden: true })).toHaveClass("invisible");
+
+        act(() => {
+            jest.advanceTimersByTime((2 * projectCardStaggerDelayMs) - 1);
+        });
+
+        expect(screen.getByRole("button", { name: /Show more/i, hidden: true })).toHaveClass("invisible");
+
+        act(() => {
+            jest.advanceTimersByTime(1);
+        });
+
+        expect(screen.getByRole("button", { name: /Show more/i })).not.toHaveClass("invisible");
+
+        jest.useRealTimers();
     });
 
     it("Disables the button when no more projects are available", () => {

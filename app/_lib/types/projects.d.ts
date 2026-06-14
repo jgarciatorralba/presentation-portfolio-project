@@ -23,6 +23,14 @@ declare module "projects" {
         repository: string;
         homepage: string | null;
         topics: string[];
+        animateIn?: boolean;
+        animationDelayMs?: number;
+    }
+
+    interface ProjectEntry {
+        project: Project;
+        animateIn: boolean;
+        animationDelayMs: number;
     }
 
     interface FetchProjectsOptions {

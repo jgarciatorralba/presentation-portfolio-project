@@ -3,26 +3,50 @@
 import Button from "@components/button";
 import ProjectCard from "@components/sections/projects/projectCard";
 import { fetchProjects } from "@lib/api/fetchProjects";
-import { clientApiUrl } from "@lib/constants";
+import { clientApiUrl, projectCardStaggerDelayMs } from "@lib/constants";
 import { useToast } from "@lib/hooks/useToast";
-import { FetchProjectsResponse, Project } from "projects";
-import { JSX, useEffect, useState } from "react";
+import { FetchProjectsResponse, Project, ProjectEntry } from "projects";
+import { JSX, useEffect, useRef, useState } from "react";
+
+const createProjectEntries = (projects: Project[], animateIn: boolean): ProjectEntry[] => {
+    return projects.map((project, index) => ({
+        project,
+        animateIn,
+        animationDelayMs: animateIn ? index * projectCardStaggerDelayMs : 0,
+    }));
+}
 
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const [disabled, setDisabled] = useState(next === false);
-    const [projects, setProjects] = useState<Project[]>(prefetchedProjects);
-    const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(projects.length > 0 ? projects[projects.length - 1].lastPushedAt : null);
-
-    useEffect(() => {
-        if (projects.length > 0) {
-            setMaxPushedAt(projects[projects.length - 1].lastPushedAt);
-        }
-    }, [projects]);
+    const [projectEntries, setProjectEntries] = useState<ProjectEntry[]>(() => createProjectEntries(prefetchedProjects, false));
+    const [showMoreHidden, setShowMoreHidden] = useState(false);
+    const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(
+        prefetchedProjects.length > 0 ? prefetchedProjects[prefetchedProjects.length - 1].lastPushedAt : null
+    );
+    const showMoreTimeoutRef = useRef<number | null>(null);
 
     const toast = useToast();
 
+    useEffect(() => {
+        return () => {
+            if (showMoreTimeoutRef.current !== null) {
+                window.clearTimeout(showMoreTimeoutRef.current);
+            }
+        };
+    }, []);
+
+    const revealShowMoreButton = () => {
+        if (showMoreTimeoutRef.current !== null) {
+            window.clearTimeout(showMoreTimeoutRef.current);
+            showMoreTimeoutRef.current = null;
+        }
+
+        setShowMoreHidden(false);
+    };
+
     const handleClick = async () => {
         if (!disabled) setDisabled(true);
+        setShowMoreHidden(true);
 
         const { projects: newProjects, next, error }: FetchProjectsResponse = await fetchProjects(
             {
@@ -33,8 +57,26 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
         );
 
         if (newProjects.length > 0) {
-            setProjects((prevProjects) => [...prevProjects, ...newProjects]);
+            setProjectEntries((prevProjectEntries) => [
+                ...prevProjectEntries,
+                ...createProjectEntries(newProjects, true),
+            ]);
             setMaxPushedAt(newProjects[newProjects.length - 1].lastPushedAt);
+
+            if (showMoreTimeoutRef.current !== null) {
+                window.clearTimeout(showMoreTimeoutRef.current);
+            }
+
+            const showMoreDelayMs = newProjects.length * projectCardStaggerDelayMs;
+
+            showMoreTimeoutRef.current = window.setTimeout(() => {
+                setShowMoreHidden(false);
+                showMoreTimeoutRef.current = null;
+            }, showMoreDelayMs);
+        }
+
+        if (newProjects.length === 0) {
+            revealShowMoreButton();
         }
 
         if (error) {
@@ -47,7 +89,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
     return (
         <>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
-                {projects.map((project: Project) => (
+                {projectEntries.map(({ project, animateIn, animationDelayMs }: ProjectEntry) => (
                     <ProjectCard
                         key={project.id}
                         name={project.name}
@@ -55,6 +97,8 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                         topics={project.topics || []}
                         repository={project.repository}
                         homepage={project.homepage}
+                        animateIn={animateIn}
+                        animationDelayMs={animationDelayMs}
                     />
                 ))}
             </div>
@@ -62,7 +106,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
             <div className="p-6 flex flew-row justify-center">
                 <Button
                     type="button"
-                    className={`btn cursor-pointer max-w-fit ${disabled && 'pointer-events-none opacity-50'}`}
+                    className={`btn cursor-pointer max-w-fit ${disabled ? "pointer-events-none opacity-50" : ""} ${showMoreHidden ? "invisible" : ""}`}
                     disabled={disabled}
                     onClick={handleClick}
                 >

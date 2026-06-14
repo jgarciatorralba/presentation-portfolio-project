@@ -27,8 +27,8 @@
 
 @media (min-width: 640px) {
   .descriptionParagraph {
-    height: calc(4 * 1.5rem);
-    line-clamp: 4;
-    -webkit-line-clamp: 4;
+    height: auto;
+    line-clamp: none;
+    -webkit-line-clamp: none;
   }
 }

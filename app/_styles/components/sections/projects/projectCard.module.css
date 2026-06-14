@@ -11,4 +11,24 @@
 
 .fadeIn {
   animation: fadeIn 0.8s ease-out both;
+  will-change: transform, opacity;
+  contain: layout style;
+}
+
+.descriptionParagraph {
+  line-height: 1.5rem;
+  height: calc(3 * 1.5rem);
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+@media (min-width: 640px) {
+  .descriptionParagraph {
+    height: calc(4 * 1.5rem);
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+  }
 }

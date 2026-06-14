@@ -50,7 +50,7 @@ export default function ProjectCard({
                 </div>
                 <div>
                     <p className="paragraph capitalize text-lg font-bold">{name.replaceAll('-', ' ')}</p>
-                    <p className="paragraph text-sm line-clamp-2">{description}</p>
+                    <p className={`paragraph text-sm ${styles.descriptionParagraph}`}>{description}</p>
                 </div>
             </div>
 

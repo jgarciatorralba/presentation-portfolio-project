@@ -106,7 +106,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
             <div className="p-6 flex flew-row justify-center">
                 <Button
                     type="button"
-                    className={`btn cursor-pointer max-w-fit ${disabled && 'pointer-events-none opacity-50'} ${showMoreHidden ? 'invisible' : ''}`}
+                    className={`btn cursor-pointer max-w-fit ${disabled ? "pointer-events-none opacity-50" : ""} ${showMoreHidden ? "invisible" : ""}`}
                     disabled={disabled}
                     onClick={handleClick}
                 >

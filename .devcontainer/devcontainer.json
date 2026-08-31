@@ -1,8 +1,8 @@
 {
   "name": "Portfolio Project",
-  "dockerComposeFile": ["../docker-compose.yml"],
+  "dockerComposeFile": ["../.docker/docker-compose.yml"],
   "service": "nextjs",
-  "workspaceFolder": "/var/www/portfolio-project",
+  "workspaceFolder": "/var/www/presentation-portfolio-project",
   "shutdownAction": "none",
   "customizations": {
     "vscode": {

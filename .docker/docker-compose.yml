@@ -1,8 +1,8 @@
 services:
   nextjs:
     build:
-      context: .
-      dockerfile: Dockerfile.dev
+      context: ..
+      dockerfile: .docker/Dockerfile.dev
     volumes:
       - ./app:/var/www/portfolio-project/app
       - /var/www/portfolio-project/node_modules

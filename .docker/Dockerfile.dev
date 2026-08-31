@@ -1,5 +1,5 @@
 FROM node:22.16.0-bookworm-slim
-WORKDIR /var/www/portfolio-project
+WORKDIR /var/www/presentation-portfolio-project
 
 COPY package*.json ./
 RUN apt-get update && apt-get install -y git

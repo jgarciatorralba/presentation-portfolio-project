@@ -4,7 +4,7 @@ services:
       context: ..
       dockerfile: .docker/Dockerfile.dev
     volumes:
-      - ./app:/var/www/presentation-portfolio-project/app
+      - ..:/var/www/presentation-portfolio-project
       - /var/www/presentation-portfolio-project/node_modules
 
   nginx:

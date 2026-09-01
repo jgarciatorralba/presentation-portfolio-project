@@ -4,5 +4,5 @@ services:
       context: ..
       dockerfile: .docker/Dockerfile
     volumes:
-      - ./app:/var/www/presentation-portfolio-project/app
+      - ..:/var/www/presentation-portfolio-project
       - /var/www/presentation-portfolio-project/node_modules

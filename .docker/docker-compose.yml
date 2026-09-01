@@ -3,6 +3,7 @@ services:
     build:
       context: ..
       dockerfile: .docker/Dockerfile
-    volumes:
-      - ..:/var/www/presentation-portfolio-project
-      - /var/www/presentation-portfolio-project/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - ../.env

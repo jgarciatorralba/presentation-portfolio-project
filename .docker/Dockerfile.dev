@@ -3,7 +3,7 @@ WORKDIR /var/www/presentation-portfolio-project
 
 COPY package*.json ./
 RUN apt-get update && apt-get install -y git
-RUN npm install
+RUN npm ci
 
 RUN npx -y playwright install --with-deps
 

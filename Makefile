@@ -1,3 +1,5 @@
+ .PHONY: up down
+
 up:
 	cd .docker && docker compose \
 		-f docker-compose.yml \

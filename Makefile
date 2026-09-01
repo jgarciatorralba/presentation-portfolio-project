@@ -1,7 +1,7 @@
  .PHONY: up down
 
 up:
-	cd .docker && docker compose \
+	cd .docker && docker compose --env-file ../.env \
 		-f docker-compose.yml \
 		-f docker-compose.dev.yml \
 		up -d --build

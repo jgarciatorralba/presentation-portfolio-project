@@ -6,6 +6,7 @@ services:
     volumes:
       - ..:/var/www/presentation-portfolio-project
       - /var/www/presentation-portfolio-project/node_modules
+    ports: !reset []
     env_file:
       - ../.env.local
 

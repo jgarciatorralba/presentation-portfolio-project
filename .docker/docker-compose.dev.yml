@@ -1,0 +1,18 @@
+services:
+  nextjs:
+    build:
+      context: ..
+      dockerfile: .docker/Dockerfile.dev
+    volumes:
+      - ..:/var/www/presentation-portfolio-project
+      - /var/www/presentation-portfolio-project/node_modules
+    env_file:
+      - ../.env.local
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - nextjs

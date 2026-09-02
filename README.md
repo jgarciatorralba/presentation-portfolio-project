@@ -23,7 +23,8 @@ This repository contains a **Next.js** application designed to present informati
 ## Installation
 
 - Clone this repo: `git clone git@github.com:jgarciatorralba/presentation-portfolio-project.git`
-- Run `docker compose up -d --build` to download images and set up containers.
+- Create a `.env.local` file in the root directory and add the environment variables defined in `.env.example`.
+- Run `make dev-up` to download images and set up containers.
   - The server container's port 80 is mapped to the host's port 8080
 - Once completed, open with VisualStudio and in the command palette (_"View > Command Palette"_) select the option _"Dev Containers: Reopen in Container"_.
 

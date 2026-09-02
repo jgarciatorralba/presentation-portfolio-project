@@ -1,21 +1,21 @@
-.PHONY: development-up development-down production-up production-down
+.PHONY: dev-up dev-down prod-up prod-down
 
-development-up:
+dev-up:
 	cd .docker && docker compose \
 		-f docker-compose.dev.yml \
 		up -d --build
 
-development-down:
+dev-down:
 	cd .docker && docker compose \
 		-f docker-compose.dev.yml \
 		down
 
-production-up:
+prod-up:
 	cd .docker && docker compose --env-file ../.env \
 		-f docker-compose.yml \
 		up -d --build
 
-production-down:
+prod-down:
 	cd .docker && docker compose --env-file ../.env \
 		-f docker-compose.yml \
 		down

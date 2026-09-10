@@ -1,21 +1,24 @@
-.PHONY: dev-up dev-down prod-up prod-down
+.PHONY: build up down
 
-dev-up:
-	cd .docker && docker compose \
-		-f docker-compose.dev.yml \
-		up -d --build
+ENV ?= dev
 
-dev-down:
-	cd .docker && docker compose \
-		-f docker-compose.dev.yml \
-		down
+ifeq ($(ENV),dev)
+COMPOSE_FILE := docker-compose.dev.yml
+COMPOSE_ENV_FILE :=
+else ifeq ($(ENV),prod)
+COMPOSE_FILE := docker-compose.yml
+COMPOSE_ENV_FILE := --env-file ../.env.build
+else
+$(error ENV must be either 'dev' or 'prod')
+endif
 
-prod-up:
-	cd .docker && docker compose --env-file ../.env.build \
-		-f docker-compose.yml \
-		up -d --build
+COMPOSE := cd .docker && docker compose $(COMPOSE_ENV_FILE) -f $(COMPOSE_FILE)
 
-prod-down:
-	cd .docker && docker compose --env-file ../.env.build \
-		-f docker-compose.yml \
-		down
+build:
+	$(COMPOSE) build
+
+up:
+	$(COMPOSE) up -d --build
+
+down:
+	$(COMPOSE) down

@@ -11,11 +11,11 @@ dev-down:
 		down
 
 prod-up:
-	cd .docker && docker compose --env-file ../.env \
+	cd .docker && docker compose --env-file ../.env.build \
 		-f docker-compose.yml \
 		up -d --build
 
 prod-down:
-	cd .docker && docker compose --env-file ../.env \
+	cd .docker && docker compose --env-file ../.env.build \
 		-f docker-compose.yml \
 		down

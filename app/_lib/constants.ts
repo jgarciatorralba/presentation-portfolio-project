@@ -15,7 +15,6 @@ import { Navigation } from "userInterface";
 
 const aboutParagraphs: string[] = aboutData.paragraphs || [];
 const apiUrl: string = process.env.API_URL || '';
-const cacheLifetimeSeconds: number = parseInt(process.env.CACHE_LIFETIME_SECONDS || '0');
 const clientApiUrl: string = process.env.NEXT_PUBLIC_API_URL || '';
 const contactParagraphs: string[] = contactData.paragraphs || [];
 const email: string = "jgarciatorralba@gmail.com";
@@ -35,7 +34,6 @@ const year: number = new Date().getFullYear();
 export {
     aboutParagraphs,
     apiUrl,
-    cacheLifetimeSeconds,
     clientApiUrl,
     contactParagraphs,
     email,

@@ -25,21 +25,25 @@
     @apply max-w-7xl px-6 mx-auto;
   }
 
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:font-medium focus:text-background;
+  }
+
   .paragraph {
     @apply mb-4;
   }
 
   /************** Components **************/
   .btn {
-    @apply font-medium focus:ring-1 hover:no-underline focus:outline-hidden rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-midnightBlue focus:ring-blue;
+    @apply font-medium rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-blue hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
 
     &.btn-secondary {
-      @apply text-background bg-primary hover:bg-secondary focus:ring-primary;
+      @apply text-background bg-primary hover:bg-secondary focus-visible:outline-primary;
     }
   }
 
   .tab {
-    @apply text-midnightBlue hover:text-primary w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
+    @apply text-secondary hover:text-primary w-max md:w-full md:text-left box-border border-b-2 border-blue md:border-b-0 md:border-l-2 px-8 md:pl-4 md:pr-8 py-2 rounded-t-md md:rounded-none md:rounded-r-md;
 
     &.active {
       @apply bg-blue text-primary box-border border-b-2 border-midnightBlue md:border-l-2 md:border-b-0;

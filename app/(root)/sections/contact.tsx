@@ -12,7 +12,7 @@ export default function Contact(): JSX.Element {
                     <p key={index} className="paragraph">{paragraph}</p>
                 ))}
                 <div className="flex justify-center py-8">
-                    <a href={`mailto:${email}`} role="button" target="_blank" rel="noopener noreferrer" className="btn">Say something</a>
+                    <a href={`mailto:${email}`} className="btn">Say something</a>
                 </div>
             </div>
         </Section>

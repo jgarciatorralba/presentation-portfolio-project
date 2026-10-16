@@ -15,6 +15,12 @@ a:hover:not([role='button']) {
   text-decoration: underline;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 .blurred-background {
   position: fixed;
   inset: 0;

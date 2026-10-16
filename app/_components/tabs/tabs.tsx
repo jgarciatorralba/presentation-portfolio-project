@@ -17,7 +17,7 @@ export default function Tabs({ items }: TabsProps): JSX.Element {
         <div className="md:flex w-full">
             <div className="tab-list" role="tablist">
                 {items.map(({ label }, i) => (
-                    <Tab key={`tab-${i}`} currentTab={i} activeTab={activeTab} setActiveTab={setActiveTab}>
+                    <Tab key={`tab-${i}`} currentTab={i} activeTab={activeTab} setActiveTab={setActiveTab} totalTabs={items.length}>
                         {label}
                     </Tab>
                 ))}

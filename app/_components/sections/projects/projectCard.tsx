@@ -14,7 +14,7 @@ export default function ProjectCard({
 }: ProjectCardProps): JSX.Element {
     return (
         <div
-            className={`bg-blue hover:bg-midnightBlue rounded-md p-6 transition hover:scale-105 flex flex-col justify-between ${animateIn ? styles.fadeIn : ""}`}
+            className={`bg-blue hover:bg-blue rounded-md p-6 transition hover:scale-105 flex flex-col justify-between ${animateIn ? styles.fadeIn : ""}`}
             style={animateIn ? { animationDelay: `${animationDelayMs}ms` } : undefined}
         >
             <div>
@@ -24,10 +24,11 @@ export default function ProjectCard({
                         href={repository}
                         rel="noopener noreferrer"
                         target="_blank"
+                        aria-label={`View ${name} source code on GitHub (opens in a new tab)`}
                     >
                         <Image
                             src={"/github.svg"}
-                            alt={"GitHub Logo"}
+                            alt=""
                             width={30}
                             height={30}
                         />
@@ -38,10 +39,11 @@ export default function ProjectCard({
                             href={homepage}
                             rel="noopener noreferrer"
                             target="_blank"
+                            aria-label={`Visit ${name} website (opens in a new tab)`}
                         >
                             <Image
                                 src={"/external-link.svg"}
-                                alt={"External Link"}
+                                alt=""
                                 width={30}
                                 height={30}
                             />

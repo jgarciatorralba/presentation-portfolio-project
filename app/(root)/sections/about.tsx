@@ -37,10 +37,11 @@ export default function About(): JSX.Element {
                                     href={url}
                                     rel="noopener noreferrer"
                                     target="_blank"
+                                    aria-label={`${name} profile (opens in a new tab)`}
                                 >
                                     <Image
                                         src={`/${name.toLowerCase()}.svg`}
-                                        alt={`${name} Logo`}
+                                        alt=""
                                         width={50}
                                         height={50}
                                     />

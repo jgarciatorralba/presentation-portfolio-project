@@ -11,8 +11,8 @@ export default function Contact(): JSX.Element {
                 {contactParagraphs.map((paragraph, index) => (
                     <p key={index} className="paragraph">{paragraph}</p>
                 ))}
-                <div className="flex justify-center py-8">
-                    <a href={`mailto:${email}`} role="button" target="_blank" rel="noopener noreferrer" className="btn">Say something</a>
+                <div className="flex justify-center py-8" role="button">
+                    <a href={`mailto:${email}`} target="_blank" rel="noopener noreferrer" className="btn">Say something</a>
                 </div>
             </div>
         </Section>

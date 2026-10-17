@@ -10,9 +10,21 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-a:hover:not([role='button']) {
+a:hover:not(.btn, .btn-secondary) {
   color: var(--primary);
   text-decoration: underline;
+}
+
+div[role="button"] {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .blurred-background {

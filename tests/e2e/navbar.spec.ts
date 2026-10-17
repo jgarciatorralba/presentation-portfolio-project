@@ -19,4 +19,21 @@ test.describe('Navbar', () => {
         // Wait for the sidebar to slide out of the viewport after closing
         await expect(sidebar).not.toBeInViewport();
     });
+
+    test('Closes the sidebar when pressing Escape on Mobile', async ({ page }) => {
+        await page.setViewportSize({ width: 375, height: 812 });
+        await page.goto(process.env.SITE_URL + '/');
+
+        const menuButton: Locator = page.getByTestId('menu-button');
+        await menuButton.click();
+
+        const sidebar: Locator = page.getByTestId('sidebar');
+        await expect(sidebar).toBeInViewport();
+
+        await page.keyboard.press('Escape');
+
+        await expect(sidebar).not.toBeInViewport();
+        await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+    });
+
 });

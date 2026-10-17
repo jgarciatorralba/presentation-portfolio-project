@@ -9,7 +9,7 @@ services:
     env_file:
       - ../.env.development
 
-  nginx:
+  frontend-nginx:
     build:
       context: ./nginx
     ports:

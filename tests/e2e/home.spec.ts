@@ -48,6 +48,33 @@ test.describe('Home Page', () => {
     }
   });
 
+  test('Provides a skip link to main content for keyboard users', async ({ page }) => {
+    await page.goto(process.env.SITE_URL + '/');
+
+    await page.keyboard.press('Tab');
+
+    const skipLink: Locator = page.getByRole('link', { name: 'Skip to main content' });
+    await expect(skipLink).toBeFocused();
+
+    await page.keyboard.press('Enter');
+    await expect(page.locator('main')).toBeFocused();
+  });
+
+  test('Supports keyboard navigation in experience tabs', async ({ page }) => {
+    await page.goto(process.env.SITE_URL + '/');
+
+    const firstTab: Locator = page.getByRole('tab', { name: 'eDreams' });
+    const secondTab: Locator = page.getByRole('tab', { name: 'Adkomo' });
+
+    await firstTab.focus();
+    await expect(firstTab).toHaveAttribute('aria-selected', 'true');
+
+    await firstTab.press('ArrowRight');
+
+    await expect(secondTab).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#tabpanel-1')).toBeVisible();
+  });
+
   test('Hides "Projects" section when there are no projects', async ({ page, next }) => {
     next.onFetch((request) => {
       if (request.url.includes('projects?pageSize=6')) {
@@ -66,7 +93,7 @@ test.describe('Home Page', () => {
   test('Shows pre-fetched projects', async ({ page }) => {
     await page.goto(process.env.SITE_URL + '/');
 
-    const project: Locator = page.locator('p.text-lg.font-bold', { hasText: sampleProject.name });
+    const project: Locator = page.locator('h3.text-lg.font-bold', { hasText: sampleProject.name });
     await expect(project).toBeVisible();
   });
 
@@ -89,7 +116,7 @@ test.describe('Home Page', () => {
     await page.goto(process.env.SITE_URL + '/');
 
     const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
-    const projects: Locator = page.locator('p.text-lg.font-bold');
+    const projects: Locator = page.locator('h3.text-lg.font-bold');
 
     await expect(fetchButton).toBeVisible();
     await expect(fetchButton).not.toBeDisabled();

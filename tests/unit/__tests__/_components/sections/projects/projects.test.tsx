@@ -16,7 +16,7 @@ describe("Projects component", () => {
         const { container } = render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
 
         const projectName: HTMLElement = screen.getByText(sampleProject.name);
-        const gitHubImage: HTMLElement = screen.getByAltText("GitHub Logo");
+        const gitHubImage: HTMLElement | null = container.querySelector(`a[aria-label="View ${sampleProject.name} source code on GitHub (opens in a new tab)"] > img`);
         const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${sampleProject.repository}"]`);
         const animatedCards: NodeListOf<Element> = container.querySelectorAll(".fadeIn");
 
@@ -55,7 +55,7 @@ describe("Projects component", () => {
         expect(fetchProjects).toHaveBeenCalled();
 
         const projectName: HTMLElement = await screen.findByText(secondProject.name.replaceAll("-", " "));
-        const gitHubImage: HTMLElement = await screen.findAllByAltText("GitHub Logo").then((images) => images[1]);
+        const gitHubImage: HTMLElement | null = container.querySelector(`a[aria-label="View ${secondProject.name} source code on GitHub (opens in a new tab)"] > img`);
         const linkToRepository: HTMLElement | null = container.querySelector(`a[href="${secondProject.repository}"]`);
         const animatedCards: NodeListOf<Element> = container.querySelectorAll(".fadeIn");
 

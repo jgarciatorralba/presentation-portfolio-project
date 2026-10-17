@@ -3,11 +3,15 @@ import { JSX } from "react";
 import { TabPanelProps } from "userInterface";
 
 export default function TabPanel({ currentPanel, activePanel, children }: TabPanelProps): JSX.Element {
+    const isActive = currentPanel === activePanel;
+
     return (
         <div
-            className={`absolute ${styles.tabContent} ${currentPanel === activePanel && styles.active}`}
+            id={`tabpanel-${currentPanel}`}
+            className={`absolute ${styles.tabContent} ${isActive ? styles.active : ''}`}
             role="tabpanel"
             aria-labelledby={`tab-${currentPanel}`}
+            tabIndex={0}
         >
             {children}
         </div>

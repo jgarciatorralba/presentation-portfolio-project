@@ -24,10 +24,11 @@ export default function ProjectCard({
                         href={repository}
                         rel="noopener noreferrer"
                         target="_blank"
+                        aria-label={`View ${name} source code on GitHub (opens in a new tab)`}
                     >
                         <Image
                             src={"/github.svg"}
-                            alt={"GitHub Logo"}
+                            alt=""
                             width={30}
                             height={30}
                         />
@@ -38,10 +39,11 @@ export default function ProjectCard({
                             href={homepage}
                             rel="noopener noreferrer"
                             target="_blank"
+                            aria-label={`Visit ${name} website (opens in a new tab)`}
                         >
                             <Image
                                 src={"/external-link.svg"}
-                                alt={"External Link"}
+                                alt=""
                                 width={30}
                                 height={30}
                             />
@@ -49,7 +51,7 @@ export default function ProjectCard({
                     )}
                 </div>
                 <div>
-                    <p className="paragraph capitalize text-lg font-bold">{name.replaceAll('-', ' ')}</p>
+                    <h3 className="paragraph capitalize text-lg font-bold">{name.replaceAll('-', ' ')}</h3>
                     <p className={`paragraph text-sm ${styles.descriptionParagraph}`}>{description}</p>
                 </div>
             </div>

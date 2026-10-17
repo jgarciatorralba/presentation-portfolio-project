@@ -34,6 +34,7 @@ declare module "userInterface" {
         currentTab: number;
         activeTab: number;
         setActiveTab: (tab: number) => void;
+        totalTabs: number;
     }
 
     interface TabPanelProps {

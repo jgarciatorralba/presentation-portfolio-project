@@ -26,7 +26,7 @@ export default function About(): JSX.Element {
                             alt="Front Picture"
                             width={300}
                             height={300}
-                            className="rounded-md sepia-[.35] contrast-[1.1] border border-midnightBlue"
+                            className="rounded-md sepia-[.35] contrast-[1.1] border border-vividBlue"
                             priority={true}
                         />
                         <div className="flex flex-row justify-start py-2">
@@ -37,10 +37,11 @@ export default function About(): JSX.Element {
                                     href={url}
                                     rel="noopener noreferrer"
                                     target="_blank"
+                                    aria-label={`${name} profile (opens in a new tab)`}
                                 >
                                     <Image
                                         src={`/${name.toLowerCase()}.svg`}
-                                        alt={`${name} Logo`}
+                                        alt=""
                                         width={50}
                                         height={50}
                                     />

@@ -71,7 +71,6 @@ export default function Navbar(): JSX.Element {
                     id="mobile-menu"
                     data-testid="sidebar"
                     className={`${styles.containerSidebar} w-3/4 sm:w-1/2 bg-blue grid content-center place-items-center text-lg ${open ? styles.open : ''}`}
-                    hidden={!open}
                 >
                     <ol className="grid gap-y-6 p-8 text-center">
                         {navigation.items.map((item, index) => (

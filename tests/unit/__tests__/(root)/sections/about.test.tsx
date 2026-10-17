@@ -20,7 +20,7 @@ describe("About section", () => {
     });
 
     it("Shows the social media links", () => {
-        render(<About />);
+        const { container } = render(<About />);
 
         const links: HTMLAnchorElement[] = screen.getAllByRole("link") as HTMLAnchorElement[];
 
@@ -30,10 +30,11 @@ describe("About section", () => {
             expect(link).toHaveAttribute("target", "_blank");
         });
 
-        const socialIcons: HTMLImageElement[] = screen.getAllByRole('img', { name: /Logo/ }) as HTMLImageElement[];
+        expect(links[0]).toHaveAttribute("aria-label", "GitHub profile (opens in a new tab)");
+        expect(links[1]).toHaveAttribute("aria-label", "LinkedIn profile (opens in a new tab)");
+
+        const socialIcons: NodeListOf<HTMLImageElement> | null = container.querySelectorAll("a[aria-label] > img");
 
         expect(socialIcons.length).toBe(2);
-        expect(socialIcons[0]).toHaveAttribute("alt", "GitHub Logo");
-        expect(socialIcons[1]).toHaveAttribute("alt", "LinkedIn Logo");
     });
 });

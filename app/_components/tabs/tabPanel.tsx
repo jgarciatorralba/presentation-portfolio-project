@@ -12,7 +12,6 @@ export default function TabPanel({ currentPanel, activePanel, children }: TabPan
             role="tabpanel"
             aria-labelledby={`tab-${currentPanel}`}
             tabIndex={0}
-            hidden={!isActive}
         >
             {children}
         </div>

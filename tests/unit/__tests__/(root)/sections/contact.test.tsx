@@ -20,9 +20,9 @@ describe("Contact section", () => {
     });
 
     it("Renders the email button", () => {
-        render(<Contact />);
+        const { container } = render(<Contact />);
 
-        const emailButton = screen.getByRole("button", { name: /Say something/ });
+        const emailButton: HTMLElement | null = container.querySelector('.btn');
 
         expect(emailButton).toHaveAttribute("href", expect.stringContaining("mailto:"));
         expect(emailButton).toHaveAttribute("target", "_blank");

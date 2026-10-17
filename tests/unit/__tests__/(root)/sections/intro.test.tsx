@@ -16,7 +16,7 @@ describe("Intro section", () => {
         render(<Intro />);
 
         const subheading: HTMLElement = screen.getByRole("heading", { level: 2 });
-        const span: HTMLElement | null = subheading.querySelector("span.text-midnightBlue");
+        const span: HTMLElement | null = subheading.querySelector("span.text-vividBlue");
 
         expect(subheading).toBeInTheDocument();
         expect(subheading).toHaveTextContent("a software engineer");

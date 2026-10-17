@@ -12,6 +12,7 @@ export default {
         background: "var(--background)",
         blue: "var(--blue)",
         midnightBlue: "var(--midnight-blue)",
+        vividBlue: "var(--vivid-blue)",
       },
       width: {
         calculatedScroll: "var(--width-calculated-scroll)",

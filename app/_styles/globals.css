@@ -10,9 +10,15 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-a:hover:not([role='button']) {
+a:hover {
   color: var(--primary);
   text-decoration: underline;
+}
+
+div[role="button"] {
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 a:focus-visible,

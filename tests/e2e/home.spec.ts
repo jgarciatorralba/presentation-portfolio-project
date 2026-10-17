@@ -93,7 +93,7 @@ test.describe('Home Page', () => {
   test('Shows pre-fetched projects', async ({ page }) => {
     await page.goto(process.env.SITE_URL + '/');
 
-    const project: Locator = page.locator('p.text-lg.font-bold', { hasText: sampleProject.name });
+    const project: Locator = page.locator('h3.text-lg.font-bold', { hasText: sampleProject.name });
     await expect(project).toBeVisible();
   });
 
@@ -116,7 +116,7 @@ test.describe('Home Page', () => {
     await page.goto(process.env.SITE_URL + '/');
 
     const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
-    const projects: Locator = page.locator('p.text-lg.font-bold');
+    const projects: Locator = page.locator('h3.text-lg.font-bold');
 
     await expect(fetchButton).toBeVisible();
     await expect(fetchButton).not.toBeDisabled();

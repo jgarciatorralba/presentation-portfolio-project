@@ -10,7 +10,7 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-a:hover {
+a:hover:not(.btn, .btn-secondary) {
   color: var(--primary);
   text-decoration: underline;
 }

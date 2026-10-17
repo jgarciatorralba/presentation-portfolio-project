@@ -36,10 +36,10 @@
 
   /************** Components **************/
   .btn {
-    @apply font-medium rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-vividBlue hover:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+    @apply font-medium focus:ring-blue focus:ring-1 rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-vividBlue hover:no-underline focus:outline-hidden;
 
     &.btn-secondary {
-      @apply text-background bg-primary hover:bg-secondary focus-visible:outline-primary;
+      @apply text-background bg-primary hover:bg-secondary focus:ring-primary;
     }
   }
 

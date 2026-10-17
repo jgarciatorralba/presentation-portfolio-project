@@ -1,6 +1,6 @@
 .navButton {
   &:active {
-    background-color: var(--vivid-blue);
+    background-color: var(--midnight-blue);
   }
 
   .svgIcon {

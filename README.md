@@ -20,13 +20,21 @@ This repository contains a **Next.js** application designed to present informati
 
 ---
 
+## Requirements
+
+- **Docker**: Ensure Docker is installed and running on your machine.
+- **Docker Compose**: Required for managing multi-container Docker applications.
+- **Make**: Required for executing the provided Makefile commands to streamline setup and management tasks.
+
+---
+
 ## Installation
 
 - Clone this repo: `git clone git@github.com:jgarciatorralba/presentation-portfolio-project.git`
 - Create a `.env.development` file in the root directory and add the environment variables defined in `.env.example`.
 - Run `make up` to download images and set up containers.
-  - The server container's port 80 is mapped to the host's port 8080
-- Once completed, open with VisualStudio and in the command palette (_"View > Command Palette"_) select the option _"Dev Containers: Reopen in Container"_.
+  - The server container's port 80 is mapped to the host's port 8080, make sure it is available before running the above command.
+- For development purposes —if needed—, open with VisualStudio and in the command palette (_"View > Command Palette"_) select the option _"Dev Containers: Reopen in Container"_.
 
 ---
 

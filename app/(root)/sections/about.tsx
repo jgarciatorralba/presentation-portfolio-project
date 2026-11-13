@@ -20,7 +20,7 @@ export default function About(): JSX.Element {
                             ))}
                         </ul>
                     </div>
-                    <div className="w-[250px] md:min-w-[300px] lg:order-first mx-auto">
+                    <div className="w-62.5 md:min-w-75 lg:order-first mx-auto">
                         <Image
                             src="/pic.png"
                             alt="Front Picture"

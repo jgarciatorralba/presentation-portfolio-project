@@ -9,7 +9,7 @@ test.describe('Resume link', () => {
         }
     });
 
-    test('Downloads the resume on Mobile', async ({ page }) => {
+    test('Opens the resume page on Mobile', async ({ page }) => {
         await page.setViewportSize({ width: 375, height: 812 });
         await page.goto(process.env.SITE_URL + '/');
 
@@ -20,32 +20,22 @@ test.describe('Resume link', () => {
         await page.waitForTimeout(500);
 
         // Ensure the resume link is visible in the mobile menu
-        const resumeLink: Locator = page.locator('a[href="/resume.pdf"]:not(.hidden)');
+        const resumeLink: Locator = page.locator('#mobile-menu a[href="/resume"]');
         await expect(resumeLink).toBeVisible();
-
-        const [download] = await Promise.all([
-            page.waitForEvent('download'),
-            resumeLink.click(),
-        ]);
-
-        const suggestedFilename: string = download.suggestedFilename();
-        expect(suggestedFilename).toMatch(/resume\.pdf$/);
+        await resumeLink.click();
+        await expect(page).toHaveURL(/\/resume$/);
+        await expect(page.getByRole('heading', { name: 'Jorge García Torralba' })).toBeVisible();
     });
 
-    test('Downloads the resume on Desktop', async ({ page }) => {
+    test('Opens the resume page on Desktop', async ({ page }) => {
         await page.setViewportSize({ width: 1280, height: 800 });
         await page.goto(process.env.SITE_URL + '/');
 
         // Ensure the resume link is visible in the desktop view
-        const resumeLink: Locator = page.locator('a[href="/resume.pdf"].md\\:block');
+        const resumeLink: Locator = page.locator('a[href="/resume"]');
         await expect(resumeLink).toBeVisible();
-
-        const [download] = await Promise.all([
-            page.waitForEvent('download'),
-            resumeLink.click(),
-        ]);
-
-        const suggestedFilename: string = download.suggestedFilename();
-        expect(suggestedFilename).toMatch(/resume\.pdf$/);
+        await resumeLink.click();
+        await expect(page).toHaveURL(/\/resume$/);
+        await expect(page.getByRole('link', { name: 'Download resume PDF' })).toHaveAttribute('href', '/resume.pdf');
     });
 });

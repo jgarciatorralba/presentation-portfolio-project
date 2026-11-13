@@ -36,4 +36,20 @@ test.describe('Navbar', () => {
         await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
     });
 
+    test('Navigates to a section and closes the sidebar on Mobile', async ({ page }) => {
+        await page.setViewportSize({ width: 375, height: 812 });
+        await page.goto(process.env.SITE_URL + '/');
+
+        const menuButton: Locator = page.getByTestId('menu-button');
+        const sidebar: Locator = page.getByTestId('sidebar');
+        await menuButton.click();
+        await expect(sidebar).toBeInViewport();
+
+        await sidebar.getByRole('link', { name: 'Contact' }).click();
+
+        await expect(page).toHaveURL(/\/#contact$/);
+        await expect(sidebar).not.toBeInViewport();
+        await expect(page.locator('#contact')).toBeInViewport();
+    });
+
 });

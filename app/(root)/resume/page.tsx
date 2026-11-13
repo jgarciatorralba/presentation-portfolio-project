@@ -40,13 +40,17 @@ export default function Resume(): JSX.Element {
                         className="mb-6 aspect-square w-75 max-w-full rounded-lg object-cover"
                         priority
                     />
-                    <h1 className={`header mb-2 ${oranienbaum.className}`}>{basics.name}</h1>
-                    <p className="mb-4 text-xl text-secondary">{basics.label}</p>
+                    <h1 className={`header mb-2 ${oranienbaum.className}`}>
+                        {basics.name}
+                    </h1>
+                    <p className="mb-4 text-xl text-secondary">
+                        {basics.label}
+                    </p>
 
                     <a
                         href="/resume.pdf"
                         download
-                        className="btn mt-8 inline-flex items-center gap-2 no-underline!"
+                        className="btn mx-auto! my-4 flex w-fit items-center gap-2 no-underline!"
                         aria-label="Download resume PDF"
                     >
                         <Image src="/download.svg" alt="" width={24} height={24} />
@@ -73,8 +77,7 @@ export default function Resume(): JSX.Element {
                         <div className="grid gap-8">
                             {work.map(job => (
                                 <article key={`${job.name}-${job.startDate}`}>
-                                    <h3 className="text-2xl">{job.position}</h3>
-                                    <p className="text-lg text-secondary">
+                                    <h3 className="text-2xl mb-2">
                                         <a
                                             className="text-vividBlue underline decoration-2 underline-offset-2"
                                             href={job.url}
@@ -83,7 +86,8 @@ export default function Resume(): JSX.Element {
                                         >
                                             {job.name}
                                         </a>
-                                    </p>
+                                    </h3>
+                                    <p className="text-xl text-secondary">{job.position}</p>
                                     <DateRange startDate={job.startDate} endDate={job.endDate} />
                                     <p className="mt-3">{job.summary}</p>
                                     {job.highlights && (

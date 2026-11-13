@@ -38,4 +38,14 @@ test.describe('Resume page', () => {
         await expect(page).toHaveURL(/\/resume$/);
         await expect(page.getByRole('link', { name: 'Download resume PDF' })).toHaveAttribute('href', '/resume.pdf');
     });
+
+    test('Downloads the resume PDF', async ({ page }) => {
+        await page.goto(process.env.SITE_URL + '/resume');
+
+        const downloadPromise = page.waitForEvent('download');
+        await page.getByRole('link', { name: 'Download resume PDF' }).click();
+        const download = await downloadPromise;
+
+        expect(download.suggestedFilename()).toBe('resume.pdf');
+    });
 });

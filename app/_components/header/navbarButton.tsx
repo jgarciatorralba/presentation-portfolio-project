@@ -6,6 +6,8 @@ import { JSX, MouseEvent, useEffect, useRef } from "react";
 import { NavbarButtonProps } from "userInterface";
 
 export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.Element {
+    const timeoutRef = useRef<number | null>(null);
+
     useEffect(() => {
         return () => {
             if (timeoutRef.current !== null) {
@@ -13,8 +15,6 @@ export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.
             }
         };
     }, []);
-
-    const timeoutRef = useRef<number | null>(null);
 
     const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
         onClick(e);

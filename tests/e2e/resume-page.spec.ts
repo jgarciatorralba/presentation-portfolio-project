@@ -48,4 +48,12 @@ test.describe('Resume page', () => {
 
         expect(download.suggestedFilename()).toBe('resume.pdf');
     });
+
+    test('Renders all resume sections', async ({ page }) => {
+        await page.goto(process.env.SITE_URL + '/resume');
+
+        for (const section of ['Experience', 'Education', 'Skills', 'Languages', 'Certificates']) {
+            await expect(page.getByRole('heading', { name: section, level: 2 })).toBeVisible();
+        }
+    });
 });

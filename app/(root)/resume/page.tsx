@@ -29,15 +29,15 @@ export default function Resume(): JSX.Element {
     const { basics, work, education, certificates, skills, languages } = resumeData;
 
     return (
-        <main id="main-content" tabIndex={-1} className="section-container">
-            <div className="grid gap-12 lg:grid-cols-[300px_minmax(0,2fr)]">
+        <main id="main-content" tabIndex={-1} className="section-container px-6">
+            <div className="grid gap-20 lg:grid-cols-[300px_minmax(0,2fr)] resume-divider">
                 <aside className="lg:sticky lg:top-32 lg:self-start">
                     <Image
                         src="/pic-resume.png"
-                        alt={basics.name}
+                        alt=""
                         width={300}
                         height={300}
-                        className="mb-6 aspect-square w-75 max-w-full rounded-lg object-cover"
+                        className="mb-6 aspect-square w-full max-w-75 rounded-lg object-cover lg:w-75 lg:max-w-none"
                         priority
                     />
                     <h1 className={`header mb-2 ${oranienbaum.className}`}>
@@ -45,23 +45,39 @@ export default function Resume(): JSX.Element {
                     </h1>
                     <p className="paragraph">{basics.summary}</p>
 
-                    <address className="mb-2 not-italic">
-                        {basics.location.city}, {basics.location.countryCode}
-                    </address>
-
-                    <div className="grid gap-2">
-                        <a href={basics.url} target="_blank" rel="noopener noreferrer">{basics.url}</a>
-                        {basics.profiles.map(profile => (
-                            <a key={profile.network} href={profile.url} target="_blank" rel="noopener noreferrer">
-                                {profile.network}: {profile.username}
+                    <ul className="grid gap-2">
+                        <li className="flex items-center gap-2">
+                            <Image src="/pin.svg" alt="" width={20} height={20} className="size-5 shrink-0" />
+                            <address className="not-italic">
+                                {basics.location.city}, {basics.location.countryCode}
+                            </address>
+                        </li>
+                        <li className="flex items-center gap-2">
+                            <Image src="/globe.svg" alt="" width={20} height={20} className="size-5 shrink-0" />
+                            <a href={basics.url} target="_blank" rel="noopener noreferrer" className="text-vividBlue underline decoration-2 underline-offset-2">
+                                {basics.url}
                             </a>
+                        </li>
+                        {basics.profiles.map(profile => (
+                            <li key={profile.network} className="flex items-center gap-2">
+                                <Image
+                                    src={`/${profile.network.toLowerCase()}.svg`}
+                                    alt=""
+                                    width={20}
+                                    height={20}
+                                    className="size-5 shrink-0"
+                                />
+                                <a href={profile.url} target="_blank" rel="noopener noreferrer" className="text-vividBlue underline decoration-2 underline-offset-2">
+                                    {profile.username}
+                                </a>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
 
                     <a
                         href="/resume.pdf"
                         download
-                        className="btn mx-auto! my-4 flex w-fit items-center gap-2 no-underline!"
+                        className="btn mx-auto! mt-6! mb-4 flex w-fit items-center gap-2 no-underline! sm:mt-4"
                         aria-label="Download resume PDF"
                     >
                         <Image src="/download.svg" alt="" width={24} height={24} />
@@ -69,7 +85,7 @@ export default function Resume(): JSX.Element {
                     </a>
                 </aside>
 
-                <div className="grid gap-12">
+                <div className="grid gap-20">
                     <section aria-labelledby="experience-heading">
                         <h2 id="experience-heading" className={`header ${oranienbaum.className}`}>Experience</h2>
                         <div className="grid gap-8">
@@ -118,7 +134,7 @@ export default function Resume(): JSX.Element {
                             {skills.map(skill => (
                                 <article key={skill.name}>
                                     <h3 className="text-xl">{skill.name}</h3>
-                                    <p>{skill.keywords.join(", ")}</p>
+                                    <p className="text-secondary">{skill.keywords.join(", ")}</p>
                                 </article>
                             ))}
                         </div>
@@ -139,9 +155,27 @@ export default function Resume(): JSX.Element {
                         <h2 id="certificates-heading" className={`header ${oranienbaum.className}`}>Certificates</h2>
                         <div className="grid gap-4">
                             {certificates.map(certificate => (
-                                <article key={certificate.name}>
-                                    <h3 className="text-xl">{certificate.name}</h3>
-                                    <p>{certificate.issuer} ({formatDate(certificate.date)})</p>
+                                <article key={certificate.name} className="flex items-center gap-4">
+                                    <Image
+                                        src="/aws-certified-cloud-practitioner.svg"
+                                        alt=""
+                                        width={56}
+                                        height={56}
+                                        className="size-14 shrink-0"
+                                    />
+                                    <div>
+                                        <h3 className="text-xl">
+                                            <a
+                                                href="https://www.credly.com/badges/7afe9d3e-855d-44c0-ab09-665c7329f8da/public_url"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-vividBlue underline decoration-2 underline-offset-2"
+                                            >
+                                                {certificate.name}
+                                            </a>
+                                        </h3>
+                                        <p>{certificate.issuer} ({formatDate(certificate.date)})</p>
+                                    </div>
                                 </article>
                             ))}
                         </div>

@@ -4,8 +4,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    min-height: var(--nav-min-height);
+    box-sizing: border-box;
+    inline-size: 100%;
+    block-size: var(--nav-min-height);
+    min-block-size: var(--nav-min-height);
+    max-block-size: var(--nav-min-height);
+    overflow-x: clip;
 
     display: flex;
     align-items: center;

@@ -8,6 +8,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <>
       <Header />
       <ToastProvider>{children}</ToastProvider>
+      <div className="blurred-background" />
       <Footer />
     </>
   );

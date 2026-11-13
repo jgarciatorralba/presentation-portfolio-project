@@ -49,7 +49,7 @@ describe("Experience section", () => {
 
         expect(tabContents.length).toBe(5);
         expect(activeTabContent).toBeInTheDocument();
-        expect(activeTabContent).toHaveTextContent("Software Developer @ eDreams ODIGEO");
+        expect(activeTabContent).toHaveTextContent("Software Engineer @ eDreams ODIGEO");
     });
 
     it("Switches to another experience tab when clicked", () => {

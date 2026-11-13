@@ -1,4 +1,4 @@
-import resumeData from "@assets/texts/resume.json";
+import resumeData from "@assets/texts/resume/resume.json";
 import { oranienbaum } from "@lib/fonts";
 import Image from "next/image";
 import { JSX } from "react";

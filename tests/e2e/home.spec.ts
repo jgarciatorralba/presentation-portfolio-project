@@ -41,7 +41,7 @@ test.describe('Home Page', () => {
   test('Shows all sections', async ({ page }) => {
     await page.goto(process.env.SITE_URL + '/');
 
-    for (const item of navigation.items) {
+    for (const item of navigation.items.filter(item => item.href.startsWith("/#"))) {
       const heading: Locator = page.getByRole('heading', { name: item.name });
       await expect(heading).toBeVisible();
       await expect(heading).toHaveText(item.name);

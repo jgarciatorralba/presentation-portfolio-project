@@ -1,7 +1,7 @@
 import { expect, Locator, test } from "@playwright/test";
 import { existsSync, unlinkSync } from "fs";
 
-test.describe('Resume link', () => {
+test.describe('Resume page', () => {
     test.beforeAll(() => {
         const logFilePath: string = process.env.LOG_FILE_PATH || '';
         if (existsSync(logFilePath)) {
@@ -32,7 +32,7 @@ test.describe('Resume link', () => {
         await page.goto(process.env.SITE_URL + '/');
 
         // Ensure the resume link is visible in the desktop view
-        const resumeLink: Locator = page.locator('a[href="/resume"]');
+        const resumeLink: Locator = page.locator('nav > div:first-child a[href="/resume"]');
         await expect(resumeLink).toBeVisible();
         await resumeLink.click();
         await expect(page).toHaveURL(/\/resume$/);

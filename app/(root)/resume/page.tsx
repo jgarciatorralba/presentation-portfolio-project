@@ -43,24 +43,12 @@ export default function Resume(): JSX.Element {
                     <h1 className={`header mb-2 ${oranienbaum.className}`}>
                         {basics.name}
                     </h1>
-                    <p className="mb-4 text-xl text-secondary">
-                        {basics.label}
-                    </p>
-
-                    <a
-                        href="/resume.pdf"
-                        download
-                        className="btn mx-auto! my-4 flex w-fit items-center gap-2 no-underline!"
-                        aria-label="Download resume PDF"
-                    >
-                        <Image src="/download.svg" alt="" width={24} height={24} />
-                        Download PDF
-                    </a>
-
                     <p className="paragraph">{basics.summary}</p>
-                    <address className="mb-4 not-italic">
+
+                    <address className="mb-2 not-italic">
                         {basics.location.city}, {basics.location.countryCode}
                     </address>
+
                     <div className="grid gap-2">
                         <a href={basics.url} target="_blank" rel="noopener noreferrer">{basics.url}</a>
                         {basics.profiles.map(profile => (
@@ -69,6 +57,16 @@ export default function Resume(): JSX.Element {
                             </a>
                         ))}
                     </div>
+
+                    <a
+                        href="/resume.pdf"
+                        download
+                        className="btn mx-auto! my-4 flex w-fit items-center gap-2 no-underline!"
+                        aria-label="Download resume PDF"
+                    >
+                        <Image src="/download.svg" alt="" width={24} height={24} />
+                        Download
+                    </a>
                 </aside>
 
                 <div className="grid gap-12">

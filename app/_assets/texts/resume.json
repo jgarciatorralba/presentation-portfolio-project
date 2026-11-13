@@ -1,0 +1,180 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/jsonresume.org/main/packages/schema/schema.json",
+  "basics": {
+    "name": "Jorge García Torralba",
+    "label": "Software Engineer",
+    "email": "jgarciatorralba@gmail.com",
+    "url": "https://jgarciatorralba.dev",
+    "summary": "Software Engineer with a background in industrial engineering, interested in web technologies in general.",
+    "location": {
+      "city": "Valencia",
+      "countryCode": "ES",
+      "region": "Valencian Community"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "jgarciatorralba",
+        "url": "https://www.linkedin.com/in/jgarciatorralba/"
+      },
+      {
+        "network": "GitHub",
+        "username": "jgarciatorralba",
+        "url": "https://github.com/jgarciatorralba"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "eDreams ODIGEO",
+      "url": "https://www.edreams.es/",
+      "position": "Software Engineer",
+      "startDate": "2024-06",
+      "summary": "Contributing to the improvement of the hotel booking platform and post-booking services.",
+      "highlights": [
+        "Technology stack: PHP 8, MySQL, Grafana, Hexagonal Architecture, Domain-Driven Design."
+      ]
+    },
+    {
+      "name": "Adkomo",
+      "url": "https://www.adkomo.com/",
+      "position": "Full Stack Developer",
+      "startDate": "2022-04",
+      "endDate": "2024-06",
+      "summary": "Maintained a proprietary platform in the digital marketing industry.",
+      "highlights": [
+        "Technology stack: Symfony, React, PostgreSQL, Redis, AWS."
+      ]
+    },
+    {
+      "name": "SII Concatel",
+      "url": "https://siigroup-spain.com/",
+      "position": "Full Stack Developer",
+      "startDate": "2022-02",
+      "endDate": "2022-04",
+      "summary": "Participated in new and existing projects at a consulting firm.",
+      "highlights": [
+        "Technology stack: Symfony, React."
+      ]
+    },
+    {
+      "name": "Òmada Interactiva",
+      "url": "https://www.omada.es/",
+      "position": "PHP Developer",
+      "startDate": "2021-02",
+      "endDate": "2022-02",
+      "summary": "Worked as a junior backend developer with Drupal, a Symfony-based content management system."
+    },
+    {
+      "name": "Inbenta",
+      "url": "https://www.inbenta.com/",
+      "position": "Product Developer",
+      "startDate": "2020-12",
+      "endDate": "2021-02",
+      "summary": "Maintained, evolved, and tested Inbenta software.",
+      "highlights": [
+        "Technology stack: Laravel, Vue.js."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universitat Oberta de Catalunya",
+      "area": "Computer Science",
+      "studyType": "Degree",
+      "startDate": "2018",
+      "endDate": "2027"
+    },
+    {
+      "institution": "Assembler Institute of Technology",
+      "area": "Full Stack Web Development",
+      "studyType": "Bootcamp",
+      "startDate": "2020-03",
+      "endDate": "2020-12",
+      "courses": [
+        "Seven-month full-time program focused on developing real-life projects using web languages such as JavaScript and PHP."
+      ]
+    },
+    {
+      "institution": "Universitat Politècnica de Catalunya",
+      "area": "Production Management",
+      "studyType": "Master's Degree",
+      "startDate": "2012",
+      "endDate": "2013"
+    },
+    {
+      "institution": "Universitat Politècnica de València",
+      "area": "Civil Engineering",
+      "studyType": "Degree",
+      "startDate": "2004",
+      "endDate": "2011"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2023-09"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Backend Development",
+      "keywords": [
+        "PHP 8",
+        "Symfony",
+        "Slim",
+        "MySQL",
+        "PostgreSQL",
+        "Redis"
+      ]
+    },
+    {
+      "name": "Frontend Development",
+      "keywords": [
+        "React",
+        "Next.js",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "Cloud and Observability",
+      "keywords": [
+        "AWS",
+        "Grafana"
+      ]
+    },
+    {
+      "name": "Software Architecture and Design",
+      "keywords": [
+        "Hexagonal Architecture",
+        "Domain-Driven Design (DDD)"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Advanced (C1)"
+    },
+    {
+      "language": "Valencian/Catalan",
+      "fluency": "Proficient"
+    }
+  ],
+  "projects": [],
+  "volunteer": [],
+  "awards": [],
+  "publications": [],
+  "interests": [],
+  "references": [],
+  "meta": {
+    "canonical": "https://jgarciatorralba.dev",
+    "version": "1.0.0",
+    "lastModified": "2026-11-13T13:30:00+01:00"
+  }
+}

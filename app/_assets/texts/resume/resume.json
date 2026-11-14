@@ -114,7 +114,9 @@
     {
       "name": "AWS Certified Cloud Practitioner",
       "issuer": "Amazon Web Services",
-      "date": "2023-09"
+      "date": "2023-09",
+      "url": "https://www.credly.com/badges/7afe9d3e-855d-44c0-ab09-665c7329f8da/public_url",
+      "icon": "/aws-certified-cloud-practitioner.svg"
     }
   ],
   "skills": [

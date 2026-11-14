@@ -54,7 +54,7 @@ export default function ResumeSidebar({ basics }: { basics: ResumeBasics }): JSX
                 className="btn mx-auto! mt-6! mb-4 flex w-fit items-center gap-2 no-underline! sm:mt-4"
                 aria-label="Download resume PDF"
             >
-                <Image src="/download.svg" alt="" width={24} height={24} />
+                <Image src="/download.svg" alt="" width={24} height={24} className="-top-1 relative" />
                 Download
             </a>
         </aside>

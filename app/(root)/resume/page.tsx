@@ -15,6 +15,7 @@ export default function Resume(): JSX.Element {
         <main id="main-content" tabIndex={-1} className="section-container px-6">
             <div className="grid gap-20 lg:grid-cols-[300px_minmax(0,2fr)] resume-divider">
                 <ResumeSidebar basics={data.basics} />
+
                 <div className="grid gap-20">
                     <Experience work={data.work} />
                     <Education education={data.education} />

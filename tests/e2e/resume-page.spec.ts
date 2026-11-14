@@ -16,10 +16,6 @@ test.describe('Resume page', () => {
         const menuButton: Locator = page.getByTestId('menu-button');
         await menuButton.click();
 
-        // Wait for the menu to open
-        await page.waitForTimeout(500);
-
-        // Ensure the resume link is visible in the mobile menu
         const resumeLink: Locator = page.locator('#mobile-menu a[href="/resume"]');
         await expect(resumeLink).toBeVisible();
         await resumeLink.click();

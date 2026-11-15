@@ -7,11 +7,11 @@ import introData from "@assets/texts/sections/intro.json";
 import projectsData from "@assets/texts/sections/projects.json";
 import socialNetworksData from "@assets/texts/social-networks.json";
 import technologiesData from "@assets/texts/technologies.json";
-import { Experiences } from "experiences";
+import type { Experiences } from "@lib/types/experiences";
 import path from "path";
-import { SocialNetworks } from "socialNetworks";
-import { Technologies } from "technologies";
-import { Navigation } from "userInterface";
+import type { SocialNetworks } from "@lib/types/socialNetworks";
+import type { Technologies } from "@lib/types/technologies";
+import type { Navigation } from "@lib/types/userInterface";
 
 const aboutParagraphs: string[] = aboutData.paragraphs || [];
 const apiUrl: string = process.env.API_URL || '';

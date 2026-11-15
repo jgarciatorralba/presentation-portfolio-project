@@ -1,6 +1,6 @@
 import { fetchProjects } from "@lib/api/fetchProjects";
 import { sampleProject } from "@tests/sampleProject";
-import { FetchProjectsOptions, FetchProjectsResponse, ProjectData } from "projects";
+import type { FetchProjectsOptions, FetchProjectsResponse, ProjectData } from "@lib/types/projects";
 
 const baseUrl = "https://example.com";
 

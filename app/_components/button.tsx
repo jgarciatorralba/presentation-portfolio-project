@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { ButtonProps } from "userInterface";
+import type { ButtonProps } from "@lib/types/userInterface";
 
 export default function Button(props: ButtonProps): JSX.Element {
     return (

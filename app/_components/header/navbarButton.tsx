@@ -3,7 +3,7 @@
 import Button from "@components/button";
 import styles from "@styles/components/header/navbarButton.module.css";
 import { JSX, MouseEvent, useEffect, useRef } from "react";
-import { NavbarButtonProps } from "userInterface";
+import type { NavbarButtonProps } from "@lib/types/userInterface";
 
 export default function NavbarButton({ open, onClick }: NavbarButtonProps): JSX.Element {
     const timeoutRef = useRef<number | null>(null);

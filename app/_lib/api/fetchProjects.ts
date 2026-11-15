@@ -1,4 +1,4 @@
-import { FetchProjectsOptions, FetchProjectsResponse, Project, ProjectData } from "projects";
+import type { FetchProjectsOptions, FetchProjectsResponse, Project, ProjectData } from "@lib/types/projects";
 
 export async function fetchProjects({
     baseUrl,

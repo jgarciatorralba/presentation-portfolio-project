@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { ToastContextValue } from "toast";
+import type { ToastContextValue } from "@lib/types/toast";
 
 export const ToastContext = createContext<ToastContextValue | null>(null);

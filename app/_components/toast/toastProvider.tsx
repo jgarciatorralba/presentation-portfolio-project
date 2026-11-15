@@ -4,7 +4,7 @@ import Toast from "@components/toast/toast";
 import { ToastContext } from "@lib/context/toastContext";
 import styles from "@styles/components/toast/toast.module.css";
 import { JSX, useMemo, useState } from "react";
-import { ToastProviderProps, ToastType } from "toast";
+import type { ToastProviderProps, ToastType } from "@lib/types/toast";
 
 export default function ToastProvider({ children }: ToastProviderProps): JSX.Element {
     const [toasts, setToasts] = useState<ToastType[]>([]);

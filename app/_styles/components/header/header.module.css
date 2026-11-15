@@ -9,7 +9,6 @@
     block-size: var(--nav-min-height);
     min-block-size: var(--nav-min-height);
     max-block-size: var(--nav-min-height);
-    overflow-x: clip;
 
     display: flex;
     align-items: center;

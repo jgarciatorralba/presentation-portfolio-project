@@ -4,6 +4,7 @@ body {
   font-size: var(--text-base-size);
   color: var(--primary);
   background: var(--background);
+  overflow-x: clip;
 
   display: grid;
   min-height: 100dvh;

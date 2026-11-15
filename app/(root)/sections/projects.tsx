@@ -7,7 +7,7 @@ import { apiUrl, logFilePath, projectsParagraphs } from "@lib/constants";
 import { oranienbaum } from "@lib/fonts";
 import fs from "fs";
 import path from "path";
-import { FetchProjectsResponse } from "projects";
+import type { FetchProjectsResponse } from "@lib/types/projects";
 import { JSX } from "react";
 
 export default async function Projects(): Promise<JSX.Element | null> {

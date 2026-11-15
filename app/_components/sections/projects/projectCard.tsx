@@ -1,6 +1,6 @@
 import styles from "@styles/components/sections/projects/projectCard.module.css";
 import Image from "next/image";
-import { ProjectCardProps } from "projects";
+import type { ProjectCardProps } from "@lib/types/projects";
 import { JSX } from "react";
 
 export default function ProjectCard({

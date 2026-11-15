@@ -1,5 +1,5 @@
 import { JSX } from "react";
-import { SectionProps } from "userInterface";
+import type { SectionProps } from "@lib/types/userInterface";
 
 export default function Section(props: SectionProps): JSX.Element {
     return (

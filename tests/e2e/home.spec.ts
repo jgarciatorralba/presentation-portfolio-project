@@ -41,10 +41,21 @@ test.describe('Home Page', () => {
   test('Shows all sections', async ({ page }) => {
     await page.goto(process.env.SITE_URL + '/');
 
-    for (const item of navigation.items) {
+    for (const item of navigation.items.filter(item => item.href.startsWith("/#"))) {
       const heading: Locator = page.getByRole('heading', { name: item.name });
       await expect(heading).toBeVisible();
       await expect(heading).toHaveText(item.name);
+    }
+  });
+
+  test('Navigates to each section from the navbar', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.goto(process.env.SITE_URL + '/');
+
+    for (const item of navigation.items.filter(item => item.href.startsWith("/#"))) {
+      await page.locator(`nav a[href="${item.href}"]`).first().click();
+      await expect(page).toHaveURL(new RegExp(`${item.href.replace('/', '\\/')}$`));
+      await expect(page.locator(`#${item.href.split('#')[1]}`)).toBeInViewport();
     }
   });
 

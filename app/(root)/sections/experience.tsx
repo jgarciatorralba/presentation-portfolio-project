@@ -4,7 +4,7 @@ import Tabs from "@components/tabs/tabs";
 import { experienceParagraphs, experiences } from "@lib/constants";
 import { oranienbaum } from "@lib/fonts";
 import { JSX } from "react";
-import { TabItemProps } from "userInterface";
+import type { TabItemProps } from "@lib/types/userInterface";
 
 const experienceItems: TabItemProps[] = Object.entries(experiences).map(([name, experience], index) => {
     return {

@@ -4,7 +4,7 @@ import useTimeout from "@lib/hooks/useTimeout";
 import styles from "@styles/components/toast/toast.module.css";
 import Image from "next/image";
 import { JSX } from "react";
-import { ToastProps } from "toast";
+import type { ToastProps } from "@lib/types/toast";
 
 export default function Toast({ message, close }: ToastProps): JSX.Element {
     useTimeout(() => {

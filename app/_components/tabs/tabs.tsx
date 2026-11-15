@@ -3,7 +3,7 @@
 import Tab from "@components/tabs/tab";
 import TabPanel from "@components/tabs/tabPanel";
 import { JSX, useState } from "react";
-import { TabItemProps, TabsProps } from "userInterface";
+import type { TabItemProps, TabsProps } from "@lib/types/userInterface";
 
 export default function Tabs({ items }: TabsProps): JSX.Element {
     const [activeTab, setActiveTab] = useState(findActiveTab(items));

@@ -1,5 +1,5 @@
 import styles from "@styles/components/sections/experience/experienceTabContent.module.css";
-import { ExperienceProps } from "experiences";
+import type { ExperienceProps } from "@lib/types/experiences";
 import { JSX } from "react";
 
 export default function ExperienceTabContent({

@@ -13,7 +13,6 @@ export default function Home(): JSX.Element {
       <Experience />
       <Projects />
       <Contact />
-      <div className="blurred-background" />
     </main>
   );
 }

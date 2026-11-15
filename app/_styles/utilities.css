@@ -34,6 +34,22 @@
     @apply mb-4;
   }
 
+  .resume-divider {
+    position: relative;
+  }
+
+  @media (min-width: 1024px) {
+    .resume-divider::after {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      left: calc(300px + 2.5rem);
+      width: 0.125rem;
+      background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+      box-shadow: 0 0 2px var(--primary);
+    }
+  }
+
   /************** Components **************/
   .btn {
     @apply font-medium focus:ring-blue focus:ring-1 rounded-lg p-4 text-center me-2 text-primary bg-blue hover:bg-vividBlue hover:no-underline focus:outline-hidden;

@@ -67,15 +67,12 @@ describe("Header component", () => {
         });
     });
 
-    it("Includes a link to the resume", () => {
+    it("Includes a link to the resume page", () => {
         const { container } = render(<Header />);
 
-        const resumeLink: HTMLElement | null = container.querySelector("a[href='/resume.pdf']");
+        const resumeLink: HTMLElement | null = container.querySelector("a[href='/resume']");
 
         expect(resumeLink).not.toBeNull();
-
-        expect(resumeLink).toHaveAttribute("target", "_blank");
-        expect(resumeLink).toHaveAttribute("rel", "noopener noreferrer");
         expect(resumeLink).toHaveTextContent("Resume");
     });
 

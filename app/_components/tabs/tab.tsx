@@ -1,7 +1,7 @@
 import Button from "@components/button";
 import styles from "@styles/components/tabs/tabs.module.css";
 import { JSX, KeyboardEvent } from "react";
-import { TabProps } from "userInterface";
+import type { TabProps } from "@lib/types/userInterface";
 
 export default function Tab({ children, currentTab, activeTab, setActiveTab, totalTabs }: TabProps): JSX.Element {
     const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {

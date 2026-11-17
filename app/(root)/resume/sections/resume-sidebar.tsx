@@ -11,7 +11,7 @@ export default function ResumeSidebar({ basics }: { basics: ResumeBasics }): JSX
                 alt=""
                 width={300}
                 height={300}
-                className="mb-6 aspect-square w-full max-w-75 rounded-lg object-cover lg:w-75 lg:max-w-none"
+                className="mb-6 aspect-square rounded-lg object-cover border border-vividBlue"
                 priority
             />
             <h1 className={`header mb-2 ${oranienbaum.className}`}>

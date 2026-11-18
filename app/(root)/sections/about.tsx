@@ -14,19 +14,19 @@ export default function About(): JSX.Element {
                         {aboutParagraphs.map((paragraph, index) => (
                             <p key={index} className="paragraph">{paragraph}</p>
                         ))}
-                        <ul className="list-[square] list-inside grid grid-cols-2 sm:grid-cols-[1fr_1fr_0.5fr] lg:grid-cols-2">
+                        <ul className="list-[square] list-inside grid grid-cols-2">
                             {technologies.items.map((technology, index) => (
                                 <li key={`${technology}-${index}`}>{technology}</li>
                             ))}
                         </ul>
                     </div>
-                    <div className="w-62.5 md:min-w-75 lg:order-first mx-auto">
+                    <div className="w-full max-w-[300px] lg:order-first mx-auto">
                         <Image
                             src="/pic.png"
                             alt="Front Picture"
                             width={300}
                             height={300}
-                            className="mx-auto rounded-md sepia-[.35] contrast-[1.1] border border-vividBlue"
+                            className="w-full h-auto mx-auto rounded-md sepia-[.35] contrast-[1.1] border border-vividBlue"
                             priority={true}
                         />
                         <div className="flex flex-row justify-start py-2">

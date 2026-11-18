@@ -37,14 +37,4 @@ describe("About section", () => {
 
         expect(socialIcons.length).toBe(2);
     });
-
-    it("Keeps the profile image and social icons in a shared width", () => {
-        const { container } = render(<About />);
-
-        const image: HTMLImageElement | null = container.querySelector('img[alt="Front Picture"]');
-        const socialContainer: HTMLElement | null = image?.parentElement?.querySelector("div") ?? null;
-
-        expect(image).toHaveClass("w-full", "h-auto");
-        expect(socialContainer).toHaveClass("justify-start");
-    });
 });

@@ -9,8 +9,8 @@ export default function About(): JSX.Element {
         <Section id="about">
             <div className="section-container">
                 <h2 className={`header ${oranienbaum.className}`}>About</h2>
-                <div className="flex flex-col lg:flex-row gap-12">
-                    <div className="sm:mb-8 lg:mb-0">
+                <div className="flex flex-col xl:flex-row gap-12">
+                    <div className="sm:mb-8 xl:mb-0 xl:flex-1">
                         {aboutParagraphs.map((paragraph, index) => (
                             <p key={index} className="paragraph">{paragraph}</p>
                         ))}
@@ -20,7 +20,7 @@ export default function About(): JSX.Element {
                             ))}
                         </ul>
                     </div>
-                    <div className="w-full max-w-[300px] lg:order-first mx-auto">
+                    <div className="w-full max-w-[300px] xl:order-first mx-auto">
                         <Image
                             src="/pic.png"
                             alt="Front Picture"

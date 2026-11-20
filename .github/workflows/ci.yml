@@ -94,6 +94,9 @@ jobs:
 
       - name: Build application
         run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL_INTEGRATION || vars.NEXT_PUBLIC_API_URL }}
+          SITE_URL: ${{ vars.SITE_URL_INTEGRATION || vars.SITE_URL }}
 
   publish:
     name: Publish latest image to GHCR
@@ -162,5 +165,5 @@ jobs:
           push: true
           tags: ${{ steps.image.outputs.name }}:integration
           build-args: |
-            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}
-            SITE_URL=${{ vars.SITE_URL }}
+            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL_INTEGRATION }}
+            SITE_URL=${{ vars.SITE_URL_INTEGRATION }}

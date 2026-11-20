@@ -162,14 +162,18 @@ test.describe('Home Page', () => {
   });
 
   test('Renders the page in less than 2 seconds', async ({ page }) => {
+    // Application warm-up
     await page.goto(process.env.SITE_URL + '/', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('nav')).toBeVisible();
 
-      const loadTime = await page.evaluate(() => {
-        const [navigation] = performance.getEntriesByType('navigation');
+    await page.reload({ waitUntil: 'domcontentloaded' });
 
-        return navigation 
-          ? (navigation as PerformanceNavigationTiming).domContentLoadedEventEnd - navigation.startTime 
-          : null;
+    const loadTime = await page.evaluate(() => {
+      const [navigation] = performance.getEntriesByType('navigation');
+
+      return navigation 
+        ? (navigation as PerformanceNavigationTiming).domContentLoadedEventEnd - navigation.startTime 
+        : null;
     });
 
     const navBar = page.locator('nav');

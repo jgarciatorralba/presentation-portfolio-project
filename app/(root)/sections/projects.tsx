@@ -5,9 +5,9 @@ import ProjectsComponent from "@components/sections/projects/projects";
 import { fetchProjects } from "@lib/api/fetchProjects";
 import { apiUrl, logFilePath, projectsParagraphs } from "@lib/constants";
 import { oranienbaum } from "@lib/fonts";
+import type { FetchProjectsResponse } from "@lib/types/projects";
 import fs from "fs";
 import path from "path";
-import type { FetchProjectsResponse } from "@lib/types/projects";
 import { JSX } from "react";
 
 export default async function Projects(): Promise<JSX.Element | null> {
@@ -15,6 +15,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
         {
             baseUrl: apiUrl,
             urlParams: { pageSize: "6" },
+            fetchOptions: { cache: "no-store" },
         }
     );
 

@@ -106,9 +106,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    if: >-
-      github.event_name == 'pull_request' ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -128,19 +126,25 @@ jobs:
         shell: bash
         run: |
           echo "name=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
-          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
-            echo "tag=integration" >> "$GITHUB_OUTPUT"
-          else
-            echo "tag=latest" >> "$GITHUB_OUTPUT"
-          fi
 
-      - name: Build and push image
+      - name: Build and push latest image
         uses: docker/build-push-action@v6
         with:
           context: .
           file: .docker/Dockerfile
           push: true
-          tags: ${{ steps.image.outputs.name }}:${{ steps.image.outputs.tag }}
+          tags: ${{ steps.image.outputs.name }}:latest
           build-args: |
-            NEXT_PUBLIC_API_URL=${{ github.event_name == 'pull_request' && vars.NEXT_PUBLIC_API_URL_INTEGRATION || vars.NEXT_PUBLIC_API_URL }}
-            SITE_URL=${{ github.event_name == 'pull_request' && vars.SITE_URL_INTEGRATION || vars.SITE_URL }}
+            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}
+            SITE_URL=${{ vars.SITE_URL }}
+
+      - name: Build and push integration image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: .docker/Dockerfile
+          push: true
+          tags: ${{ steps.image.outputs.name }}:integration
+          build-args: |
+            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL_INTEGRATION }}
+            SITE_URL=${{ vars.SITE_URL_INTEGRATION }}

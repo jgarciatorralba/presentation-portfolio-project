@@ -100,7 +100,7 @@ jobs:
           SITE_URL: ${{ github.event_name == 'pull_request' && vars.SITE_URL_INTEGRATION || vars.SITE_URL }}
 
   publish:
-    name: Publish image to GHCR
+    name: Publish images to GHCR
     runs-on: ubuntu-latest
     needs: build
     permissions:

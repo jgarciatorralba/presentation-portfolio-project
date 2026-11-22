@@ -1,4 +1,5 @@
 import Projects from "@components/sections/projects/projects";
+import ProjectsProvider from "@components/sections/projects/projectsProvider";
 import ToastProvider from "@components/toast/toastProvider";
 import { fetchProjects } from "@lib/api/fetchProjects";
 import { projectCardStaggerDelayMs } from "@lib/constants";
@@ -66,6 +67,44 @@ describe("Projects component", () => {
         expect(animatedCards).toHaveLength(2);
         expect(animatedCards[0]).toHaveStyle({ animationDelay: "0ms" });
         expect(animatedCards[1]).toHaveStyle({ animationDelay: `${projectCardStaggerDelayMs}ms` });
+    });
+
+    it("Restores projects loaded with Show more after unmounting", async () => {
+        const secondProject = {
+            ...sampleProject,
+            id: sampleProject.id + 1,
+            name: `${sampleProject.name}-two`,
+        };
+
+        (fetchProjects as jest.Mock).mockResolvedValue({
+            projects: [secondProject],
+            next: true,
+            error: null,
+        });
+
+        const firstRender = render(
+            <ProjectsProvider>
+                <Projects next={true} prefetchedProjects={[sampleProject]} />
+            </ProjectsProvider>
+        );
+        act(() => {
+            screen.getByRole("button", { name: /Show more/i }).click();
+        });
+
+        expect(await screen.findByText(secondProject.name.replaceAll("-", " "))).toBeInTheDocument();
+
+        firstRender.rerender(
+            <ProjectsProvider>
+                <div />
+            </ProjectsProvider>
+        );
+        firstRender.rerender(
+            <ProjectsProvider>
+                <Projects next={true} prefetchedProjects={[sampleProject]} />
+            </ProjectsProvider>
+        );
+
+        expect(await screen.findByText(secondProject.name.replaceAll("-", " "))).toBeInTheDocument();
     });
 
     it("Keeps the button hidden until the last new project finishes animating", async () => {

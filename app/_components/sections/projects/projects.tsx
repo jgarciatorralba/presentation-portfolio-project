@@ -5,6 +5,7 @@ import ProjectCard from "@components/sections/projects/projectCard";
 import { fetchProjects } from "@lib/api/fetchProjects";
 import { clientApiUrl, projectCardStaggerDelayMs } from "@lib/constants";
 import { useToast } from "@lib/hooks/useToast";
+import { useProjects } from "@lib/context/projectsContext";
 import type { FetchProjectsResponse, Project, ProjectEntry } from "@lib/types/projects";
 import { JSX, useEffect, useRef, useState } from "react";
 
@@ -17,15 +18,23 @@ const createProjectEntries = (projects: Project[], animateIn: boolean): ProjectE
 }
 
 export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
-    const [disabled, setDisabled] = useState(next === false);
-    const [projectEntries, setProjectEntries] = useState<ProjectEntry[]>(() => createProjectEntries(prefetchedProjects, false));
+    const projectsContext = useProjects();
+    const [disabled, setDisabled] = useState(projectsContext ? projectsContext.next === false : next === false);
+    const [projectEntries, setProjectEntries] = useState<ProjectEntry[]>(() =>
+        createProjectEntries(projectsContext?.projects || prefetchedProjects, false)
+    );
     const [showMoreHidden, setShowMoreHidden] = useState(false);
     const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(
-        prefetchedProjects.length > 0 ? prefetchedProjects[prefetchedProjects.length - 1].lastPushedAt : null
+        projectsContext?.maxPushedAt ||
+        (prefetchedProjects.length > 0 ? prefetchedProjects[prefetchedProjects.length - 1].lastPushedAt : null)
     );
     const showMoreTimeoutRef = useRef<number | null>(null);
 
     const toast = useToast();
+
+    useEffect(() => {
+        projectsContext?.initialize(prefetchedProjects, next);
+    }, [next, prefetchedProjects, projectsContext]);
 
     useEffect(() => {
         return () => {
@@ -84,12 +93,20 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
         }
 
         setDisabled(!error && next === false);
+        projectsContext?.append(newProjects, error ? true : next);
     };
+
+    const displayedProjectEntries = projectsContext?.projects
+        ? projectsContext.projects.map((project) => (
+            projectEntries.find((entry) => entry.project.id === project.id) ||
+            { project, animateIn: false, animationDelayMs: 0 }
+        ))
+        : projectEntries;
 
     return (
         <>
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
-                {projectEntries.map(({ project, animateIn, animationDelayMs }: ProjectEntry) => (
+                {displayedProjectEntries.map(({ project, animateIn, animationDelayMs }: ProjectEntry) => (
                     <ProjectCard
                         key={project.id}
                         name={project.name}

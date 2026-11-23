@@ -7,8 +7,8 @@ import { JSX, ReactNode } from "react";
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>): JSX.Element {
   return (
     <>
+      <Header />
       <ProjectsProvider>
-        <Header />
         <ToastProvider>{children}</ToastProvider>
       </ProjectsProvider>
       <div className="blurred-background" />

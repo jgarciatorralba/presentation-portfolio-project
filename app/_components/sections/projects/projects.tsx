@@ -17,11 +17,14 @@ const createProjectEntries = (projects: Project[], animateIn: boolean): ProjectE
     }));
 }
 
-export default function Projects({ next, prefetchedProjects }: { next: boolean, prefetchedProjects: Project[] }): JSX.Element {
+export default function Projects({ hasNextPage, prefetchedProjects }: { hasNextPage: boolean, prefetchedProjects: Project[] }): JSX.Element {
     const projectsContext = useProjects();
-    const [disabled, setDisabled] = useState(projectsContext ? projectsContext.next === false : next === false);
+    const [disabled, setDisabled] = useState(projectsContext
+        ? !projectsContext.hasNextPage
+        : !hasNextPage
+    );
     const [projectEntries, setProjectEntries] = useState<ProjectEntry[]>(() =>
-        createProjectEntries(projectsContext?.projects || prefetchedProjects, false)
+        createProjectEntries(projectsContext?.initialized ? projectsContext.projects : prefetchedProjects, false)
     );
     const [showMoreHidden, setShowMoreHidden] = useState(false);
     const [maxPushedAt, setMaxPushedAt] = useState<Date | null>(
@@ -33,8 +36,8 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
     const toast = useToast();
 
     useEffect(() => {
-        projectsContext?.initialize(prefetchedProjects, next);
-    }, [next, prefetchedProjects, projectsContext]);
+        projectsContext?.initialize(prefetchedProjects, hasNextPage);
+    }, [hasNextPage, prefetchedProjects, projectsContext]);
 
     useEffect(() => {
         return () => {
@@ -57,7 +60,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
         if (!disabled) setDisabled(true);
         setShowMoreHidden(true);
 
-        const { projects: newProjects, next, error }: FetchProjectsResponse = await fetchProjects(
+        const { projects: newProjects, next: responseHasNextPage, error }: FetchProjectsResponse = await fetchProjects(
             {
                 baseUrl: clientApiUrl,
                 urlParams: { pageSize: "3" },
@@ -92,13 +95,17 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
             toast?.open(error.message);
         }
 
-        setDisabled(!error && next === false);
-        projectsContext?.append(newProjects, error ? true : next);
+        const canLoadMore = error ? true : responseHasNextPage;
+        setDisabled(!canLoadMore);
+        projectsContext?.append(newProjects, canLoadMore);
     };
 
-    const displayedProjectEntries = projectsContext?.projects
+    const projectEntriesById = new Map(
+        projectEntries.map((entry) => [entry.project.id, entry])
+    );
+    const displayedProjectEntries = projectsContext?.initialized
         ? projectsContext.projects.map((project) => (
-            projectEntries.find((entry) => entry.project.id === project.id) ||
+            projectEntriesById.get(project.id) ||
             { project, animateIn: false, animationDelayMs: 0 }
         ))
         : projectEntries;

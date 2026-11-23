@@ -4,11 +4,12 @@ import { createContext, useContext } from "react";
 import type { Project } from "@lib/types/projects";
 
 export interface ProjectsContextValue {
-    projects: Project[] | null;
-    next: boolean;
+    initialized: boolean;
+    projects: Project[];
+    hasNextPage: boolean;
     maxPushedAt: Date | null;
-    initialize: (projects: Project[], next: boolean) => void;
-    append: (projects: Project[], next: boolean) => void;
+    initialize: (projects: Project[], hasNextPage: boolean) => void;
+    append: (projects: Project[], hasNextPage: boolean) => void;
 }
 
 export const ProjectsContext = createContext<ProjectsContextValue | null>(null);

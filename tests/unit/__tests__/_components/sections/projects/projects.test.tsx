@@ -14,7 +14,7 @@ jest.mock("../../../../../../app/_lib/api/fetchProjects", () => ({
 
 describe("Projects component", () => {
     it("Renders prefetched projects correctly", () => {
-        const { container } = render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
+        const { container } = render(<Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />);
 
         const projectName: HTMLElement = screen.getByText(sampleProject.name);
         const gitHubImage: HTMLElement | null = container.querySelector(`a[aria-label="View ${sampleProject.name} source code on GitHub (opens in a new tab)"] > img`);
@@ -45,7 +45,7 @@ describe("Projects component", () => {
             error: null,
         });
 
-        const { container } = render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
+        const { container } = render(<Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -84,7 +84,7 @@ describe("Projects component", () => {
 
         const firstRender = render(
             <ProjectsProvider>
-                <Projects next={true} prefetchedProjects={[sampleProject]} />
+                <Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />
             </ProjectsProvider>
         );
         act(() => {
@@ -100,7 +100,7 @@ describe("Projects component", () => {
         );
         firstRender.rerender(
             <ProjectsProvider>
-                <Projects next={true} prefetchedProjects={[sampleProject]} />
+                <Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />
             </ProjectsProvider>
         );
 
@@ -127,7 +127,7 @@ describe("Projects component", () => {
             error: null,
         });
 
-        render(<Projects next={true} prefetchedProjects={[sampleProject]} />);
+        render(<Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -159,7 +159,7 @@ describe("Projects component", () => {
             error: null,
         });
 
-        render(<Projects next={false} prefetchedProjects={[sampleProject]} />);
+        render(<Projects hasNextPage={false} prefetchedProjects={[sampleProject]} />);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -177,7 +177,7 @@ describe("Projects component", () => {
 
         render(
             <ToastProvider>
-                <Projects next={true} prefetchedProjects={[sampleProject]} />
+                <Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />
             </ToastProvider>
         );
 
@@ -210,7 +210,7 @@ describe("Projects component", () => {
 
         render(
             <ToastProvider>
-                <Projects next={true} prefetchedProjects={[sampleProject]} />
+                <Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />
             </ToastProvider>
         );
 

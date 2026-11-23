@@ -1,11 +1,11 @@
 "use client"
 
 import { JSX, ReactNode, useCallback, useMemo, useState } from "react";
-import type { Project } from "@lib/types/projects";
-import { ProjectsContext, type ProjectsContextValue } from "@lib/context/projectsContext";
+import type { Project, ProjectsContextValue, ProjectsState } from "@lib/types/projects";
+import { ProjectsContext } from "@lib/context/projectsContext";
 
 export default function ProjectsProvider({ children }: { children: ReactNode }): JSX.Element {
-    const [projectsState, setProjectsState] = useState({
+    const [projectsState, setProjectsState] = useState<ProjectsState>({
         initialized: false,
         projects: [] as Project[],
         hasNextPage: true,

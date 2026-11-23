@@ -44,3 +44,15 @@ export interface FetchProjectsResponse {
     next: boolean;
     error: Error | null;
 }
+
+export interface ProjectsState {
+    initialized: boolean;
+    projects: Project[];
+    hasNextPage: boolean;
+    maxPushedAt: Date | null;
+}
+
+export interface ProjectsContextValue extends ProjectsState {
+    initialize: (projects: Project[], hasNextPage: boolean) => void;
+    append: (projects: Project[], hasNextPage: boolean) => void;
+}

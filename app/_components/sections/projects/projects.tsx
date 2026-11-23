@@ -4,8 +4,8 @@ import Button from "@components/button";
 import ProjectCard from "@components/sections/projects/projectCard";
 import { fetchProjects } from "@lib/api/fetchProjects";
 import { clientApiUrl, projectCardStaggerDelayMs } from "@lib/constants";
-import { useToast } from "@lib/hooks/useToast";
 import { useProjects } from "@lib/context/projectsContext";
+import { useToast } from "@lib/hooks/useToast";
 import type { FetchProjectsResponse, Project, ProjectEntry } from "@lib/types/projects";
 import { JSX, useEffect, useRef, useState } from "react";
 
@@ -120,7 +120,7 @@ export default function Projects({ next, prefetchedProjects }: { next: boolean, 
                 ))}
             </div>
 
-            <div className="p-6 flex flew-row justify-center">
+            <div className="p-6 flex flex-row justify-center">
                 <Button
                     type="button"
                     className={`btn cursor-pointer max-w-fit ${disabled ? "pointer-events-none opacity-50" : ""} ${showMoreHidden ? "invisible" : ""}`}

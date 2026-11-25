@@ -16,7 +16,13 @@ const createAnimationDelays = (projects: Project[]): Map<number, number> => {
     ]));
 }
 
-export default function Projects({ hasNextPage, prefetchedProjects }: { hasNextPage: boolean, prefetchedProjects: Project[] }): JSX.Element {
+export default function Projects({
+    hasNextPage,
+    prefetchedProjects
+}: {
+    hasNextPage: boolean,
+    prefetchedProjects: Project[]
+}): JSX.Element {
     const {
         append,
         hasNextPage: contextHasNextPage,
@@ -24,15 +30,19 @@ export default function Projects({ hasNextPage, prefetchedProjects }: { hasNextP
         initialize,
         projects,
     } = useProjects();
+
     const [isLoading, setIsLoading] = useState(false);
     const [showMoreHidden, setShowMoreHidden] = useState(false);
     const [animationDelaysByProjectId, setAnimationDelaysByProjectId] = useState<Map<number, number>>(() => new Map());
+    
     const showMoreTimeoutRef = useRef<number | null>(null);
 
     const toast = useToast();
+
     const canLoadMore = initialized
         ? contextHasNextPage
         : hasNextPage;
+        
     const displayedProjects = initialized
         ? projects
         : prefetchedProjects;

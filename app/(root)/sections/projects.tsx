@@ -37,7 +37,7 @@ export default async function Projects(): Promise<JSX.Element | null> {
                     <p key={index} className="paragraph">{paragraph}</p>
                 ))}
 
-                <ProjectsComponent next={next} prefetchedProjects={projects} />
+                <ProjectsComponent hasNextPage={next} prefetchedProjects={projects} />
             </div>
         </Section>
     );

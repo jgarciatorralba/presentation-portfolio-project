@@ -5,6 +5,7 @@ import { navigation } from "@lib/constants";
 import { oranienbaum } from "@lib/fonts";
 import styles from "@styles/components/header/navbar.module.css";
 import { JSX, MouseEvent, useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Navbar(): JSX.Element {
     const [open, setOpen] = useState(false);
@@ -57,9 +58,9 @@ export default function Navbar(): JSX.Element {
                     <ol className="hidden md:flex flex-row gap-x-12">
                         {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal text-primary">
-                                <a href={item.href} className="py-2 pl-1 text-primary hover:no-underline! hover:text-vividBlue! focus:text-secondary!">
+                                <Link href={item.href} className="py-2 pl-1 text-primary hover:no-underline! hover:text-vividBlue! focus:text-secondary!">
                                     {item.name}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ol>
@@ -74,9 +75,9 @@ export default function Navbar(): JSX.Element {
                     <ol className="grid gap-y-6 p-8 text-center">
                         {navigation.items.map((item, index) => (
                             <li key={index} className="list-decimal list-inside text-primary">
-                                <a href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-primary hover:no-underline! hover:text-vividBlue!">
+                                <Link href={item.href} onClick={handleClickLink} className="py-2 pl-1 text-primary hover:no-underline! hover:text-vividBlue!">
                                     {item.name}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ol>

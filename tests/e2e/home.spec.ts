@@ -141,6 +141,41 @@ test.describe('Home Page', () => {
     await expect(projects.nth(1)).toHaveText('Test Playwright');
   });
 
+  test('Keeps loaded projects after visiting and returning from resume', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await page.route(/projects\?pageSize=3/, async route => {
+      await route.fulfill({
+        status: 200,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          projects: [{
+            ...sampleProject,
+            id: 11223344,
+            name: 'Test Playwright'
+          }],
+          count: 1
+        }),
+      });
+    });
+
+    await page.goto(process.env.SITE_URL + '/');
+
+    const fetchButton: Locator = page.getByRole('button', { name: 'Show more' });
+    const projects: Locator = page.locator('h3.text-lg.font-bold');
+
+    await fetchButton.click();
+    await expect(projects).toHaveCount(2);
+
+    await page.locator('nav > div:first-child a[href="/resume"]').click();
+    await expect(page).toHaveURL(/\/resume$/);
+    await expect(page.getByRole('heading', { name: 'Jorge García Torralba' })).toBeVisible();
+
+    await page.locator('nav > div:first-child a[href="/#projects"]').click();
+    await expect(page).toHaveURL(/\/#projects$/);
+    await expect(projects).toHaveCount(2);
+    await expect(projects.nth(1)).toHaveText('Test Playwright');
+  });
+
   test('Shows toast notification when fetch fails', async ({ page }) => {
     await page.route(/projects\?pageSize=3/, async route => {
       await route.fulfill({

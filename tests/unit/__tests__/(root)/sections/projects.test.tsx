@@ -1,5 +1,6 @@
 import { fetchProjects } from "@lib/api/fetchProjects";
 import { logFilePath } from "@lib/constants";
+import ProjectsProvider from "@components/sections/projects/projectsProvider";
 import Projects from "@sections/projects";
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
@@ -78,7 +79,7 @@ describe("Projects section", () => {
 
         expect(result).not.toBeNull();
 
-        render(result);
+        render(<ProjectsProvider>{result}</ProjectsProvider>);
 
         const heading: HTMLElement = screen.getByRole("heading", { name: /Projects/ });
 
@@ -90,7 +91,7 @@ describe("Projects section", () => {
 
         expect(result).not.toBeNull();
 
-        render(result);
+        render(<ProjectsProvider>{result}</ProjectsProvider>);
 
         const paragraphs: HTMLParagraphElement[] = screen.getAllByRole("paragraph") as HTMLParagraphElement[];
 

@@ -12,9 +12,19 @@ jest.mock("../../../../../../app/_lib/api/fetchProjects", () => ({
     fetchProjects: jest.fn(),
 }));
 
+const renderProjects = (hasNextPage: boolean, withToast = false) => {
+    const projects = <Projects hasNextPage={hasNextPage} prefetchedProjects={[sampleProject]} />;
+
+    return render(
+        <ProjectsProvider>
+            {withToast ? <ToastProvider>{projects}</ToastProvider> : projects}
+        </ProjectsProvider>
+    );
+};
+
 describe("Projects component", () => {
     it("Renders prefetched projects correctly", () => {
-        const { container } = render(<Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />);
+        const { container } = renderProjects(true);
 
         const projectName: HTMLElement = screen.getByText(sampleProject.name);
         const gitHubImage: HTMLElement | null = container.querySelector(`a[aria-label="View ${sampleProject.name} source code on GitHub (opens in a new tab)"] > img`);
@@ -45,7 +55,7 @@ describe("Projects component", () => {
             error: null,
         });
 
-        const { container } = render(<Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />);
+        const { container } = renderProjects(true);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -75,10 +85,19 @@ describe("Projects component", () => {
             id: sampleProject.id + 1,
             name: `${sampleProject.name}-two`,
         };
+        const thirdProject = {
+            ...sampleProject,
+            id: sampleProject.id + 2,
+            name: `${sampleProject.name}-three`,
+        };
 
-        (fetchProjects as jest.Mock).mockResolvedValue({
+        (fetchProjects as jest.Mock).mockResolvedValueOnce({
             projects: [secondProject],
             next: true,
+            error: null,
+        }).mockResolvedValueOnce({
+            projects: [thirdProject],
+            next: false,
             error: null,
         });
 
@@ -105,6 +124,15 @@ describe("Projects component", () => {
         );
 
         expect(await screen.findByText(secondProject.name.replaceAll("-", " "))).toBeInTheDocument();
+
+        await act(async () => {
+            screen.getByRole("button", { name: /Show more/i }).click();
+        });
+
+        expect(fetchProjects).toHaveBeenLastCalledWith(expect.objectContaining({
+            maxPushedAt: secondProject.lastPushedAt,
+        }));
+        expect(await screen.findByText(thirdProject.name.replaceAll("-", " "))).toBeInTheDocument();
     });
 
     it("Keeps the button hidden until the last new project finishes animating", async () => {
@@ -127,7 +155,7 @@ describe("Projects component", () => {
             error: null,
         });
 
-        render(<Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />);
+        renderProjects(true);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -159,7 +187,7 @@ describe("Projects component", () => {
             error: null,
         });
 
-        render(<Projects hasNextPage={false} prefetchedProjects={[sampleProject]} />);
+        renderProjects(false);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -175,11 +203,7 @@ describe("Projects component", () => {
             error: new Error(errorMessage),
         });
 
-        render(
-            <ToastProvider>
-                <Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />
-            </ToastProvider>
-        );
+        renderProjects(true, true);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 
@@ -208,11 +232,7 @@ describe("Projects component", () => {
             error: new Error(errorMessage),
         });
 
-        render(
-            <ToastProvider>
-                <Projects hasNextPage={true} prefetchedProjects={[sampleProject]} />
-            </ToastProvider>
-        );
+        renderProjects(true, true);
 
         const button = screen.getByRole("button", { name: /Show more/i });
 

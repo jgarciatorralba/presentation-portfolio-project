@@ -7,9 +7,8 @@ import { ProjectsContext } from "@lib/context/projectsContext";
 export default function ProjectsProvider({ children }: { children: ReactNode }): JSX.Element {
     const [projectsState, setProjectsState] = useState<ProjectsState>({
         initialized: false,
-        projects: [] as Project[],
+        projects: [],
         hasNextPage: true,
-        maxPushedAt: null as Date | null,
     });
 
     const initialize = useCallback((initialProjects: Project[], hasNextPage: boolean) => {
@@ -17,7 +16,6 @@ export default function ProjectsProvider({ children }: { children: ReactNode }):
             initialized: true,
             projects: initialProjects,
             hasNextPage,
-            maxPushedAt: initialProjects.at(-1)?.lastPushedAt || null,
         });
     }, []);
 
@@ -26,9 +24,6 @@ export default function ProjectsProvider({ children }: { children: ReactNode }):
             ...currentState,
             projects: [...currentState.projects, ...newProjects],
             hasNextPage,
-            maxPushedAt: newProjects.length > 0
-                ? newProjects.at(-1)?.lastPushedAt || currentState.maxPushedAt
-                : currentState.maxPushedAt,
         }));
     }, []);
 

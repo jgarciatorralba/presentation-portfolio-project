@@ -26,12 +26,6 @@ export interface ProjectCardProps {
     animationDelayMs?: number;
 }
 
-export interface ProjectEntry {
-    project: Project;
-    animateIn: boolean;
-    animationDelayMs: number;
-}
-
 export interface FetchProjectsOptions {
     baseUrl: string;
     urlParams?: Record<string, string>;
@@ -49,7 +43,6 @@ export interface ProjectsState {
     initialized: boolean;
     projects: Project[];
     hasNextPage: boolean;
-    maxPushedAt: Date | null;
 }
 
 export interface ProjectsContextValue extends ProjectsState {
